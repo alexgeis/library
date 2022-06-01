@@ -24,3 +24,11 @@ body, html {
     background-color: aqua;
     padding:1rem;
 }
+.hero {
+    background-color: rgb(225, 255, 0);
+    padding:1rem;
+}
+.book-section {
+    background-color: rgb(210, 38, 207);
+    padding:1rem;
+}
