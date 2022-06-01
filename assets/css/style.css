@@ -1,0 +1,9 @@
+:root {
+    --primary-dark: black;
+    --secondary-dark: black;
+    --primary-light: white;
+    --secondary-light: white;
+}
+* {
+    box-sizing: border-box;
+}
