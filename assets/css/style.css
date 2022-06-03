@@ -40,7 +40,7 @@ body, html {
 .switch {
 position: relative;
 display: inline-block;
-width: 60px;
+width: 50px;
 height: 34px;
 }
 
@@ -85,9 +85,9 @@ box-shadow: 0 0 1px #2196F3;
 }
 
 input:checked + .slider:before {
--webkit-transform: translateX(26px);
--ms-transform: translateX(26px);
-transform: translateX(26px);
+-webkit-transform: translateX(18px);
+-ms-transform: translateX(18px);
+transform: translateX(18px);
 }
 
 /* Rounded sliders */
@@ -223,6 +223,22 @@ nav {
     margin: 0.2rem;
 }
 
+
+.add_book_section {
+    display: none; 
+    /* hide for now */
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+}
+
 @media(max-width:376px) {
     .header {
         background-color: aqua;
@@ -264,4 +280,10 @@ nav {
     .nav-menu.active {
         right: 0;
     }
+}
+
+@media(min-width:768px) {
+ .header {
+    gap: 60px;
+ }
 }
