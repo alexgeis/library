@@ -188,6 +188,10 @@ nav {
     align-items: center;
     justify-content: space-evenly;
 }
+.book-section .sort,
+.book-section .status {
+    padding-bottom: 1rem;
+}
 .book-section .sort select {
         border: solid rgba(93, 104, 116, 0.5) 1px;
         background-color: transparent;
