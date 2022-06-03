@@ -135,12 +135,47 @@ nav {
     background-color: black;
 }
 
-
-
+/* 
+~~  HERO SECTION ~~
+*/
 .hero {
     background-color: rgb(225, 255, 0);
     padding:1rem;
+    display: grid;
+    grid-template-columns: minmax(150px,1fr);;
+    grid-auto-flow: column;
+    align-items: center;
 }
+#search-section {
+    display:grid;
+    grid-template-columns: 30px 1fr;
+}
+#book-search {
+    max-width: 100px;
+}
+
+
+.book-totals {
+    border: #2196F3 1px solid;
+    min-height: 50px;
+    max-width: 50%;
+    /* max-height: 80%; */
+}
+.book-progress-bar {
+    width: 100%;
+  background-color: grey;
+}
+.progress-bar {
+    width: 10%;
+    height: 30px;
+    background-color: #04AA6D;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+}
+/* 
+~~  BOOK SECTION ~~
+*/
 .book-section {
     background-color: rgb(210, 38, 207);
     padding:1rem;
