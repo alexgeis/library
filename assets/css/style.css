@@ -182,14 +182,14 @@ nav {
     background-color: rgb(210, 38, 207);
     padding:1rem;
 }
+
 .book-sort-status-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
 }
-.book-section .sort,
-.book-section .status {
+.book-section .sort {
     padding-bottom: 1rem;
 }
 .book-section .sort select {
@@ -222,10 +222,40 @@ nav {
     border-radius: 3px;
     margin: 0.2rem;
 }
+/* 
+    BOOK CARDS
+*/
+.book-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,400px));
+    grid-gap: 20px;
+    margin: 2rem auto;
+    position: relative;
+}
+.book-card-container .scale-in-center {
+    -webkit-animation: scale-in-center 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: scale-in-center 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.book-card-container .single-book {
+    border-radius: 5px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    line-height: 1.2;
+    box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 2px 4px -1px rgb(0 0 0 / 30%);
+    position: relative;
+    background: linear-gradient(135deg, #e3e3e3 0%, #5d6874 100%);
+}
+.book-card-container .single-book {
+    background: linear-gradient(135deg, rgba(24, 77, 104, 0.8) 0%, rgba(87, 202, 133, 0.8) 100%);
+    color: white;
+}
 
 
 .add_book_section {
-    display: none; 
+    display: none;
     /* hide for now */
     width: 100vw;
     height: 100vh;
@@ -235,8 +265,14 @@ nav {
     z-index: 999;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(4px);
+    align-items: center;
+}
+
+.empty_library_section {
+    position: relative;
     display: none;
     align-items: center;
+    justify-content: center;
 }
 
 @media(max-width:376px) {
@@ -246,6 +282,7 @@ nav {
         display: grid;
         grid-template-columns: repeat(2,50px) minmax(75px,1fr);
     }
+
 
 }
 @media(max-width:768px) {
@@ -282,8 +319,8 @@ nav {
     }
 }
 
-@media(min-width:768px) {
- .header {
-    gap: 60px;
+@media(max-width:1080px) {
+ .hero {
+    grid-template-columns: repeat(2, 1fr);
  }
 }
