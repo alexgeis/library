@@ -90,6 +90,14 @@ border-radius: 34px;
 border-radius: 50%;
 }
 
+header ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+}
+header ul a {
+    text-decoration: none;
+}
 
 .hero {
     background-color: rgb(225, 255, 0);

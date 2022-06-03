@@ -22,15 +22,7 @@
 					alt="icon of book opening"
 				/>
 				<div class="site-title">Library</div>
-				<input type="search" id="book-search" name="book-search" />
-				<div>
-					<img
-						id="search-icon"
-						src="./assets/icons/magnify.svg"
-						alt="magnifying glass search icon"
-					/>
-					<div id="search-input"></div>
-				</div>
+
 				<div class="theme-toggle">
 					<div>Light</div>
 					<label class="switch">
@@ -41,10 +33,10 @@
 				</div>
 				<ul>
 					<li class="nav-item">
-						<a href="#" class="nav-link">Login</a>
+						<a href="#" class="nav-link" id="login">Login</a>
 					</li>
 					<li class="nav-item">
-						<a href="" class="nav-link">Signup</a>
+						<a href="" class="nav-link" id="signup">Signup</a>
 					</li>
 					<!-- <li class="nav-item">
 						<a href="" class="nav-link"></a>
@@ -56,7 +48,14 @@
 				</div>
 			</header>
 			<div class="hero">
-				<button></button>
+				<div>
+					<img
+						id="search-icon"
+						src="./assets/icons/magnify.svg"
+						alt="magnifying glass search icon"
+					/>
+					<input type="search" id="book-search" name="book-search" />
+				</div>
 				<div class="book-totals">
 					<div class="books-read-display"></div>
 					<div class="chart"></div>
