@@ -49,6 +49,7 @@
 					><span class="bar"></span>
 				</div>
 			</header>
+
 			<div class="hero">
 				<div id="search-section">
 					<img
@@ -63,13 +64,36 @@
 					<div class="book-progress-bar">
 						<div class="progress-bar"></div>
 					</div>
-					<div class="books-NOT-read-display"></div>
-					<div class="books-total-display"></div>
+					<div class="books-total-display">Books Total:</div>
 				</div>
 			</div>
+
 			<div class="book-section">
+				<div class="book-sort-status-section">
+					<div class="sort">
+						<label for="order_by"
+							>Order By:
+							<select name="order_by" id="order_by">
+								<option value="insertion_date" selected="">
+									Insertion date
+								</option>
+								<option value="publishing_date">Publishing date</option>
+							</select>
+							<select name="order" id="order">
+								<option value="ascending">Asc</option>
+								<option value="descending" selected="">Desc</option>
+							</select>
+						</label>
+					</div>
+					<div class="status">
+						<div class="read_color"></div>
+						<h4>Read</h4>
+						<div class="unread_color"></div>
+						<h4>Not read</h4>
+					</div>
+				</div>
+
 				<div class="book-section-container">
-					<div class="book-sort-section"></div>
 					<div class="book-list"></div>
 					<div class="book-grid"></div>
 				</div>

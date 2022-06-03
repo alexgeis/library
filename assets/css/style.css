@@ -158,8 +158,10 @@ nav {
 .book-totals {
     border: #2196F3 1px solid;
     min-height: 50px;
-    max-width: 50%;
-    /* max-height: 80%; */
+    width: max-content;
+    padding: 1rem 2rem;
+    font-size: .8rem;
+    margin-right: 1rem;
 }
 .book-progress-bar {
     width: 100%;
@@ -180,8 +182,42 @@ nav {
     background-color: rgb(210, 38, 207);
     padding:1rem;
 }
-
-
+.book-sort-status-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.book-section .sort select {
+        border: solid rgba(93, 104, 116, 0.5) 1px;
+        background-color: transparent;
+        border-radius: 3px;
+        height: 1.5rem;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+        margin-left: 0.3rem;
+}
+.book-section .status {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 1rem;
+}
+.status .read_color {
+    background: linear-gradient(135deg, rgba(24, 77, 104, 0.8) 0%, rgba(87, 202, 133, 0.8) 100%);
+    height: 30px;
+    width: 50px;
+    border-radius: 3px;
+    margin: 0.2rem;
+}
+.status .unread_color {
+    background: linear-gradient(135deg, #e3e3e3 0%, #5d6874 100%);
+    margin-left: 1.5rem;
+    height: 30px;
+    width: 50px;
+    border-radius: 3px;
+    margin: 0.2rem;
+}
 
 @media(max-width:376px) {
     .header {
