@@ -11,8 +11,11 @@
 }
 
 body, html {
-    min-height: 100vh;
     font-family: 'Plus Jakarta Sans', sans-serif;
+}
+body {
+    min-height: 100vh;
+    /* padding: 0 20px; */
 }
 
 .container {
@@ -179,6 +182,7 @@ nav {
 ~~  BOOK SECTION ~~
 */
 .book-section {
+    grid-column: ;
     background-color: rgb(210, 38, 207);
     padding:1rem;
 }
