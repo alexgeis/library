@@ -21,6 +21,8 @@ function addBookToLibrary() {
 	// do stuff here
 }
 
+const newBookBtn = document.querySelector(".btn-add-book");
+const clearFormBtn = document.querySelector(".btn-clear");
 // working progress bar JS
 // let i = 0;
 // function move() {
