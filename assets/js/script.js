@@ -6,6 +6,21 @@ hamburger.addEventListener("click", () => {
 	navMenu.classList.toggle("active");
 });
 
+let myLibrary = [];
+
+function Book(title, author, pages, language, publishDate, readStatus) {
+	this.title = title;
+	this.author = author;
+	this.pages = pages;
+	this.language = language;
+	this.publishDate = publishDate;
+	this.readStatus = readStatus;
+}
+
+function addBookToLibrary() {
+	// do stuff here
+}
+
 // working progress bar JS
 // let i = 0;
 // function move() {
