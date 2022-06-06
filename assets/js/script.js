@@ -18,11 +18,23 @@ function Book(title, author, pages, language, publishDate, readStatus) {
 }
 
 function addBookToLibrary() {
-	// do stuff here
+	// do stuff here - take inputs from form
 }
 
-const newBookBtn = document.querySelector(".btn-add-book");
-const clearFormBtn = document.querySelector(".btn-clear");
+//FORM
+const newBookBtn = document.querySelector(".add-book");
+const clearFormBtn = document.querySelector(".clear");
+//CARD
+const 
+
+for (let i = 0; i < myLibrary.length; i++) {
+	const book = myLibrary[i];
+	// 
+	timeEl.textContent = " ";
+  var imgEl = document.createElement("img");
+  imgEl.setAttribute("src", "images/image_1.jpg");
+  mainEl.appendChild(imgEl);
+}
 // working progress bar JS
 // let i = 0;
 // function move() {
