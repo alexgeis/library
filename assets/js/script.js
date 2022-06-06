@@ -25,15 +25,25 @@ function addBookToLibrary() {
 const newBookBtn = document.querySelector(".add-book");
 const clearFormBtn = document.querySelector(".clear");
 //CARD
-const 
 
 for (let i = 0; i < myLibrary.length; i++) {
 	const book = myLibrary[i];
-	// 
+	//
 	timeEl.textContent = " ";
-  var imgEl = document.createElement("img");
-  imgEl.setAttribute("src", "images/image_1.jpg");
-  mainEl.appendChild(imgEl);
+	const closeBtn = document.createElement("span");
+	const bookTitle = document.createElement("h3");
+	const bookAuthor = document.createElement("span");
+	const label = document.createElement("span");
+	const pagesCount = document.createElement("span");
+	const bookLanguage = document.createElement("span");
+	const publishDate = document.createElement("span");
+	const readToggleLabel = document.createElement("span");
+	const toggleControlLabel = document.createElement("label");
+	const toggleControlCheckbox = document.createElement("input");
+	const toggleControlSpan = document.createElement("span");
+
+	imgEl.setAttribute("src", "images/image_1.jpg");
+	mainEl.appendChild(imgEl);
 }
 // working progress bar JS
 // let i = 0;
