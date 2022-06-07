@@ -12,7 +12,7 @@ let myLibrary = [
 		author: "Author",
 		pages: "500",
 		language: "English",
-		publishDate: "Example Book 1",
+		publishDate: 1955,
 		readStatus: true,
 	},
 ];
