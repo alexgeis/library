@@ -6,7 +6,16 @@ hamburger.addEventListener("click", () => {
 	navMenu.classList.toggle("active");
 });
 
-let myLibrary = [];
+let myLibrary = [
+	{
+		title: "Example Book 1",
+		author: "Author",
+		pages: "500",
+		language: "English",
+		publishDate: "Example Book 1",
+		readStatus: true,
+	},
+];
 
 function Book(title, author, pages, language, publishDate, readStatus) {
 	this.title = title;
@@ -45,6 +54,12 @@ for (let i = 0; i < myLibrary.length; i++) {
 	imgEl.setAttribute("src", "images/image_1.jpg");
 	mainEl.appendChild(imgEl);
 }
+
+// elem.classList.add("geek")
+// timeEl.textContent = " ";
+//   var imgEl = document.createElement("img");
+//   imgEl.setAttribute("src", "images/image_1.jpg");
+//   mainEl.appendChild(imgEl);
 // working progress bar JS
 // let i = 0;
 // function move() {
