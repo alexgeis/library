@@ -48,9 +48,17 @@ function clearForm() {
 	bookReadStatusForm.value = false;
 }
 
+const addBookSection = document.querySelector(".add_book_section");
+function renderNewForm() {
+	addBookSection.setAttribute("style", "display: block;");
+}
+
 const addBookBtn = document.querySelector(".add-book-form-open");
+addBookBtn.addEventListener("click", renderNewForm);
+
 //FORM
 const newBookForm = document.querySelector(".new-book-form");
+const closeFormBtn = document.querySelector("#close-form");
 const bookTitleForm = document.querySelector("#b-title");
 const bookAuthorForm = document.querySelector("#b-author");
 const bookPagesForm = document.querySelector("#b-pages");
