@@ -3,11 +3,21 @@ const savedBooks = JSON.parse(localStorage.getItem("books"));
 const DEFAULT_THEME = "light" || localStorage.getItem("theme");
 
 //state variables
-let currentBooks = [] || savedBooks;
+let currentBooks =
+	[
+		{
+			title: "Example Book 1",
+			author: "Author 1",
+			pages: "500",
+			language: "English",
+			publishDate: 1955,
+			readStatus: true,
+		},
+	] || savedBooks;
 let currentTheme = DEFAULT_THEME;
 
 function setCurrentTheme(newTheme) {
-	currentTheme = newSize;
+	currentTheme = newTheme;
 }
 function setCurrentBooks(newBooks) {
 	currentBooks = newBooks;
@@ -86,7 +96,7 @@ const clearFormBtn = document.querySelector(".clear");
 
 newBookForm.addEventListener("submit", addBookToLibrary);
 clearFormBtn.addEventListener("click", clearForm);
-closeFormBtn.addEventListener("click", clearForm);
+// closeFormBtn.addEventListener("click", clearForm);
 //CARD
 
 function renderBooks() {
@@ -192,5 +202,6 @@ function renderBooks() {
 
 window.onload = () => {
 	setCurrentTheme(DEFAULT_THEME);
+	setCurrentBooks(currentBooks);
 	renderBooks();
 };
