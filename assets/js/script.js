@@ -3,17 +3,18 @@ const savedBooks = JSON.parse(localStorage.getItem("books"));
 const DEFAULT_THEME = "light" || localStorage.getItem("theme");
 
 //state variables
-let currentBooks =
-	[
-		{
-			title: "Example Book 1",
-			author: "Author 1",
-			pages: "500",
-			language: "English",
-			publishDate: 1955,
-			readStatus: true,
-		},
-	] || savedBooks;
+// let currentBooks =
+// 	[
+// 		{
+// 			title: "Example Book 1",
+// 			author: "Author 1",
+// 			pages: "500",
+// 			language: "English",
+// 			publishDate: 1955,
+// 			readStatus: true,
+// 		},
+// 	] || savedBooks;
+let currentBooks = savedBooks;
 let currentTheme = DEFAULT_THEME;
 
 function setCurrentTheme(newTheme) {
@@ -54,15 +55,18 @@ function Book(title, author, pages, language, publishDate, readStatus) {
 
 function addBookToLibrary() {
 	const newBook = new Book(
-		bookTitleForm,
-		bookAuthorForm,
-		bookPagesForm,
-		bookLanguageForm,
-		bookDateForm,
-		bookReadStatusForm
+		bookTitleForm.value,
+		bookAuthorForm.value,
+		bookPagesForm.value,
+		bookLanguageForm.value,
+		bookDateForm.value,
+		bookReadStatusForm.value
 	);
 	currentBooks.push(newBook);
+	console.log(currentBooks);
 	localStorage.setItem("books", JSON.stringify(currentBooks));
+	addBookSection.setAttribute("style", "display: none;");
+	renderBooks();
 }
 
 function clearForm() {
@@ -71,7 +75,7 @@ function clearForm() {
 	bookPagesForm.value = "";
 	bookLanguageForm.value = "";
 	bookDateForm.value = "";
-	bookReadStatusForm.value = false;
+	bookReadStatusForm.options.selectedIndex = 0;
 }
 
 const addBookSection = document.querySelector(".add_book_section");
@@ -90,11 +94,12 @@ const bookAuthorForm = document.querySelector("#b-author");
 const bookPagesForm = document.querySelector("#b-pages");
 const bookLanguageForm = document.querySelector("#b-language");
 const bookDateForm = document.querySelector("#b-publishing_date");
-const bookReadStatusForm = document.querySelector("#b-read_statuss");
+const bookReadStatusForm = document.querySelector("#b-read_status");
 const addBookFormBtn = document.querySelector(".add-book");
 const clearFormBtn = document.querySelector(".clear");
 
-newBookForm.addEventListener("submit", addBookToLibrary);
+// newBookForm.addEventListener("submit", addBookToLibrary);
+addBookFormBtn.addEventListener("click", addBookToLibrary);
 clearFormBtn.addEventListener("click", clearForm);
 // closeFormBtn.addEventListener("click", clearForm);
 
@@ -109,10 +114,21 @@ function renderBooks() {
 		const bookCard = document.createElement("div");
 		bookCard.classList.add("single-book", "scale-in-center", "not-read");
 		bookCard.setAttribute("id", "book-" + i);
+		bookCard.setAttribute("data-index", i);
 		//
 		const closeBtn = document.createElement("span");
 		closeBtn.classList.add("material-icons", "remove-book");
 		closeBtn.textContent = " close ";
+		closeBtn.addEventListener("click", function (event) {
+			let element = event.target;
+			console.log(element);
+			let index = element.parentElement.getAttribute("data-index");
+			currentBooks.splice(index, 1);
+			setCurrentBooks(currentBooks);
+			localStorage.setItem("books", JSON.stringify(currentBooks));
+			console.log(currentBooks);
+			renderBooks();
+		});
 		//
 		const bookTitle = document.createElement("h3");
 		bookTitle.classList.add("book-title");
@@ -206,6 +222,10 @@ function renderBooks() {
 // 		}
 // 	}
 // }
+
+// document.addEventListener("click", function (event) {
+// 	console.log(event.target);
+// });
 
 window.onload = () => {
 	setCurrentTheme(DEFAULT_THEME);
