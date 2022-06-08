@@ -254,9 +254,13 @@ nav {
     position: relative;
     background: linear-gradient(135deg, #e3e3e3 0%, #5d6874 100%);
 }
-.book-card-container .single-book {
+.book-card-container .single-book .read {
     background: linear-gradient(135deg, rgba(24, 77, 104, 0.8) 0%, rgba(87, 202, 133, 0.8) 100%);
     color: white;
+}
+.book-card-container .single-book .not-read {
+    background: linear-gradient(135deg, #e3e3e3 0%, #5d6874 100%);
+    color: black;
 }
 
 
