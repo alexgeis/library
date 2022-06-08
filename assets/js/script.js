@@ -1,8 +1,9 @@
 //DEFAULTS
-const savedBooks = JSON.parse(localStorage.getItem("books"));
 const DEFAULT_THEME = localStorage.getItem("theme") || "light";
-const DEFAULT_BOOKS_READ = localStorage.getItem("booksRead") || 0;
-const DEFAULT_BOOKS_TOTAL = localStorage.getItem("booksTotal") || 0;
+const savedBooks = JSON.parse(localStorage.getItem("books"));
+const currentlyRead = savedBooks.filter((book) => book.readStatus === true);
+const DEFAULT_BOOKS_READ = currentlyRead.length;
+const DEFAULT_BOOKS_TOTAL = savedBooks.length;
 
 //state variables
 let currentBooks = savedBooks;
@@ -16,7 +17,10 @@ function setCurrentTheme(newTheme) {
 function setCurrentBooks(newBooks) {
 	currentBooks = newBooks;
 }
-function setBookReadTotals() {}
+function setBookReadTotals() {
+	currentBooksReadCount = DEFAULT_BOOKS_READ;
+	currentBooksTotalCount = DEFAULT_BOOKS_TOTAL;
+}
 
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
@@ -60,8 +64,15 @@ function addBookToLibrary() {
 	setCurrentBooks(currentBooks);
 	localStorage.setItem("books", JSON.stringify(currentBooks));
 	addBookSection.setAttribute("style", "display: none;");
+	setBookReadTotals();
 	renderBooks();
 }
+
+// BOOK TOTALS DISPLAY
+const bookReadDisplay = document.querySelector(".books-read-display");
+const bookTotalDisplay = document.querySelector(".books-total-display");
+bookReadDisplay.textContent = `Books read ${currentBooksReadCount}`;
+bookTotalDisplay.textContent = `Books total: ${currentBooksTotalCount}`;
 
 function clearForm() {
 	bookTitleForm.value = "";
