@@ -34,7 +34,8 @@ body {
     align-items: center;
 }
 
-.header .add-book .add-book-form-open {
+.header .add-book,
+.add-book-form-open {
     padding: 10px 15px;
     max-width: 75px;
     border-radius: 15px;
@@ -182,7 +183,7 @@ nav {
 ~~  BOOK SECTION ~~
 */
 .book-section {
-    grid-column: ;
+    /* grid-column: ; */
     background-color: rgb(210, 38, 207);
     padding:1rem;
 }
