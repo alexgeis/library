@@ -1,3 +1,18 @@
+//DEFAULTS
+const savedBooks = JSON.parse(localStorage.getItem("books"));
+const DEFAULT_THEME = "light" || localStorage.getItem("theme");
+
+//state variables
+let currentBooks = [] || savedBooks;
+let currentTheme = DEFAULT_THEME;
+
+function setCurrentTheme(newTheme) {
+	currentTheme = newSize;
+}
+function setCurrentBooks(newBooks) {
+	currentBooks = newBooks;
+}
+
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 
@@ -6,16 +21,17 @@ hamburger.addEventListener("click", () => {
 	navMenu.classList.toggle("active");
 });
 
-let myLibrary = [
-	{
-		title: "Example Book 1",
-		author: "Author 1",
-		pages: "500",
-		language: "English",
-		publishDate: 1955,
-		readStatus: true,
-	},
-];
+// //EXAMPLE ARRAY OBJECT FOR BOOK
+// [
+// 	{
+// 		title: "Example Book 1",
+// 		author: "Author 1",
+// 		pages: "500",
+// 		language: "English",
+// 		publishDate: 1955,
+// 		readStatus: true,
+// 	},
+// ];
 
 function Book(title, author, pages, language, publishDate, readStatus) {
 	this.title = title;
@@ -35,8 +51,8 @@ function addBookToLibrary() {
 		bookDateForm,
 		bookReadStatusForm
 	);
-	myLibrary.push(newBook);
-	localStorage.setItem("books", JSON.stringify(myLibrary));
+	currentBooks.push(newBook);
+	localStorage.setItem("books", JSON.stringify(currentBooks));
 }
 
 function clearForm() {
@@ -70,11 +86,12 @@ const clearFormBtn = document.querySelector(".clear");
 
 newBookForm.addEventListener("submit", addBookToLibrary);
 clearFormBtn.addEventListener("click", clearForm);
+closeFormBtn.addEventListener("click", clearForm);
 //CARD
 
 function renderBooks() {
-	for (let i = 0; i < myLibrary.length; i++) {
-		const book = myLibrary[i];
+	for (let i = 0; i < currentBooks.length; i++) {
+		const book = currentBooks[i];
 		//
 		const bookCard = document.createElement("div");
 		bookCard.classList.add("single-book", "scale-in-center", "not-read");
@@ -172,3 +189,8 @@ function renderBooks() {
 // 		}
 // 	}
 // }
+
+window.onload = () => {
+	setCurrentTheme(DEFAULT_THEME);
+	renderBooks();
+};
