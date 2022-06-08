@@ -74,14 +74,16 @@ for (let i = 0; i < myLibrary.length; i++) {
 	const closeBtn = document.createElement("span");
 	closeBtn.classList.add("material-icons", "remove-book");
 	//
-	const label = document.createElement("span");
-	label.classList.add("b-label");
-	//
 	const bookTitle = document.createElement("h3");
 	bookTitle.classList.add("book-title");
+	bookTitle.textContent = book.title;
 	//
 	const bookAuthor = document.createElement("span");
 	bookAuthor.classList.add("book-author");
+	const labelAuthor = document.createElement("span");
+	labelAuthor.classList.add("b-label");
+	labelAuthor.textContent = book.author;
+	bookAuthor.appendChild(labelAuthor);
 	//
 	const pagesCount = document.createElement("span");
 	pagesCount.classList.add("pages-count");
@@ -99,8 +101,15 @@ for (let i = 0; i < myLibrary.length; i++) {
 	toggleControlCheckbox.setAttribute("checked", "");
 	const toggleControlSpan = document.createElement("span");
 	toggleControlSpan.classList.add("control");
+	//APPEND
 
-	mainEl.appendChild(imgEl);
+	bookCard.appendChild(closeBtn);
+	bookCard.appendChild(bookTitle);
+	bookCard.appendChild(bookAuthor);
+	bookCard.appendChild(bookLanguage);
+	bookCard.appendChild(publishDate);
+	bookCard.appendChild(readToggleLabel);
+	bookCard.appendChild(toggleControlLabel);
 }
 
 // elem.classList.add("geek")
