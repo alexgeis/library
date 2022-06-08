@@ -9,7 +9,7 @@ hamburger.addEventListener("click", () => {
 let myLibrary = [
 	{
 		title: "Example Book 1",
-		author: "Author",
+		author: "Author 1",
 		pages: "500",
 		language: "English",
 		publishDate: 1955,
@@ -30,8 +30,9 @@ function addBookToLibrary() {
 	// do stuff here - take inputs from form
 }
 
+const addBookBtn = document.querySelector(".add-book-form-open");
 //FORM
-const newBookBtn = document.querySelector(".add-book");
+const addBookFormBtn = document.querySelector(".add-book");
 const clearFormBtn = document.querySelector(".clear");
 //CARD
 
