@@ -34,7 +34,7 @@ body {
     align-items: center;
 }
 
-.header .add-book {
+.header .add-book .add-book-form-open {
     padding: 10px 15px;
     max-width: 75px;
     border-radius: 15px;
