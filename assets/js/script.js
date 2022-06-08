@@ -112,6 +112,7 @@ function renderBooks() {
 		//
 		const closeBtn = document.createElement("span");
 		closeBtn.classList.add("material-icons", "remove-book");
+		closeBtn.textContent = " close ";
 		//
 		const bookTitle = document.createElement("h3");
 		bookTitle.classList.add("book-title");
@@ -159,6 +160,7 @@ function renderBooks() {
 		//
 		const readToggleLabel = document.createElement("span");
 		readToggleLabel.classList.add("read_toggle_label");
+		readToggleLabel.textContent = "Mark as read: ";
 		//
 		const toggleControlLabel = document.createElement("label");
 		toggleControlLabel.classList.add("toggle-control");
@@ -174,6 +176,7 @@ function renderBooks() {
 			closeBtn,
 			bookTitle,
 			bookAuthor,
+			pagesCount,
 			bookLanguage,
 			publishDate,
 			readToggleLabel,
