@@ -64,59 +64,85 @@ newBookForm.addEventListener("submit", addBookToLibrary);
 clearFormBtn.addEventListener("click", clearForm);
 //CARD
 
-for (let i = 0; i < myLibrary.length; i++) {
-	const book = myLibrary[i];
-	//
-	const bookCard = document.createElement("div");
-	bookCard.classList.add("single-book", "scale-in-center", "not-read");
-	bookCard.setAttribute("id", "book-" + i);
-	//
-	const closeBtn = document.createElement("span");
-	closeBtn.classList.add("material-icons", "remove-book");
-	//
-	const bookTitle = document.createElement("h3");
-	bookTitle.classList.add("book-title");
-	bookTitle.textContent = book.title;
-	//
-	const bookAuthor = document.createElement("span");
-	bookAuthor.classList.add("book-author");
-	const labelAuthor = document.createElement("span");
-	labelAuthor.classList.add("b-label");
-	labelAuthor.textContent = book.author;
-	bookAuthor.appendChild(labelAuthor);
-	//
-	const pagesCount = document.createElement("span");
-	pagesCount.classList.add("pages-count");
-	const bookLanguage = document.createElement("span");
-	bookLanguage.classList.add("book-language");
-	const publishDate = document.createElement("span");
-	publishDate.classList.add("book-published");
-	const readToggleLabel = document.createElement("span");
-	readToggleLabel.classList.add("read_toggle_label");
-	const toggleControlLabel = document.createElement("label");
-	toggleControlLabel.classList.add("toggle-control");
-	const toggleControlCheckbox = document.createElement("input");
-	toggleControlCheckbox.setAttribute("type", "checkbox");
-	toggleControlCheckbox.setAttribute("id", "read_toggle");
-	toggleControlCheckbox.setAttribute("checked", "");
-	const toggleControlSpan = document.createElement("span");
-	toggleControlSpan.classList.add("control");
-	//APPEND
-
-	bookCard.appendChild(closeBtn);
-	bookCard.appendChild(bookTitle);
-	bookCard.appendChild(bookAuthor);
-	bookCard.appendChild(bookLanguage);
-	bookCard.appendChild(publishDate);
-	bookCard.appendChild(readToggleLabel);
-	bookCard.appendChild(toggleControlLabel);
+function renderBooks() {
+	for (let i = 0; i < myLibrary.length; i++) {
+		const book = myLibrary[i];
+		//
+		const bookCard = document.createElement("div");
+		bookCard.classList.add("single-book", "scale-in-center", "not-read");
+		bookCard.setAttribute("id", "book-" + i);
+		//
+		const closeBtn = document.createElement("span");
+		closeBtn.classList.add("material-icons", "remove-book");
+		//
+		const bookTitle = document.createElement("h3");
+		bookTitle.classList.add("book-title");
+		bookTitle.textContent = book.title;
+		//
+		const bookAuthor = document.createElement("span");
+		bookAuthor.classList.add("book-author");
+		const labelAuthor = document.createElement("span");
+		labelAuthor.classList.add("b-label");
+		labelAuthor.textContent = "By: ";
+		const authorDisplay = document.createElement("span");
+		authorDisplay.classList.add("author");
+		authorDisplay.textContent = book.author;
+		bookAuthor.append(labelAuthor, authorDisplay);
+		//
+		const pagesCount = document.createElement("span");
+		pagesCount.classList.add("pages-count");
+		const labelPages = document.createElement("span");
+		labelPages.classList.add("b-label");
+		labelPages.textContent = "Number of pages: ";
+		const bookPages = document.createElement("span");
+		bookPages.classList.add("b-pages");
+		bookPages.textContent = book.pages;
+		pagesCount.append(labelPages, bookPages);
+		//
+		const bookLanguage = document.createElement("span");
+		bookLanguage.classList.add("book-language");
+		const labelLanguage = document.createElement("span");
+		labelLanguage.classList.add("b-label");
+		labelLanguage.textContent = "Language: ";
+		const languageDisplay = document.createElement("span");
+		languageDisplay.classList.add("language");
+		languageDisplay.textContent = book.language;
+		bookLanguage.append(labelLanguage, languageDisplay);
+		//
+		const publishDate = document.createElement("span");
+		publishDate.classList.add("book-published");
+		const labelDate = document.createElement("span");
+		labelDate.classList.add("b-label");
+		labelDate.textContent = "Published: ";
+		const dateDisplay = document.createElement("span");
+		dateDisplay.classList.add("publish-date");
+		dateDisplay.textContent = book.publishDate;
+		publishDate.append(labelDate, dateDisplay);
+		//
+		const readToggleLabel = document.createElement("span");
+		readToggleLabel.classList.add("read_toggle_label");
+		//
+		const toggleControlLabel = document.createElement("label");
+		toggleControlLabel.classList.add("toggle-control");
+		const toggleControlCheckbox = document.createElement("input");
+		toggleControlCheckbox.setAttribute("type", "checkbox");
+		toggleControlCheckbox.setAttribute("id", "read_toggle");
+		toggleControlCheckbox.setAttribute("checked", "");
+		const toggleControlSpan = document.createElement("span");
+		toggleControlSpan.classList.add("control");
+		toggleControlLabel.append(toggleControlCheckbox, toggleControlSpan);
+		//
+		bookCard.append(
+			closeBtn,
+			bookTitle,
+			bookAuthor,
+			bookLanguage,
+			publishDate,
+			readToggleLabel,
+			toggleControlLabel
+		);
+	}
 }
-
-// elem.classList.add("geek")
-// timeEl.textContent = " ";
-//   var imgEl = document.createElement("img");
-//   imgEl.setAttribute("src", "images/image_1.jpg");
-//   mainEl.appendChild(imgEl);
 
 // working progress bar JS
 // let i = 0;
