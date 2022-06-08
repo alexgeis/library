@@ -28,6 +28,7 @@ function Book(title, author, pages, language, publishDate, readStatus) {
 
 function addBookToLibrary() {
 	// do stuff here - take inputs from form
+	localStorage.setItem("books", JSON.stringify(myLibrary));
 }
 
 const addBookBtn = document.querySelector(".add-book-form-open");
