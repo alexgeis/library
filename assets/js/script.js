@@ -27,7 +27,6 @@ function Book(title, author, pages, language, publishDate, readStatus) {
 }
 
 function addBookToLibrary() {
-	// do stuff here - take inputs from form
 	const newBook = new Book(
 		bookTitleForm,
 		bookAuthorForm,
@@ -68,20 +67,39 @@ clearFormBtn.addEventListener("click", clearForm);
 for (let i = 0; i < myLibrary.length; i++) {
 	const book = myLibrary[i];
 	//
-	timeEl.textContent = " ";
+	const bookCard = document.createElement("div");
+	bookCard.classList.add("single-book", "scale-in-center", "not-read");
+	bookCard.setAttribute("id", "book-" + i);
+	//
 	const closeBtn = document.createElement("span");
-	const bookTitle = document.createElement("h3");
-	const bookAuthor = document.createElement("span");
+	closeBtn.classList.add("material-icons", "remove-book");
+	//
 	const label = document.createElement("span");
+	label.classList.add("b-label");
+	//
+	const bookTitle = document.createElement("h3");
+	bookTitle.classList.add("book-title");
+	//
+	const bookAuthor = document.createElement("span");
+	bookAuthor.classList.add("book-author");
+	//
 	const pagesCount = document.createElement("span");
+	pagesCount.classList.add("pages-count");
 	const bookLanguage = document.createElement("span");
+	bookLanguage.classList.add("book-language");
 	const publishDate = document.createElement("span");
+	publishDate.classList.add("book-published");
 	const readToggleLabel = document.createElement("span");
+	readToggleLabel.classList.add("read_toggle_label");
 	const toggleControlLabel = document.createElement("label");
+	toggleControlLabel.classList.add("toggle-control");
 	const toggleControlCheckbox = document.createElement("input");
+	toggleControlCheckbox.setAttribute("type", "checkbox");
+	toggleControlCheckbox.setAttribute("id", "read_toggle");
+	toggleControlCheckbox.setAttribute("checked", "");
 	const toggleControlSpan = document.createElement("span");
+	toggleControlSpan.classList.add("control");
 
-	imgEl.setAttribute("src", "images/image_1.jpg");
 	mainEl.appendChild(imgEl);
 }
 
@@ -90,6 +108,7 @@ for (let i = 0; i < myLibrary.length; i++) {
 //   var imgEl = document.createElement("img");
 //   imgEl.setAttribute("src", "images/image_1.jpg");
 //   mainEl.appendChild(imgEl);
+
 // working progress bar JS
 // let i = 0;
 // function move() {
