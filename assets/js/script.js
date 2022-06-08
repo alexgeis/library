@@ -28,7 +28,25 @@ function Book(title, author, pages, language, publishDate, readStatus) {
 
 function addBookToLibrary() {
 	// do stuff here - take inputs from form
+	const newBook = new Book(
+		bookTitleForm,
+		bookAuthorForm,
+		bookPagesForm,
+		bookLanguageForm,
+		bookDateForm,
+		bookReadStatusForm
+	);
+	myLibrary.push(newBook);
 	localStorage.setItem("books", JSON.stringify(myLibrary));
+}
+
+function clearForm() {
+	bookTitleForm.value = "";
+	bookAuthorForm.value = "";
+	bookPagesForm.value = "";
+	bookLanguageForm.value = "";
+	bookDateForm.value = "";
+	bookReadStatusForm.value = false;
 }
 
 const addBookBtn = document.querySelector(".add-book-form-open");
@@ -44,6 +62,7 @@ const addBookFormBtn = document.querySelector(".add-book");
 const clearFormBtn = document.querySelector(".clear");
 
 newBookForm.addEventListener("submit", addBookToLibrary);
+clearFormBtn.addEventListener("click", clearForm);
 //CARD
 
 for (let i = 0; i < myLibrary.length; i++) {
