@@ -63,7 +63,7 @@ function addBookToLibrary() {
 		bookReadStatusForm.value
 	);
 	currentBooks.push(newBook);
-	console.log(currentBooks);
+	setCurrentBooks(currentBooks);
 	localStorage.setItem("books", JSON.stringify(currentBooks));
 	addBookSection.setAttribute("style", "display: none;");
 	renderBooks();
@@ -107,6 +107,7 @@ clearFormBtn.addEventListener("click", clearForm);
 const bookContainer = document.querySelector(".book-card-container");
 
 function renderBooks() {
+	bookContainer.innerHTML = "";
 	for (let i = 0; i < currentBooks.length; i++) {
 		const book = currentBooks[i];
 		console.log(book);
