@@ -254,6 +254,9 @@ nav {
     position: relative;
     background: linear-gradient(135deg, #e3e3e3 0%, #5d6874 100%);
 }
+.book-card-container .single_book > * {
+    padding: 5px 0;
+}
 .book-card-container .single-book .read {
     background: linear-gradient(135deg, rgba(24, 77, 104, 0.8) 0%, rgba(87, 202, 133, 0.8) 100%);
     color: white;
@@ -262,8 +265,60 @@ nav {
     background: linear-gradient(135deg, #e3e3e3 0%, #5d6874 100%);
     color: black;
 }
-
-
+.book-card-container .single-book .remove-book {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}
+.book-card-container .single-book .read_toggle_label {
+    font-size: 12px;
+    position: absolute;
+    right: 65px;
+    bottom: 7.5px;
+}
+.book-card-container .single-book .toggle-control {
+    display: block;
+    position: absolute;
+    bottom: 25px;
+    right: 20px;
+    padding-left: 40px;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+}
+.book-card-container .single-book .toggle-control input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.book-card-container .single-book .toggle-control .control {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 40px;
+    border-radius: 10px;
+    background-color: grey;
+    transition: background-color 0.15s ease-in;
+    border: solid 1px #fff;
+}
+.book-card-container .single-book .toggle-control .control:after {
+    content: "";
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    width: 16px;
+    height: 16px;
+    border-radius: 10px;
+    background: white;
+    transition: left 0.15s ease-in;
+}
+/* 
+    ADD BOOK FORM
+*/
 .add_book_section {
     display: none;
     /* hide for now */
@@ -283,6 +338,23 @@ nav {
     display: none;
     align-items: center;
     justify-content: center;
+}
+
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
 }
 
 @media(max-width:376px) {

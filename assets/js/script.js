@@ -1,21 +1,14 @@
 //DEFAULTS
 const savedBooks = JSON.parse(localStorage.getItem("books"));
-const DEFAULT_THEME = "light" || localStorage.getItem("theme");
+const DEFAULT_THEME = localStorage.getItem("theme") || "light";
+const DEFAULT_BOOKS_READ = localStorage.getItem("booksRead") || 0;
+const DEFAULT_BOOKS_TOTAL = localStorage.getItem("booksTotal") || 0;
 
 //state variables
-// let currentBooks =
-// 	[
-// 		{
-// 			title: "Example Book 1",
-// 			author: "Author 1",
-// 			pages: "500",
-// 			language: "English",
-// 			publishDate: 1955,
-// 			readStatus: true,
-// 		},
-// 	] || savedBooks;
 let currentBooks = savedBooks;
 let currentTheme = DEFAULT_THEME;
+let currentBooksReadCount = DEFAULT_BOOKS_READ;
+let currentBooksTotalCount = DEFAULT_BOOKS_TOTAL;
 
 function setCurrentTheme(newTheme) {
 	currentTheme = newTheme;
@@ -23,6 +16,7 @@ function setCurrentTheme(newTheme) {
 function setCurrentBooks(newBooks) {
 	currentBooks = newBooks;
 }
+function setBookReadTotals() {}
 
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
