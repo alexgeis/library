@@ -97,11 +97,14 @@ const clearFormBtn = document.querySelector(".clear");
 newBookForm.addEventListener("submit", addBookToLibrary);
 clearFormBtn.addEventListener("click", clearForm);
 // closeFormBtn.addEventListener("click", clearForm);
+
 //CARD
+const bookContainer = document.querySelector(".book-card-container");
 
 function renderBooks() {
 	for (let i = 0; i < currentBooks.length; i++) {
 		const book = currentBooks[i];
+		console.log(book);
 		//
 		const bookCard = document.createElement("div");
 		bookCard.classList.add("single-book", "scale-in-center", "not-read");
@@ -176,6 +179,7 @@ function renderBooks() {
 			readToggleLabel,
 			toggleControlLabel
 		);
+		bookContainer.appendChild(bookCard);
 	}
 }
 
