@@ -32,6 +32,7 @@ function addBookToLibrary() {
 
 const addBookBtn = document.querySelector(".add-book-form-open");
 //FORM
+const newBookForm = document.querySelector(".new-book-form");
 const bookTitleForm = document.querySelector("#b-title");
 const bookAuthorForm = document.querySelector("#b-author");
 const bookPagesForm = document.querySelector("#b-pages");
@@ -40,6 +41,8 @@ const bookDateForm = document.querySelector("#b-publishing_date");
 const bookReadStatusForm = document.querySelector("#b-read_statuss");
 const addBookFormBtn = document.querySelector(".add-book");
 const clearFormBtn = document.querySelector(".clear");
+
+newBookForm.addEventListener("submit", addBookToLibrary);
 //CARD
 
 for (let i = 0; i < myLibrary.length; i++) {
