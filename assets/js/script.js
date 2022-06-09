@@ -74,7 +74,7 @@ bookReadDisplay.textContent = `Books read: ${currentBooksReadCount}`;
 const bookTotalDisplay = document.querySelector(".books-total-display");
 bookTotalDisplay.textContent = `Books total: ${currentBooksTotalCount}`;
 const bookReadDisplayHero = document.querySelector(".books-read-display-hero");
-bookReadDisplayHero.textContent = `Books read: ${currentBooksTotalCount}`;
+bookReadDisplayHero.textContent = `Books read: ${currentBooksReadCount}`;
 const bookTotalDisplayHero = document.querySelector(
 	".books-total-display-hero"
 );
@@ -191,13 +191,13 @@ function renderBooks() {
 		readToggleLabel.textContent = "Mark as read: ";
 		//
 		const toggleControlLabel = document.createElement("label");
-		toggleControlLabel.classList.add("toggle-control");
+		toggleControlLabel.classList.add("switch");
 		const toggleControlCheckbox = document.createElement("input");
 		toggleControlCheckbox.setAttribute("type", "checkbox");
 		toggleControlCheckbox.setAttribute("id", "read_toggle");
 		toggleControlCheckbox.setAttribute("checked", "");
 		const toggleControlSpan = document.createElement("span");
-		toggleControlSpan.classList.add("control");
+		toggleControlSpan.classList.add("slider", "round");
 		toggleControlLabel.append(toggleControlCheckbox, toggleControlSpan);
 		//
 		bookCard.append(

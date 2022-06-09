@@ -18,19 +18,19 @@ body {
     /* padding: 0 20px; */
     background-color: azure;
 }
-
+                                                /* ----CONTAINER */
 .container {
     /* padding: 1rem 0; */
     display:grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 4fr;
 }
-
+                                                /* ----HEADER */
 .header {
     background-color: aqua;
     padding: 1rem;
     display: grid;
-    grid-template-columns: repeat(4,min-content) minmax(75px,1fr);;
+    grid-template-columns: repeat(4,min-content) minmax(75px,1fr);
     /* grid-template-columns: repeat(2,75px) minmax(75px,1fr); */
     grid-auto-flow: column;
     gap: 1.2rem;
@@ -52,7 +52,7 @@ body {
     /* max-width: 75px; */
     border-radius: 15px;
 }
-/* TOGGLE BUTTON */
+                                        /* TOGGLE BUTTON */
 .switch {
 position: relative;
 display: inline-block;
@@ -60,14 +60,14 @@ width: 50px;
 height: 34px;
 }
 
-/* Hide default HTML checkbox */
+        /* Hide default HTML checkbox */
 .switch input {
 opacity: 0;
 width: 0;
 height: 0;
 }
 
-/* The slider */
+        /* The slider */
 .slider {
 position: absolute;
 cursor: pointer;
@@ -76,6 +76,7 @@ left: 0;
 right: 0;
 bottom: 0;
 background-color: #ccc;
+/* transition to blue color once checked */
 -webkit-transition: .4s;
 transition: .4s;
 }
@@ -91,19 +92,21 @@ background-color: white;
 -webkit-transition: .4s;
 transition: .4s;
 }
-
+                        /* transition of switch background color */
 input:checked + .slider {
-background-color: #2196F3;
+/* background-color: #2196F3; */
+background-color: #2e2e2e;
 }
 
 input:focus + .slider {
-box-shadow: 0 0 1px #2196F3;
+/* box-shadow: 0 0 1px #2196F3; */
+box-shadow: 0 0 1px #2e2e2e;
 }
-
+                        /* transition of .slider:before - the toggle switch circle */
 input:checked + .slider:before {
--webkit-transform: translateX(18px);
--ms-transform: translateX(18px);
-transform: translateX(18px);
+-webkit-transform: translateX(17px);
+-ms-transform: translateX(17px);
+transform: translateX(17px);
 }
 
 /* Rounded sliders */
@@ -119,8 +122,14 @@ border-radius: 50%;
 #dark-toggle-text {
     text-align: center;
 }
-
-/* NAVIGATION */
+                                    /* READ TOGGLE */
+.single-book .switch {
+    position: absolute;
+cursor: pointer;
+right: 7px;
+bottom: 4px;
+}
+                                                /* NAVIGATION */
 nav {
     display: flex;
 }
@@ -303,48 +312,9 @@ nav {
     right: 65px;
     bottom: 7.5px;
 }
-.book-card-container .single-book .toggle-control {
-    display: block;
-    position: absolute;
-    bottom: 25px;
-    right: 20px;
-    padding-left: 40px;
-    cursor: pointer;
-    font-size: 22px;
-    user-select: none;
-}
-.book-card-container .single-book .toggle-control input{
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
-.book-card-container .single-book .toggle-control .control {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 20px;
-    width: 40px;
-    border-radius: 10px;
-    background-color: grey;
-    transition: background-color 0.15s ease-in;
-    border: solid 1px #fff;
-}
-.book-card-container .single-book .toggle-control .control:after {
-    content: "";
-    position: absolute;
-    left: 1px;
-    top: 1px;
-    width: 16px;
-    height: 16px;
-    border-radius: 10px;
-    background: white;
-    transition: left 0.15s ease-in;
-}
-/* 
-    ADD BOOK FORM
-*/
+                            /* 
+                                ADD BOOK FORM
+                            */
 .add_book_section {
     display: none;
     /* hide for now */
@@ -442,7 +412,9 @@ nav {
     }
     
     .header {
-        grid-template-columns: repeat(2,75px) minmax(75px,1fr); 
+        /* grid-template-columns: repeat(2,75px) minmax(75px,1fr);  */
+        grid-template-columns: repeat(2,min-content) minmax(75px,1fr); 
+        gap: 10px;
     }
 
     .hero {

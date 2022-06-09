@@ -28,14 +28,19 @@
 				/>
 				<div class="site-title">Library</div>
 				<button class="add-book-form-open">Add Book +</button>
-				<div class="theme-toggle">
+				<!-- TOGGLE -->
+				<div class="theme">
 					<div id="light-toggle-text">Light</div>
+
 					<label class="switch">
-						<input type="checkbox" />
+						<input type="checkbox" id="theme-toggle" />
+
 						<span class="slider round"></span>
 					</label>
+
 					<div id="dark-toggle-text">Dark</div>
 				</div>
+				<!-- TOGGLE END -->
 				<nav>
 					<ul class="nav-menu">
 						<li class="nav-item">
@@ -170,13 +175,22 @@
 				<label for="b-publishing_date"
 					>Publishing date*
 					<input
+						type="number"
+						min="0"
+						max="2023"
+						step="1"
+						value="1917"
+						name="book-publishing-date"
+						id="b-publishing_date"
+					/>
+
+					<!-- <input
 						class="form-control"
 						type="date"
 						name="book-publishing-date"
 						id="b-publishing_date"
-					/><small class="err-msg"
-						>* Book publishing date is required</small
-					></label
+					/> -->
+					<div class="err-msg">* Book publishing date is required</div></label
 				>
 				<label for="b-read_status"
 					>book status*
