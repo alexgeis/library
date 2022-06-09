@@ -20,17 +20,17 @@ body {
 }
 
 .container {
-    padding: 1rem 0;
+    /* padding: 1rem 0; */
     display:grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 4fr;
+    grid-template-rows: 1fr 4fr;
 }
 
 .header {
     background-color: aqua;
     padding: 1rem;
     display: grid;
-    grid-template-columns: repeat(6,min-content);
+    grid-template-columns: repeat(4,min-content) minmax(75px,1fr);;
     /* grid-template-columns: repeat(2,75px) minmax(75px,1fr); */
     grid-auto-flow: column;
     gap: 1.2rem;
@@ -158,23 +158,33 @@ nav {
 .hero {
     background-color: rgb(225, 255, 0);
     padding:1rem;
+    display:none;
+    /*
     display: grid;
-    grid-template-columns: minmax(150px,1fr);;
+    grid-template-columns: repeat(2,1fr);;
+    /* 
+    grid-template-columns: minmax(150px,1fr);; 
+    */
+    /*
     grid-auto-flow: column;
     justify-items: center;
     align-items: center;
+    */
 }
-#search-section {
+.header #search-section,
+.hero #search-section {
     display:grid;
     grid-template-columns: 30px 1fr;
 }
-#book-search {
+.header #book-search,
+.hero #book-search {
     max-width: 70%;
     min-width: 170px;
 }
 
 
-.book-totals {
+.book-totals,
+.book-totals-hero {
     border: #2196F3 1px solid;
     min-height: 50px;
     width: max-content;
@@ -182,11 +192,13 @@ nav {
     font-size: .8rem;
     margin: 1rem;
 }
-.book-progress-bar {
+.book-progress-bar,
+.book-progress-bar-hero {
     width: 100%;
   background-color: grey;
 }
-.progress-bar {
+.progress-bar,
+.progress-bar-hero {
     width: 10%;
     height: 30px;
     background-color: #04AA6D;
@@ -259,7 +271,7 @@ nav {
 
 .book-card-container .single-book {
     border-radius: 5px;
-    padding: 1rem;
+    padding: 3rem 1rem;
     display: flex;
     flex-direction: column;
     text-align: start;
@@ -372,17 +384,20 @@ nav {
     -webkit-font-smoothing: antialiased;
 }
 
-@media(max-width:376px) {
-    .header {
+@media(max-width:480px) {
+    /* .header {
         background-color: aqua;
         padding: 1rem;
         display: grid;
         grid-template-columns: repeat(2,50px) minmax(75px,1fr);
+    } */
+    .header {
+        gap: .2rem;
     }
 
-
 }
-@media(max-width:768px) {
+
+@media(max-width:560px) {
     .hamburger {
         display: block;
     }
@@ -413,6 +428,30 @@ nav {
     }
     .nav-menu.active {
         right: 0;
+    }
+}
+
+@media(max-width:881px) {
+    .container {
+    grid-template-rows: 1fr 1fr 4fr;
+}
+
+    .header #search-section, 
+    .header .book-totals {
+        display: none;
+    }
+    
+    .header {
+        grid-template-columns: repeat(2,75px) minmax(75px,1fr); 
+    }
+
+    .hero {
+        display: grid;
+    grid-template-columns: repeat(2,1fr);
+    /* grid-template-columns: minmax(150px,1fr);; */
+    grid-auto-flow: column;
+    justify-items: center;
+    align-items: center;
     }
 }
 

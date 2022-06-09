@@ -70,9 +70,15 @@ function addBookToLibrary() {
 
 // BOOK TOTALS DISPLAY
 const bookReadDisplay = document.querySelector(".books-read-display");
+bookReadDisplay.textContent = `Books read: ${currentBooksReadCount}`;
 const bookTotalDisplay = document.querySelector(".books-total-display");
-bookReadDisplay.textContent = `Books read ${currentBooksReadCount}`;
 bookTotalDisplay.textContent = `Books total: ${currentBooksTotalCount}`;
+const bookReadDisplayHero = document.querySelector(".books-read-display-hero");
+bookReadDisplayHero.textContent = `Books read: ${currentBooksTotalCount}`;
+const bookTotalDisplayHero = document.querySelector(
+	".books-total-display-hero"
+);
+bookTotalDisplayHero.textContent = `Books total: ${currentBooksTotalCount}`;
 
 function clearForm() {
 	bookTitleForm.value = "";
