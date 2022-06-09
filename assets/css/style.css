@@ -16,9 +16,11 @@ body, html {
 body {
     min-height: 100vh;
     /* padding: 0 20px; */
+    background-color: azure;
 }
 
 .container {
+    padding: 1rem 0;
     display:grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 4fr;
@@ -34,10 +36,19 @@ body {
     align-items: center;
 }
 
+.header,
+.hero,
+.book-section {
+    max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .header .add-book,
 .add-book-form-open {
-    padding: 10px 15px;
-    max-width: 75px;
+    padding: .5rem 1rem;
+    width: max-content;
+    /* max-width: 75px; */
     border-radius: 15px;
 }
 /* TOGGLE BUTTON */
@@ -407,3 +418,44 @@ nav {
     grid-template-columns: repeat(2, 1fr);
  }
 }
+
+
+/* CODE FOR NEW BOOK BUTTON 
+
+ .new-book {
+    border: none;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    outline: transparent;
+    background: linear-gradient(
+      135deg,
+      rgb(33, 150, 243) 0%,
+      rgb(21, 101, 192) 100%
+    );
+    color: #fff;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+      0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+
+    span {
+      font-size: 2rem;
+      line-height: 1.2;
+      border-radius: 50%;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    @include break-points('md') {
+      transition: transform 0.25s, opacity 0.25s;
+
+      &:hover {
+        transform: rotate(90deg) scale(1.2);
+      }
+    }
+  }*/
