@@ -68,7 +68,8 @@ height: 0;
 }
 
         /* The slider */
-.slider {
+.slider,
+.read-toggle-slider {
 position: absolute;
 cursor: pointer;
 top: 0;
@@ -81,7 +82,8 @@ background-color: #ccc;
 transition: .4s;
 }
 
-.slider:before {
+.slider:before,
+.read-toggle-slider:before {
 position: absolute;
 content: "";
 height: 26px;
@@ -103,18 +105,21 @@ input:focus + .slider {
 box-shadow: 0 0 1px #2e2e2e;
 }
                         /* transition of .slider:before - the toggle switch circle */
-input:checked + .slider:before {
+input:checked + .slider:before,
+input:checked + .read-toggle-slider:before {
 -webkit-transform: translateX(17px);
 -ms-transform: translateX(17px);
 transform: translateX(17px);
 }
 
 /* Rounded sliders */
-.slider.round {
+.slider.round,
+.read-toggle-slider.round {
 border-radius: 34px;
 }
 
-.slider.round:before {
+.slider.round:before,
+.read-toggle-slider.round:before {
 border-radius: 50%;
 }
 
@@ -129,12 +134,13 @@ cursor: pointer;
 right: 7px;
 bottom: 4px;
 }
-input:checked + #read-toggle-slider {
+
+input:checked + .read-toggle-slider {
 background-color: #2196F3;
 /* background-color: #2e2e2e; */
 }
 
-input:focus + #read-toggle-slider {
+input:focus + .read-toggle-slider {
 box-shadow: 0 0 1px #2196F3;
 /* box-shadow: 0 0 1px #2e2e2e; */
 }

@@ -116,6 +116,16 @@ clearFormBtn.addEventListener("click", clearForm);
 
 //CARD
 const bookContainer = document.querySelector(".book-card-container");
+// const readToggle = document.querySelector("#read_toggle");
+
+// readToggle.addEventListener("click", function (event) {
+// 	let element = event.target;
+// 	if (element.matches("input") === true) {
+// 		let index = element.parentElement.getAttribute("data-index");
+// 		// currentBooks[index].readStatus = element;
+// 		renderBooks();
+// 	}
+// });
 
 function renderBooks() {
 	bookContainer.innerHTML = "";
@@ -197,8 +207,7 @@ function renderBooks() {
 		toggleControlCheckbox.setAttribute("id", "read_toggle");
 		// toggleControlCheckbox.setAttribute("checked", "");
 		const toggleControlSpan = document.createElement("span");
-		toggleControlSpan.classList.add("slider", "round");
-		toggleControlSpan.setAttribute("id", "read-toggle-slider");
+		toggleControlSpan.classList.add("read-toggle-slider", "round");
 		toggleControlLabel.append(toggleControlCheckbox, toggleControlSpan);
 		//
 		bookCard.append(
@@ -236,9 +245,9 @@ function renderBooks() {
 // 	}
 // }
 
-// document.addEventListener("click", function (event) {
-// 	console.log(event.target);
-// });
+document.addEventListener("click", function (event) {
+	console.log(event.target);
+});
 
 window.onload = () => {
 	setCurrentTheme(DEFAULT_THEME);
