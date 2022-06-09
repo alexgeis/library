@@ -49,6 +49,7 @@ function Book(title, author, pages, language, publishDate, readStatus) {
 	this.language = language;
 	this.publishDate = publishDate;
 	this.readStatus = readStatus;
+	this.insertion_date = new Date().toLocaleString();
 }
 
 function addBookToLibrary() {
@@ -97,6 +98,10 @@ function renderNewForm() {
 const addBookBtn = document.querySelector(".add-book-form-open");
 addBookBtn.addEventListener("click", renderNewForm);
 
+function closeForm() {
+	addBookSection.setAttribute("style", "display: none;");
+}
+
 //FORM
 const newBookForm = document.querySelector(".new-book-form");
 const closeFormBtn = document.querySelector("#close-form");
@@ -112,26 +117,15 @@ const clearFormBtn = document.querySelector(".clear");
 // newBookForm.addEventListener("submit", addBookToLibrary);
 addBookFormBtn.addEventListener("click", addBookToLibrary);
 clearFormBtn.addEventListener("click", clearForm);
-// closeFormBtn.addEventListener("click", clearForm);
+closeFormBtn.addEventListener("click", closeForm);
 
 //CARD
 const bookContainer = document.querySelector(".book-card-container");
-// const readToggle = document.querySelector("#read_toggle");
-
-// readToggle.addEventListener("click", function (event) {
-// 	let element = event.target;
-// 	if (element.matches("input") === true) {
-// 		let index = element.parentElement.getAttribute("data-index");
-// 		// currentBooks[index].readStatus = element;
-// 		renderBooks();
-// 	}
-// });
 
 function renderBooks() {
 	bookContainer.innerHTML = "";
 	for (let i = 0; i < currentBooks.length; i++) {
 		const book = currentBooks[i];
-		console.log(book);
 		//
 		const bookCard = document.createElement("div");
 		bookCard.classList.add("single-book", "scale-in-center", "not-read");
@@ -204,12 +198,31 @@ function renderBooks() {
 		toggleControlLabel.classList.add("switch");
 		const toggleControlCheckbox = document.createElement("input");
 		toggleControlCheckbox.setAttribute("type", "checkbox");
-		toggleControlCheckbox.setAttribute("id", "read_toggle");
+		toggleControlCheckbox.classList.add("read_toggle");
 		// toggleControlCheckbox.setAttribute("checked", "");
 		const toggleControlSpan = document.createElement("span");
 		toggleControlSpan.classList.add("read-toggle-slider", "round");
 		toggleControlLabel.append(toggleControlCheckbox, toggleControlSpan);
 		//
+
+		toggleControlCheckbox.addEventListener("click", function (event) {
+			let element = event.target;
+			// console.log(element.checked);
+			let bookContainer = element.parentElement.parentElement;
+			// console.log(bookContainer);
+			console.log(currentBooks);
+			if (bookContainer.classList[2] === "not-read") {
+				bookContainer.classList.remove("not-read");
+				bookContainer.classList.add("read");
+			} else if (bookContainer.classList[2] === "read") {
+				bookContainer.classList.replace("read", "not-read");
+			}
+			let index = bookContainer.getAttribute("data-index");
+			console.log({ index });
+			currentBooks[index].readStatus = element.checked;
+			// renderBooks();
+		});
+
 		bookCard.append(
 			closeBtn,
 			bookTitle,
@@ -245,9 +258,9 @@ function renderBooks() {
 // 	}
 // }
 
-document.addEventListener("click", function (event) {
-	console.log(event.target);
-});
+// document.addEventListener("click", function (event) {
+// 	console.log(event.target);
+// });
 
 window.onload = () => {
 	setCurrentTheme(DEFAULT_THEME);
