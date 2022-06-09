@@ -30,9 +30,10 @@ body {
     background-color: aqua;
     padding: 1rem;
     display: grid;
-    grid-template-columns: repeat(2,75px) minmax(75px,1fr);
+    grid-template-columns: repeat(6,min-content);
+    /* grid-template-columns: repeat(2,75px) minmax(75px,1fr); */
     grid-auto-flow: column;
-    gap: 15px;
+    gap: 1.2rem;
     align-items: center;
 }
 
@@ -160,6 +161,7 @@ nav {
     display: grid;
     grid-template-columns: minmax(150px,1fr);;
     grid-auto-flow: column;
+    justify-items: center;
     align-items: center;
 }
 #search-section {
@@ -167,7 +169,8 @@ nav {
     grid-template-columns: 30px 1fr;
 }
 #book-search {
-    max-width: 100px;
+    max-width: 70%;
+    min-width: 170px;
 }
 
 
@@ -177,7 +180,7 @@ nav {
     width: max-content;
     padding: 1rem 2rem;
     font-size: .8rem;
-    margin-right: 1rem;
+    margin: 1rem;
 }
 .book-progress-bar {
     width: 100%;
@@ -413,9 +416,10 @@ nav {
     }
 }
 
-@media(max-width:1080px) {
+@media(max-width:1081px) {
  .hero {
-    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-columns: repeat(2, 1fr); */
+    grid-auto-flow: row;
  }
 }
 
