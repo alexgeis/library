@@ -195,9 +195,10 @@ function renderBooks() {
 		const toggleControlCheckbox = document.createElement("input");
 		toggleControlCheckbox.setAttribute("type", "checkbox");
 		toggleControlCheckbox.setAttribute("id", "read_toggle");
-		toggleControlCheckbox.setAttribute("checked", "");
+		// toggleControlCheckbox.setAttribute("checked", "");
 		const toggleControlSpan = document.createElement("span");
 		toggleControlSpan.classList.add("slider", "round");
+		toggleControlSpan.setAttribute("id", "read-toggle-slider");
 		toggleControlLabel.append(toggleControlCheckbox, toggleControlSpan);
 		//
 		bookCard.append(

@@ -129,6 +129,15 @@ cursor: pointer;
 right: 7px;
 bottom: 4px;
 }
+input:checked + #read-toggle-slider {
+background-color: #2196F3;
+/* background-color: #2e2e2e; */
+}
+
+input:focus + #read-toggle-slider {
+box-shadow: 0 0 1px #2196F3;
+/* box-shadow: 0 0 1px #2e2e2e; */
+}
                                                 /* NAVIGATION */
 nav {
     display: flex;
