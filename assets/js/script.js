@@ -211,11 +211,12 @@ function renderBooks() {
 			let bookContainer = element.parentElement.parentElement;
 			// console.log(bookContainer);
 			console.log(currentBooks);
-			if (bookContainer.classList[2] === "not-read") {
+			if (bookContainer.classList.contains("not-read") === true) {
 				bookContainer.classList.remove("not-read");
 				bookContainer.classList.add("read");
-			} else if (bookContainer.classList[2] === "read") {
-				bookContainer.classList.replace("read", "not-read");
+			} else if (bookContainer.classList.contains("read") === true) {
+				bookContainer.classList.remove("read");
+				bookContainer.classList.add("not-read");
 			}
 			let index = bookContainer.getAttribute("data-index");
 			console.log({ index });
