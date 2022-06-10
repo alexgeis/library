@@ -42,6 +42,26 @@ hamburger.addEventListener("click", () => {
 // 	},
 // ];
 
+const headerEl = document.querySelector(".header");
+const heroEl = document.querySelector(".hero");
+const bookSectionEl = document.querySelector(".book-section");
+const addBookFormEl = document.querySelector(".add_book_section");
+const themeToggle = document.querySelector("#theme-toggle");
+themeToggle.addEventListener("click", function (event) {
+	let element = event.target;
+	// let bookContainer = element.parentElement.parentElement;
+	if (bookContainer.classList.contains("not-read") === true) {
+		bookContainer.classList.remove("not-read");
+		bookContainer.classList.add("read");
+	} else if (bookContainer.classList.contains("read") === true) {
+		bookContainer.classList.remove("read");
+		bookContainer.classList.add("not-read");
+	}
+	let index = bookContainer.getAttribute("data-index");
+	currentBooks[index].readStatus = element.checked;
+	// renderBooks();
+});
+
 function Book(title, author, pages, language, publishDate, readStatus) {
 	this.title = title;
 	this.author = author;
@@ -210,7 +230,6 @@ function renderBooks() {
 			// console.log(element.checked);
 			let bookContainer = element.parentElement.parentElement;
 			// console.log(bookContainer);
-			console.log(currentBooks);
 			if (bookContainer.classList.contains("not-read") === true) {
 				bookContainer.classList.remove("not-read");
 				bookContainer.classList.add("read");
