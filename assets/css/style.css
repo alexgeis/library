@@ -307,21 +307,21 @@ nav {
 .book-card-container .single_book > * {
     padding: 5px 0;
 }
-.book-card-container .single-book .read {
+.book-card-container .read {
     background: linear-gradient(135deg, rgba(24, 77, 104, 0.8) 0%, rgba(87, 202, 133, 0.8) 100%);
     color: white;
 }
-.book-card-container .single-book .not-read {
+.book-card-container .not-read {
     background: linear-gradient(135deg, #e3e3e3 0%, #5d6874 100%);
     color: black;
 }
-.book-card-container .single-book .remove-book {
+.book-card-container .remove-book {
     position: absolute;
     top: 5px;
     right: 10px;
     cursor: pointer;
 }
-.book-card-container .single-book .read_toggle_label {
+.book-card-container .read_toggle_label {
     font-size: 12px;
     position: absolute;
     right: 65px;

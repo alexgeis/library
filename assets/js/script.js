@@ -219,7 +219,6 @@ function renderBooks() {
 				bookContainer.classList.add("not-read");
 			}
 			let index = bookContainer.getAttribute("data-index");
-			console.log({ index });
 			currentBooks[index].readStatus = element.checked;
 			// renderBooks();
 		});
