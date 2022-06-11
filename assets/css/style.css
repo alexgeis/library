@@ -18,6 +18,18 @@ body {
     /* padding: 0 20px; */
     background-color: azure;
 }
+
+                    /* DARK MODE TOGGLE */
+#header-container .dark {
+    
+}
+#hero-container .dark {
+
+}
+#book-container .dark {
+
+}
+
                                                 /* ----CONTAINER */
 .container {
     /* padding: 1rem 0; */
@@ -27,7 +39,10 @@ body {
 }
                                                 /* ----HEADER */
 #header-container {
-    background-color: aqua;
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.8) 0%, rgba(186, 230, 253, 0.8) 100%);
+    /* ORIGINAL */
+    /* background: linear-gradient(135deg, rgba(24, 77, 104, 0.8) 0%, rgba(87, 202, 133, 0.8) 100%); */
+    /* background-color: aqua; */
     /*
     display: grid;
     grid-template-columns: repeat(4,min-content) minmax(75px,1fr);
@@ -248,7 +263,7 @@ nav {
 ~~  BOOK SECTION ~~
 */
 #book-container {
-    background-color: rgb(210, 38, 207);
+    /* background-color: rgb(210, 38, 207); */
 }
 .book-section {
     /* grid-column: ; */
