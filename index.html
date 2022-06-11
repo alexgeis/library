@@ -20,107 +20,117 @@
 	</head>
 	<body>
 		<div class="container">
-			<header class="header">
-				<img
-					id="site-logo"
-					src="./assets/icons/book-open-page-variant-outline.svg"
-					alt="icon of book opening"
-				/>
-				<div class="site-title">Library</div>
-				<button class="add-book-form-open">Add Book +</button>
-				<!-- TOGGLE -->
-				<div class="theme">
-					<div id="light-toggle-text">Light</div>
+			<header>
+				<div class="content-container header">
+					<img
+						id="site-logo"
+						src="./assets/icons/book-open-page-variant-outline.svg"
+						alt="icon of book opening"
+					/>
+					<div class="site-title">Library</div>
+					<button class="add-book-form-open">Add Book +</button>
+					<!-- TOGGLE -->
+					<div class="theme">
+						<div id="light-toggle-text">Light</div>
 
-					<label class="switch">
-						<input type="checkbox" id="theme-toggle" />
+						<label class="switch">
+							<input type="checkbox" id="theme-toggle" />
 
-						<span class="slider round"></span>
-					</label>
+							<span class="slider round"></span>
+						</label>
 
-					<div id="dark-toggle-text">Dark</div>
-				</div>
-				<!-- TOGGLE END -->
-				<nav>
-					<ul class="nav-menu">
-						<li class="nav-item">
-							<a href="#" class="nav-link" id="login">Login</a>
-						</li>
-						<li class="nav-item">
-							<a href="" class="nav-link" id="signup">Signup</a>
-						</li>
-						<!-- <li class="nav-item">
+						<div id="dark-toggle-text">Dark</div>
+					</div>
+					<!-- TOGGLE END -->
+					<nav>
+						<ul class="nav-menu">
+							<li class="nav-item">
+								<a href="#" class="nav-link" id="login">Login</a>
+							</li>
+							<li class="nav-item">
+								<a href="" class="nav-link" id="signup">Signup</a>
+							</li>
+							<!-- <li class="nav-item">
 					<a href="" class="nav-link"></a>
 				</li> -->
-					</ul>
-				</nav>
-				<div id="search-section">
-					<img
-						id="search-icon"
-						src="./assets/icons/magnify.svg"
-						alt="magnifying glass search icon"
-					/>
-					<input type="search" id="book-search" name="book-search" />
-				</div>
-				<div class="book-totals">
-					<div class="books-read-display"></div>
-					<div class="book-progress-bar">
-						<div class="progress-bar"></div>
+						</ul>
+					</nav>
+					<div id="search-section">
+						<img
+							id="search-icon"
+							src="./assets/icons/magnify.svg"
+							alt="magnifying glass search icon"
+						/>
+						<input type="search" id="book-search" name="book-search" />
 					</div>
-					<div class="books-total-display"></div>
-				</div>
-				<div class="hamburger">
-					<span class="bar"></span><span class="bar"></span
-					><span class="bar"></span>
+					<div class="book-totals">
+						<div class="books-read-display"></div>
+						<div class="book-progress-bar">
+							<div class="progress-bar"></div>
+						</div>
+						<div class="books-total-display"></div>
+					</div>
+					<div class="hamburger">
+						<span class="bar"></span><span class="bar"></span
+						><span class="bar"></span>
+					</div>
 				</div>
 			</header>
 
-			<div class="hero">
-				<div id="search-section-hero">
-					<img
-						id="search-icon-hero"
-						src="./assets/icons/magnify.svg"
-						alt="magnifying glass search icon"
-					/>
-					<input type="search" id="book-search-hero" name="book-search-hero" />
-				</div>
-				<div class="book-totals-hero">
-					<div class="books-read-display-hero"></div>
-					<div class="book-progress-bar-hero">
-						<div class="progress-bar-hero"></div>
+			<div>
+				<div class="content-container hero">
+					<div id="search-section-hero">
+						<img
+							id="search-icon-hero"
+							src="./assets/icons/magnify.svg"
+							alt="magnifying glass search icon"
+						/>
+						<input
+							type="search"
+							id="book-search-hero"
+							name="book-search-hero"
+						/>
 					</div>
-					<div class="books-total-display-hero"></div>
+					<div class="book-totals-hero">
+						<div class="books-read-display-hero"></div>
+						<div class="book-progress-bar-hero">
+							<div class="progress-bar-hero"></div>
+						</div>
+						<div class="books-total-display-hero"></div>
+					</div>
 				</div>
 			</div>
 
 			<div class="book-section">
-				<div class="book-sort-status-section">
-					<div class="sort">
-						<label for="order_by"
-							>Order By:
-							<select name="order_by" id="order_by">
-								<option value="insertion_date" selected="">
-									Insertion date
-								</option>
-								<option value="publishing_date">Publishing date</option>
-							</select>
-							<select name="order" id="order">
-								<option value="ascending">Asc</option>
-								<option value="descending" selected="">Desc</option>
-							</select>
-						</label>
+				<div class="content-container">
+					<div class="book-sort-status-section">
+						<div class="sort">
+							<label for="order_by"
+								>Order By:
+								<select name="order_by" id="order_by">
+									<option value="insertion_date" selected="">
+										Insertion date
+									</option>
+									<option value="publishing_date">Publishing date</option>
+								</select>
+								<select name="order" id="order">
+									<option value="ascending">Asc</option>
+									<option value="descending" selected="">Desc</option>
+								</select>
+							</label>
+						</div>
+						<div class="status">
+							<div class="read_color"></div>
+							<h4>Read</h4>
+							<div class="unread_color"></div>
+							<h4>Not read</h4>
+						</div>
 					</div>
-					<div class="status">
-						<div class="read_color"></div>
-						<h4>Read</h4>
-						<div class="unread_color"></div>
-						<h4>Not read</h4>
-					</div>
-				</div>
 
-				<div class="book-card-container">
-					<!-- <div class="book-list"></div>
+					<div class="book-card-container">
+						<!-- <div class="book-list"></div>
 				<div class="book-grid"></div> -->
+					</div>
 				</div>
 			</div>
 		</div>
