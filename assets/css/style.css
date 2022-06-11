@@ -28,7 +28,6 @@ body {
                                                 /* ----HEADER */
 #header-container {
     background-color: aqua;
-    padding: 1rem;
     /*
     display: grid;
     grid-template-columns: repeat(4,min-content) minmax(75px,1fr);
@@ -41,27 +40,12 @@ body {
 #header-container,
 #hero-container,
 #book-container {
+    padding: 1rem;
   width: 100%;
 }
 .content-container {
 max-width: 1140px;
 margin: 0 auto;
-}
-.header  {
-    display: grid;
-    grid-template-columns: repeat(4,min-content) minmax(75px,1fr);
-    /* grid-template-columns: repeat(2,75px) minmax(75px,1fr); */
-    grid-auto-flow: column;
-    gap: 1.2rem;
-    align-items: center;
-}
-.header  {
-    display: grid;
-    grid-template-columns: repeat(4,min-content) minmax(75px,1fr);
-    /* grid-template-columns: repeat(2,75px) minmax(75px,1fr); */
-    grid-auto-flow: column;
-    gap: 1.2rem;
-    align-items: center;
 }
 .header  {
     display: grid;
@@ -206,10 +190,13 @@ nav {
 /* 
 ~~  HERO SECTION ~~
 */
-.hero {
+#hero-container {
     background-color: rgb(225, 255, 0);
-    padding:1rem;
     display:none;
+}
+
+.hero {
+    padding:0.8rem;
     /*
     display: grid;
     grid-template-columns: repeat(2,1fr);;
@@ -260,9 +247,11 @@ nav {
 /* 
 ~~  BOOK SECTION ~~
 */
+#book-container {
+    background-color: rgb(210, 38, 207);
+}
 .book-section {
     /* grid-column: ; */
-    /* background-color: rgb(210, 38, 207); */
     padding:1rem;
 }
 
@@ -494,7 +483,9 @@ nav {
         grid-template-columns: repeat(2,min-content) minmax(75px,1fr); 
         gap: 10px;
     }
-
+    #hero-container {
+        display:block;
+    }
     .hero {
         display: grid;
     grid-template-columns: repeat(2,1fr);
