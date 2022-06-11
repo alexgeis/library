@@ -26,7 +26,7 @@ body {
     grid-template-rows: 1fr 4fr;
 }
                                                 /* ----HEADER */
-.header {
+#header-container {
     background-color: aqua;
     padding: 1rem;
     /*
@@ -38,16 +38,16 @@ body {
     align-items: center;
     */
 }
-.header,
-.hero,
-.book-section {
+#header-container,
+#hero-container,
+#book-container {
   width: 100%;
 }
 .content-container {
 max-width: 1140px;
 margin: 0 auto;
 }
-.header .content-container  {
+.header  {
     display: grid;
     grid-template-columns: repeat(4,min-content) minmax(75px,1fr);
     /* grid-template-columns: repeat(2,75px) minmax(75px,1fr); */
@@ -55,7 +55,7 @@ margin: 0 auto;
     gap: 1.2rem;
     align-items: center;
 }
-.header .content-container  {
+.header  {
     display: grid;
     grid-template-columns: repeat(4,min-content) minmax(75px,1fr);
     /* grid-template-columns: repeat(2,75px) minmax(75px,1fr); */
@@ -63,7 +63,7 @@ margin: 0 auto;
     gap: 1.2rem;
     align-items: center;
 }
-.header .content-container  {
+.header  {
     display: grid;
     grid-template-columns: repeat(4,min-content) minmax(75px,1fr);
     /* grid-template-columns: repeat(2,75px) minmax(75px,1fr); */
