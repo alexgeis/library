@@ -21,15 +21,17 @@ body {
 
                     /* DARK MODE TOGGLE */
 header#header-container.dark {
-    background: linear-gradient(135deg, rgba(36, 36, 36, 0.8) 0%, rgba(186, 230, 253, 0.8) 100%);
+    background: linear-gradient(135deg, rgba(36, 36, 36, 0.8) 0%, rgba(186, 230, 253, 0.8) 100%);   
     color: white;   
     
 }
-#hero-container .dark {
-
+div#hero-container.dark {
+    background: rgb(101, 101, 101);
+    color: white; 
 }
-#book-container .dark {
-
+div#book-container.dark {
+    background: black;
+    color: white;   
 }
 
                                                 /* ----CONTAINER */
