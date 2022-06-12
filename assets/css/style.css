@@ -266,9 +266,11 @@ nav {
 /* 
 ~~  BOOK SECTION ~~
 */
-#book-container {
-    /* background-color: rgb(210, 38, 207); */
-}
+
+/* #book-container {
+    background-color: rgb(210, 38, 207);
+} */
+
 .book-section {
     /* grid-column: ; */
     padding:1rem;
@@ -411,7 +413,7 @@ nav {
     text-align: center;
     padding-top: 0;
     text-transform: capitalize;
-    color: lighten($color: #000000, $amount: 40);
+    color: #000;
     font-weight: 500;
   }
 
