@@ -21,6 +21,7 @@ body {
 
                     /* DARK MODE TOGGLE */
 #header-container .dark {
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.8) 0%, rgba(186, 230, 253, 0.8) 100%);
     
 }
 #hero-container .dark {

@@ -42,17 +42,20 @@ hamburger.addEventListener("click", () => {
 // 	},
 // ];
 
-const headerEl = document.querySelector(".header");
-const heroEl = document.querySelector(".hero");
-const bookSectionEl = document.querySelector(".book-section");
+const headerEl = document.querySelector("#header-container");
+const heroEl = document.querySelector("#hero-container");
+const bookSectionEl = document.querySelector("#book-container");
 const addBookFormEl = document.querySelector(".add_book_section");
 const themeToggle = document.querySelector("#theme-toggle");
 themeToggle.addEventListener("click", function (event) {
 	let element = event.target;
 	// let bookContainer = element.parentElement.parentElement;
-	if (bookContainer.classList.contains("not-read") === true) {
-		bookContainer.classList.remove("not-read");
-		bookContainer.classList.add("read");
+	if (element.checked) {
+		headerEl.classList.toggle("dark");
+		heroEl.classList.toggle("dark");
+		bookSectionEl.classList.toggle("dark");
+		addBookFormEl.classList.toggle("dark");
+		localStorage.setItem("theme", "dark");
 	} else if (bookContainer.classList.contains("read") === true) {
 		bookContainer.classList.remove("read");
 		bookContainer.classList.add("not-read");
