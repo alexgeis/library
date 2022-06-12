@@ -38,9 +38,6 @@ div#book-container.dark {
 header.dark > .header > .hamburger > .bar  {
     background-color: white;
 }
-.dark * .nav-menu {
-    background-color: #000;
-}
 
 .dark * .nav-link {
     color: white;
@@ -258,7 +255,7 @@ nav {
 .header #book-search,
 .hero #book-search {
     max-width: 70%;
-    min-width: 170px;
+    min-width: 10px;
 }
 
 
@@ -504,6 +501,9 @@ nav {
         text-align: center;
         transition: 0.3s;
     }
+    .dark * .nav-menu {
+        background-color: #000;
+    }
     .nav-item {
         margin: 16px 0;
     }
@@ -517,7 +517,7 @@ nav {
 
 @media(max-width:881px) {
     .container {
-    grid-template-rows: 1fr 1fr 4fr;
+    grid-template-rows: repeat(2,min-content) 5fr;
 }
 
     .header #search-section, 
@@ -540,6 +540,9 @@ nav {
     grid-auto-flow: column;
     justify-items: center;
     align-items: center;
+    }
+    #search-section-hero {
+        display: flex;
     }
 }
 
