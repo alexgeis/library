@@ -10,39 +10,7 @@ let currentBooks = savedBooks;
 let currentTheme = DEFAULT_THEME;
 let currentBooksReadCount = DEFAULT_BOOKS_READ;
 let currentBooksTotalCount = DEFAULT_BOOKS_TOTAL;
-
-const headerEl = document.querySelector("#header-container");
-const heroEl = document.querySelector("#hero-container");
-const bookSectionEl = document.querySelector("#book-container");
-const addBookFormEl = document.querySelector(".add_book_section");
-const themeToggle = document.querySelector("#theme-toggle");
-function setCurrentTheme(newTheme) {
-	currentTheme = newTheme;
-	if (currentTheme === "dark") {
-		headerEl.classList.add("dark");
-		heroEl.classList.add("dark");
-		bookSectionEl.classList.add("dark");
-		addBookFormEl.classList.add("dark");
-		themeToggle.checked = true;
-	}
-}
-
-themeToggle.addEventListener("click", function (event) {
-	let element = event.target;
-	console.log(element);
-	// let bookContainer = element.parentElement.parentElement;
-	if (element.checked || themeToggle.checked) {
-		headerEl.classList.toggle("dark");
-		heroEl.classList.toggle("dark");
-		bookSectionEl.classList.toggle("dark");
-		addBookFormEl.classList.toggle("dark");
-		setCurrentTheme("dark");
-		localStorage.setItem("theme", "dark");
-	} else {
-	}
-	let index = bookContainer.getAttribute("data-index");
-});
-
+//state variable updates
 function setCurrentBooks(newBooks) {
 	currentBooks = newBooks;
 }
@@ -51,6 +19,47 @@ function setBookReadTotals() {
 	currentBooksTotalCount = DEFAULT_BOOKS_TOTAL;
 }
 
+//theme toggle
+const headerEl = document.querySelector("#header-container");
+const heroEl = document.querySelector("#hero-container");
+const bookSectionEl = document.querySelector("#book-container");
+const addBookFormEl = document.querySelector(".add_book_section");
+const faviconEl = document.querySelector("#favicon");
+const themeToggle = document.querySelector("#theme-toggle");
+function setCurrentTheme(newTheme) {
+	currentTheme = newTheme;
+	if (currentTheme === "dark") {
+		headerEl.classList.add("dark");
+		heroEl.classList.add("dark");
+		bookSectionEl.classList.add("dark");
+		addBookFormEl.classList.add("dark");
+		faviconEl.setAttribute("href", "./assets/icons/favicon_light.ico");
+		themeToggle.checked = true;
+	}
+}
+
+themeToggle.addEventListener("click", function (event) {
+	let element = event.target;
+	if (element.checked) {
+		headerEl.classList.toggle("dark");
+		heroEl.classList.toggle("dark");
+		bookSectionEl.classList.toggle("dark");
+		addBookFormEl.classList.toggle("dark");
+		faviconEl.setAttribute("href", "./assets/icons/favicon_light.ico");
+		setCurrentTheme("dark");
+		localStorage.setItem("theme", "dark");
+	} else {
+		headerEl.classList.toggle("dark");
+		heroEl.classList.toggle("dark");
+		bookSectionEl.classList.toggle("dark");
+		addBookFormEl.classList.toggle("dark");
+		faviconEl.setAttribute("href", "./assets/icons/favicon.ico");
+		setCurrentTheme("light");
+		localStorage.setItem("theme", "light");
+	}
+});
+
+//hamburger mobile menu
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 
@@ -71,6 +80,7 @@ hamburger.addEventListener("click", () => {
 // 	},
 // ];
 
+//BOOK CONSTRUCTOR
 function Book(title, author, pages, language, publishDate, readStatus) {
 	this.title = title;
 	this.author = author;
@@ -81,6 +91,7 @@ function Book(title, author, pages, language, publishDate, readStatus) {
 	this.insertion_date = new Date().toLocaleString();
 }
 
+//ADD BOOK FUNCTION
 function addBookToLibrary() {
 	const newBook = new Book(
 		bookTitleForm.value,
