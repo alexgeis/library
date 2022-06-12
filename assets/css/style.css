@@ -46,6 +46,10 @@ header.dark > .header > .hamburger > .bar  {
     color: white;
 }
 
+.dark * .add-book-form-open {
+    background-color: #fff;
+    color: #000;
+}
                                                 /* ----CONTAINER */
 .container {
     /* padding: 1rem 0; */
@@ -93,6 +97,10 @@ margin: 0 auto;
     width: max-content;
     /* max-width: 75px; */
     border-radius: 15px;
+}
+.add-book-form-open {
+    background-color: #000;
+    color: #fff;
 }
                                         /* TOGGLE BUTTON */
 .switch {
