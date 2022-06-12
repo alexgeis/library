@@ -21,7 +21,7 @@ body {
 
                     /* DARK MODE TOGGLE */
 header#header-container.dark {
-    background: linear-gradient(135deg, rgba(36, 36, 36, 0.8) 0%, rgba(186, 230, 253, 0.8) 100%);   
+    background: linear-gradient(135deg, rgba(12, 74, 110, 0.8) 0%, rgba(2, 132, 199, 0.8) 100%);   
     color: white;   
     
 }
@@ -32,6 +32,18 @@ div#hero-container.dark {
 div#book-container.dark {
     background: black;
     color: white;   
+}
+#order_by,
+#order,
+header.dark > .header > .hamburger > .bar  {
+    background-color: white;
+}
+.dark * .nav-menu {
+    background-color: #000;
+}
+
+.dark * .nav-link {
+    color: white;
 }
 
                                                 /* ----CONTAINER */
@@ -187,10 +199,12 @@ nav {
     text-decoration: none;
 }
 .nav-link {
+    color: black;
     transition: 0.7s ease;
+    text-decoration: none;
 }
-.nav-link {
-    color:#2196F3;
+.nav-link:hover {
+    text-decoration: underline;
 }
 .hamburger {
     display: none;
@@ -475,7 +489,8 @@ nav {
         top: 108px;
         gap: 0;
         flex-direction: column;
-        background-color: black;
+        background-color: white;
+        /* background-color: black; */
         color: white;
         width: 100%;
         text-align: center;
@@ -483,6 +498,9 @@ nav {
     }
     .nav-item {
         margin: 16px 0;
+    }
+    .nav-link {
+        color:#0c4a6e;
     }
     .nav-menu.active {
         right: 0;
