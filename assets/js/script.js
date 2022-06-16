@@ -81,18 +81,6 @@ hamburger.addEventListener("click", () => {
 	navMenu.classList.toggle("active");
 });
 
-// //EXAMPLE ARRAY OBJECT FOR BOOK
-// [
-// 	{
-// 		title: "Example Book 1",
-// 		author: "Author 1",
-// 		pages: "500",
-// 		language: "English",
-// 		publishDate: 1955,
-// 		readStatus: true,
-// 	},
-// ];
-
 //BOOK CONSTRUCTOR
 function Book(title, author, pages, language, publishDate, readStatus) {
 	this.title = title;
