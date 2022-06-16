@@ -105,6 +105,7 @@ function addBookToLibrary() {
 	// if ((bookReadStatusForm.value === true))
 	currentBooks.push(newBook);
 	setCurrentBooks(currentBooks);
+	console.log(currentBooks);
 	localStorage.setItem("books", JSON.stringify(currentBooks));
 	addBookSection.setAttribute("style", "display: none;");
 	setBookReadTotals();
@@ -167,11 +168,15 @@ function renderBooks() {
 	bookContainer.innerHTML = "";
 	for (let i = 0; i < currentBooks.length; i++) {
 		const book = currentBooks[i];
-		console.log({ book });
+		console.log(book.readStatus);
 		//
 		const bookCard = document.createElement("div");
-		if (book.readStatus === true) bookCard.classList.add("read");
-		else bookCard.classList.add("not-read");
+
+		// if (book.readStatus === true || book.readStatus === "true")
+		if (book.readStatus === true || book.readStatus === "true") {
+			bookCard.classList.add("read");
+		} else if (book.readStatus === false) bookCard.classList.add("not-read");
+
 		bookCard.classList.add("single-book", "scale-in-center");
 		bookCard.setAttribute("id", "book-" + i);
 		bookCard.setAttribute("data-index", i);
@@ -243,7 +248,10 @@ function renderBooks() {
 		const toggleControlCheckbox = document.createElement("input");
 		toggleControlCheckbox.setAttribute("type", "checkbox");
 		toggleControlCheckbox.classList.add("read_toggle");
-		// toggleControlCheckbox.setAttribute("checked", "");
+		// if (book.readStatus===true) toggleControlCheckbox.setAttribute("checked", "");
+		if (book.readStatus === true || book.readStatus === "true")
+			toggleControlCheckbox.checked = true;
+		if (bookReadStatusForm.value === true) toggleControlCheckbox.checked = true;
 		const toggleControlSpan = document.createElement("span");
 		toggleControlSpan.classList.add("read-toggle-slider", "round");
 		toggleControlLabel.append(toggleControlCheckbox, toggleControlSpan);
