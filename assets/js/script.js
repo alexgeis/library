@@ -102,6 +102,7 @@ function addBookToLibrary() {
 		bookDateForm.value,
 		bookReadStatusForm.value
 	);
+	// if ((bookReadStatusForm.value === true))
 	currentBooks.push(newBook);
 	setCurrentBooks(currentBooks);
 	localStorage.setItem("books", JSON.stringify(currentBooks));
@@ -122,15 +123,6 @@ const bookTotalDisplayHero = document.querySelector(
 );
 bookTotalDisplayHero.textContent = `Books total: ${currentBooksTotalCount}`;
 
-function clearForm() {
-	bookTitleForm.value = "";
-	bookAuthorForm.value = "";
-	bookPagesForm.value = "";
-	bookLanguageForm.value = "";
-	bookDateForm.value = "";
-	bookReadStatusForm.options.selectedIndex = 0;
-}
-
 const addBookSection = document.querySelector(".add_book_section");
 function renderNewForm() {
 	addBookSection.setAttribute("style", "display: block;");
@@ -139,6 +131,14 @@ function renderNewForm() {
 const addBookBtn = document.querySelector(".add-book-form-open");
 addBookBtn.addEventListener("click", renderNewForm);
 
+function clearForm() {
+	bookTitleForm.value = "";
+	bookAuthorForm.value = "";
+	bookPagesForm.value = "";
+	bookLanguageForm.value = "";
+	bookDateForm.value = "";
+	bookReadStatusForm.options.selectedIndex = 0;
+}
 function closeForm() {
 	addBookSection.setAttribute("style", "display: none;");
 }
@@ -167,9 +167,12 @@ function renderBooks() {
 	bookContainer.innerHTML = "";
 	for (let i = 0; i < currentBooks.length; i++) {
 		const book = currentBooks[i];
+		console.log({ book });
 		//
 		const bookCard = document.createElement("div");
-		bookCard.classList.add("single-book", "scale-in-center", "not-read");
+		if (book.readStatus === true) bookCard.classList.add("read");
+		else bookCard.classList.add("not-read");
+		bookCard.classList.add("single-book", "scale-in-center");
 		bookCard.setAttribute("id", "book-" + i);
 		bookCard.setAttribute("data-index", i);
 		//
