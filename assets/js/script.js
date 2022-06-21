@@ -92,7 +92,7 @@ function Book(title, author, pages, language, publishDate, readStatus) {
 	this.insertion_date = new Date().toLocaleString();
 }
 
-// CLASS VERSION OF ABOVE CODE 84-115//
+// CLASS VERSION OF ABOVE CODE 84-93//
 // class Book {
 // 	constructor(title, author, pages, language, publishDate, readStatus) {
 // 		this.title = title;
