@@ -92,6 +92,19 @@ function Book(title, author, pages, language, publishDate, readStatus) {
 	this.insertion_date = new Date().toLocaleString();
 }
 
+// CLASS VERSION OF ABOVE CODE 84-115//
+// class Book {
+// 	constructor(title, author, pages, language, publishDate, readStatus) {
+// 		this.title = title;
+// 		this.author = author;
+// 		this.pages = pages;
+// 		this.language = language;
+// 		this.publishDate = publishDate;
+// 		this.readStatus = readStatus;
+// 		this.insertion_date = new Date().toLocaleString();
+// 	}
+// }
+
 //ADD BOOK FUNCTION
 function addBookToLibrary() {
 	const newBook = new Book(
