@@ -20,7 +20,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/alexgeis/library">
-    <img src="./assets/icons/favicon.ico" alt="Logo" width="80" height="80">
+    <img src="./assets/icons/book-white.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Library Bookshelf Application</h3>
