@@ -43,19 +43,19 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li>
+    <!-- <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
       </ul>
-    </li>
-    <li>
+    </li> -->
+        <li><a href="#built-with">Built With</a></li>
+    <!-- <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
-    </li>
+    </li> -->
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
@@ -67,28 +67,22 @@
 
 <!-- ABOUT THE PROJECT -->
 
-## About The Project
+<!-- ## About The Project
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
-<a href="https://example.com">
+<!-- <a href="https://example.com">
 <p align="center">
 <img id="product-screenshot" src="images/screenshot.png" alt="Product Name Screen Shot"
 style="display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 60%;"/></p></a>
+    width: 60%;"/></p></a> -->
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<!-- <p align="right">(<a href="#top">back to top</a>)</p> -->
 
 ### Built With
 
-- [React.js](https://reactjs.org/)
-- [Bootstrap](https://getbootstrap.com)
-- [Node.js](https://nodejs.dev/)
-- [Express](https://expressjs.com/)
-- [MongoDB](https://www.mongodb.com/)
-- [MySQL](https://www.mysql.com/)
-- [JQuery](https://jquery.com)
+Vanilla Javascript, CSS, and HTML.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
