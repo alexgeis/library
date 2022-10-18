@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS user_db;
+DROP DATABASE IF EXISTS library_app_db;
 
-CREATE DATABASE user_db;
+CREATE DATABASE library_app_db;
