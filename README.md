@@ -82,7 +82,16 @@ style="display: block;
 
 ### Built With
 
-Vanilla Javascript, CSS, and HTML.
+<!-- - [Webpack](https://webpack.js.org/) -->
+<!-- - [React.js](https://reactjs.org/) -->
+<!-- - [Bootstrap](https://getbootstrap.com) -->
+
+- [Node.js](https://nodejs.dev/)
+- [Express](https://expressjs.com/)
+<!-- - [MongoDB](https://www.mongodb.com/) -->
+- [MySQL](https://www.mysql.com/)
+- [Sequelize](https://sequelize.org/)
+<!-- - [JQuery](https://jquery.com) -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
