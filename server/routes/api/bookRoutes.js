@@ -1,14 +1,19 @@
 const router = require("express").Router();
-
+const { Book, User } = require("../../models");
 // Import the model
 const Book = require("../../models/Book");
 
 // GET all books
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
 	// Get all books from the book table
-	Book.findAll().then((bookData) => {
-		res.json(bookData);
-	});
+	try {
+		const bookData = await Book.findAll({
+			include: [{ model: User }],
+		});
+		res.status(200).json(bookData);
+	} catch (err) {
+		res.status(500).json(err);
+	}
 });
 // GET a single book
 router.get("/:id", (req, res) => {
