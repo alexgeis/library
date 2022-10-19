@@ -19,7 +19,7 @@ Book.init(
 			allowNull: false,
 		},
 		isbn: {
-			type: DataTypes.INTEGER,
+			type: DataTypes.STRING,
 		},
 		pages: {
 			type: DataTypes.INTEGER,
