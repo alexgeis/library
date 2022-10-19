@@ -14,6 +14,29 @@ router.get("/", async (req, res) => {
 	}
 });
 
+// POST create a new user
+router.post("/", async (req, res) => {
+	try {
+		// if no password hashing
+		// const userData = await User.create({
+		// 	username: req.body.username,
+		// 	email: req.body.email,
+		// 	password: req.body.password,
+		//   });
+		// res.status(200).json(userData);
+
+		// if password hashing
+		const newUser = req.body;
+		// hashed password                                  // salt
+		newUser.password = await bcrypt.hash(req.body.password, 10);
+		// create the newUser with the hashed password and save to DB
+		const userData = await User.create(newUser);
+		res.status(200).json(userData);
+	} catch (err) {
+		res.status(400).json(err);
+	}
+});
+
 // GET one user
 router.get("/:id", async (req, res) => {
 	try {
@@ -32,21 +55,41 @@ router.get("/:id", async (req, res) => {
 	}
 });
 
-// POST create a new user
-router.post("/", async (req, res) => {
+// PUT update a user
+router.put("/:id", async (req, res) => {
 	try {
-		// if no password hashing
-		// const userData = await User.create(req.body);
-
-		const newUser = req.body;
-		// hash the password from 'req.body' and save to newUser
-		// hashed password                                  // salt
-		newUser.password = await bcrypt.hash(req.body.password, 10);
-		// create the newUser with the hashed password and save to DB
-		const userData = await User.create(newUser);
+		const userData = await User.update(req.body, {
+			where: {
+				id: req.params.id,
+			},
+			// https://sequelize.org/docs/v6/other-topics/hooks/
+			individualHooks: true,
+		});
+		if (!userData[0]) {
+			res.status(404).json({ message: "No user with this id!" });
+			return;
+		}
 		res.status(200).json(userData);
 	} catch (err) {
-		res.status(400).json(err);
+		res.status(500).json(err);
+	}
+});
+
+// DELETE a user based on ID
+router.delete("/:id", async (req, res) => {
+	try {
+		const userData = await User.destroy({
+			where: {
+				id: req.params.id,
+			},
+		});
+		if (!userData) {
+			res.status(404).json({ message: "No user with this id!" });
+			return;
+		}
+		res.status(200).json(userData);
+	} catch (err) {
+		res.status(500).json(err);
 	}
 });
 
@@ -75,42 +118,6 @@ router.post("/login", async (req, res) => {
 		res.json({ user: userData, message: "You are now logged in!" });
 	} catch (err) {
 		res.status(400).json(err);
-	}
-});
-
-// PUT update a user
-router.put("/:id", async (req, res) => {
-	try {
-		const userData = await User.update(req.body, {
-			where: {
-				id: req.params.id,
-			},
-		});
-		if (!userData[0]) {
-			res.status(404).json({ message: "No user with this id!" });
-			return;
-		}
-		res.status(200).json(userData);
-	} catch (err) {
-		res.status(500).json(err);
-	}
-});
-
-// DELETE a user based on ID
-router.delete("/:id", async (req, res) => {
-	try {
-		const userData = await User.destroy({
-			where: {
-				id: req.params.id,
-			},
-		});
-		if (!userData) {
-			res.status(404).json({ message: "No user with this id!" });
-			return;
-		}
-		res.status(200).json(userData);
-	} catch (err) {
-		res.status(500).json(err);
 	}
 });
 

@@ -7,6 +7,7 @@ Book.init(
 	{
 		id: {
 			type: DataTypes.INTEGER,
+			allowNull: false,
 			primaryKey: true,
 			autoIncrement: true,
 		},
@@ -26,9 +27,11 @@ Book.init(
 		},
 		edition: {
 			type: DataTypes.INTEGER,
+			defaultValue: 1,
 		},
 		is_paperback: {
 			type: DataTypes.BOOLEAN,
+			defaultValue: true,
 		},
 		user_id: {
 			type: DataTypes.INTEGER,
