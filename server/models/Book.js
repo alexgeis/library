@@ -17,7 +17,7 @@ Book.init(
 			type: DataTypes.STRING,
 		},
 		isbn: {
-			type: DataTypes.STRING,
+			type: DataTypes.INTEGER,
 		},
 		pages: {
 			type: DataTypes.INTEGER,
@@ -27,6 +27,13 @@ Book.init(
 		},
 		is_paperback: {
 			type: DataTypes.BOOLEAN,
+		},
+		user_id: {
+			type: DataTypes.INTEGER,
+			references: {
+				model: "user",
+				key: "id",
+			},
 		},
 	},
 	{
