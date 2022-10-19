@@ -35,34 +35,49 @@ router.get("/:id", async (req, res) => {
 });
 
 // GET all paperback books
-router.get("/paperbacks", (req, res) => {
-	Book.findAll({
-		// Order by title in ascending order
-		order: ["title"],
-		where: {
-			// Only get books that have this boolean set to TRUE
-			is_paperback: true,
-		},
-		attributes: {
-			// Don't include these fields in the returned data
-			exclude: ["is_paperback", "edition"],
-		},
-	}).then((bookData) => {
-		res.json(bookData);
-	});
+router.get("/paperbacks", async (req, res) => {
+	try {
+		const bookData = await Book.findAll({
+			// Order by title in ascending order
+			order: ["title"],
+			include: [{ model: User }],
+			where: {
+				// Only get books that have this boolean set to TRUE
+				is_paperback: true,
+			},
+			attributes: {
+				// Don't include these fields in the returned data
+				exclude: ["is_paperback", "edition"],
+			},
+		});
+
+		res.status(200).json(bookData);
+	} catch (err) {
+		res.status(500).json(err);
+	}
 });
 
 // GET a book
-router.get("/:isbn", (req, res) => {
+router.get("/:isbn", async (req, res) => {
 	// Get one book from the book table
-	Book.findOne({
-		// Gets the book based on the isbn given in the request parameters
-		where: {
-			isbn: req.params.isbn,
-		},
-	}).then((bookData) => {
-		res.json(bookData);
-	});
+	try {
+		const bookData = await Book.findOne({
+			// Gets the book based on the isbn given in the request parameters
+			where: {
+				isbn: req.params.isbn,
+			},
+			include: [{ model: User }],
+		});
+
+		if (!bookData) {
+			res.status(404).json({ message: "No book found with that id!" });
+			return;
+		}
+
+		res.status(200).json(bookData);
+	} catch (err) {
+		res.status(500).json(err);
+	}
 });
 
 // CREATE a book
