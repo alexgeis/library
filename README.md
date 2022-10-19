@@ -20,7 +20,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/alexgeis/library">
-    <img src="./assets/icons/book-white.png" alt="Logo" width="80" height="80">
+    <img src="./client/public/assets/icons/book-white.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Library Bookshelf Application</h3>
@@ -85,10 +85,10 @@ style="display: block;
 <!-- - [Webpack](https://webpack.js.org/) -->
 <!-- - [React.js](https://reactjs.org/) -->
 <!-- - [Bootstrap](https://getbootstrap.com) -->
+<!-- - [MongoDB](https://www.mongodb.com/) -->
 
 - [Node.js](https://nodejs.dev/)
 - [Express](https://expressjs.com/)
-<!-- - [MongoDB](https://www.mongodb.com/) -->
 - [MySQL](https://www.mysql.com/)
 - [Sequelize](https://sequelize.org/)
 <!-- - [JQuery](https://jquery.com) -->
