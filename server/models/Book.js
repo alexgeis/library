@@ -33,6 +33,11 @@ Book.init(
 			type: DataTypes.BOOLEAN,
 			defaultValue: true,
 		},
+		is_read: {
+			type: DataTypes.BOOLEAN,
+			allowNull: false,
+			defaultValue: false,
+		},
 		user_id: {
 			type: DataTypes.INTEGER,
 			references: {
