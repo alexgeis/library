@@ -16,11 +16,22 @@ router.get("/", async (req, res) => {
 	}
 });
 // GET a single book
-router.get("/:id", (req, res) => {
-	// Find a single book by its primary key (book_id)
-	Book.findByPk(req.params.id).then((bookData) => {
-		res.json(bookData);
-	});
+router.get("/:id", async (req, res) => {
+	// Find a single book by its id
+	try {
+		const bookData = await Book.findByPk(req.params.id, {
+			include: [{ model: User }],
+		});
+
+		if (!bookData) {
+			res.status(404).json({ message: "No book found with that id!" });
+			return;
+		}
+
+		res.status(200).json(bookData);
+	} catch (err) {
+		res.status(500).json(err);
+	}
 });
 
 // GET all paperback books
