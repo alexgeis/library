@@ -8,9 +8,9 @@ User.hasMany(Book, {
 	onDelete: "CASCADE",
 });
 
-// // The association can also be created from the Book side
-// Book.belongsTo(User, {
-//   foreignKey: "user_id",
-// });
+// The association can also be created from the Book side
+Book.belongsTo(User, {
+	foreignKey: "user_id",
+});
 
 module.exports = { User, Book };
