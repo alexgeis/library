@@ -81,24 +81,56 @@ router.get("/:isbn", async (req, res) => {
 });
 
 // CREATE a book
-router.post("/", (req, res) => {
-	// Use Sequelize's `create()` method to add a row to the table
-	// Similar to `INSERT INTO` in plain SQL
-
-	//model creates our tables, but it's also how we're going to interact w/ our DB table
-	//passed object corresponds to fields associated with books table - not all fields required (current constraints allow NULL)
-	Book.create({
-		title: req.body.title,
-		author: req.body.author,
-		is_paperback: true,
-	})
-		.then((newBook) => {
-			// Send the newly created row as a JSON object
-			res.json(newBook);
-		})
-		.catch((err) => {
-			res.json(err);
+router.post("/", async (req, res) => {
+	try {
+		const newBook = await Book.create({
+			title: req.body.title,
+			author: req.body.author,
+			is_paperback: true,
+			user_id: req.body.user_id,
 		});
+		res.status(200).json(newBook);
+	} catch (err) {
+		res.status(400).json(err);
+	}
+});
+
+// PUT update a book
+router.put("/:id", async (req, res) => {
+	try {
+		const bookData = await Book.update(req.body, {
+			where: {
+				id: req.params.id,
+			},
+		});
+		if (!bookData[0]) {
+			res.status(404).json({ message: "No book with this id!" });
+			return;
+		}
+		res.status(200).json(bookData);
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
+// DELETE a book
+router.delete("/:id", async (req, res) => {
+	try {
+		const bookData = await Book.destroy({
+			where: {
+				id: req.params.id,
+			},
+		});
+
+		if (!bookData) {
+			res.status(404).json({ message: "No book found with that id!" });
+			return;
+		}
+
+		res.status(200).json(bookData);
+	} catch (err) {
+		res.status(500).json(err);
+	}
 });
 
 module.exports = router;
