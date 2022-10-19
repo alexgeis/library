@@ -1,0 +1,27 @@
+[
+    {
+      "title": "Gravity's Rainbow",
+      "author": "Thomas Pynchon",
+      "isbn": "9780099533214",
+      "pages": "760",
+      "edition": "1",
+      "is_paperback": "true"
+    },
+    {
+      "title": "Critique of Pure Reason",
+      "author": "Immanuel Kant",
+      "isbn": "9780521354028",
+      "pages": "784",
+      "edition": "2",
+      "is_paperback": "true"
+    },
+    {
+      "title": "October",
+      "author": "China Miéville",
+      "isbn": "9781543625516",
+      "pages": "462",
+      "edition": "3",
+      "is_paperback": "false"
+    }
+  ]
+  
