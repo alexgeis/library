@@ -17,15 +17,6 @@ function setBookReadTotals() {
 	currentBooksTotalCount = DEFAULT_BOOKS_TOTAL;
 }
 
-//hamburger mobile menu
-const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".nav-menu");
-
-hamburger.addEventListener("click", () => {
-	hamburger.classList.toggle("active");
-	navMenu.classList.toggle("active");
-});
-
 //BOOK CONSTRUCTOR
 function Book(title, author, pages, language, publishDate, readStatus) {
 	this.title = title;
