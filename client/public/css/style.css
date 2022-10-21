@@ -438,7 +438,9 @@ nav {
 }
 
 .new-book-form h4 {
-    font-size: .5rem;
+    font-size: .7rem;
+    text-align: center;
+    margin-top: -.8rem;
 }
 
 .new-book-form input {
@@ -448,6 +450,38 @@ nav {
 .err-msg {
     display: none;
     color: red;
+}
+
+.new-book-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0 auto;
+}
+.new-book-buttons button {
+ box-sizing: border-box;
+ appearance: none;
+ background-color: transparent;
+ border: 2px solid rgba(2, 132, 199, 0.8);
+ border-radius: 0.6rem;
+ color: rgba(2, 132, 199, 0.8);
+ cursor: pointer;
+ display: flex;
+ align-self: center;
+ font-size: 1rem;
+ line-height: 1;
+ /* margin: 20px; */
+ padding: 1.2em 2.8em;
+ text-decoration: none;
+ text-align: center;
+ text-transform: uppercase;
+ transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+.new-book-buttons button:hover,
+.new-book-buttons button:focus {
+    color: #fff;
+    outline: 0;
+    box-shadow: 0 0 40px 40px rgba(2, 132, 199, 0.8) inset;
 }
 
 .empty_library_section {
