@@ -105,8 +105,24 @@ function Book(title, author, pages, language, publishDate, readStatus) {
 // 	}
 // }
 
+async function postBookData(url = "", data = {}) {
+	// Default options are marked with *
+	const response = await fetch(url, {
+		method: "POST",
+		mode: "cors",
+		cache: "no-cache",
+		credentials: "same-origin",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		redirect: "follow",
+		referrerPolicy: "no-referrer",
+		body: JSON.stringify(data),
+	});
+	return response.json(); // parses JSON response into native JavaScript objects
+}
 //ADD BOOK FUNCTION
-function addBookToLibrary() {
+async function addBookToLibrary() {
 	const newBook = new Book(
 		bookTitleForm.value,
 		bookAuthorForm.value,
@@ -116,6 +132,8 @@ function addBookToLibrary() {
 		bookReadStatusForm.value
 	);
 	// if ((bookReadStatusForm.value === true))
+	const response = postBookData("/api/books");
+	console.log(response);
 	currentBooks.push(newBook);
 	setCurrentBooks(currentBooks);
 	console.log(currentBooks);
@@ -138,14 +156,14 @@ const bookTotalDisplayHero = document.querySelector(
 bookTotalDisplayHero.textContent = `Books total: ${currentBooksTotalCount}`;
 
 const addBookSection = document.querySelector(".add_book_section");
-function renderNewForm() {
+function renderAddBookForm() {
 	addBookSection.setAttribute("style", "display: block;");
 }
 
 const addBookBtn = document.querySelector(".add-book-form-open");
-addBookBtn.addEventListener("click", renderNewForm);
+addBookBtn.addEventListener("click", renderAddBookForm);
 
-function clearForm() {
+function clearBookForm() {
 	bookTitleForm.value = "";
 	bookAuthorForm.value = "";
 	bookPagesForm.value = "";
@@ -171,7 +189,7 @@ const clearFormBtn = document.querySelector(".clear");
 
 // newBookForm.addEventListener("submit", addBookToLibrary);
 addBookFormBtn.addEventListener("click", addBookToLibrary);
-clearFormBtn.addEventListener("click", clearForm);
+clearFormBtn.addEventListener("click", clearBookForm);
 closeFormBtn.addEventListener("click", closeForm);
 
 //CARD
