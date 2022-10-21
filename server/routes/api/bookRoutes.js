@@ -84,7 +84,11 @@ router.post("/", async (req, res) => {
 		const newBook = await Book.create({
 			title: req.body.title,
 			author: req.body.author,
-			is_paperback: true,
+			isbn: req.body.isbn,
+			pages: req.body.pages,
+			edition: req.body.edition,
+			is_paperback: req.body.is_paperback,
+			is_read: req.body.is_read,
 			user_id: req.body.user_id,
 		});
 		res.status(200).json(newBook);
