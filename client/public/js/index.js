@@ -1,5 +1,4 @@
 //DEFAULTS
-const DEFAULT_THEME = localStorage.getItem("theme") || "light";
 const savedBooks = JSON.parse(localStorage.getItem("books")) || [];
 const currentlyRead = savedBooks.filter((book) => book.readStatus === true);
 const DEFAULT_BOOKS_READ = currentlyRead.length;
@@ -7,7 +6,6 @@ const DEFAULT_BOOKS_TOTAL = savedBooks.length;
 
 //state variables
 let currentBooks = savedBooks;
-let currentTheme = DEFAULT_THEME;
 let currentBooksReadCount = DEFAULT_BOOKS_READ;
 let currentBooksTotalCount = DEFAULT_BOOKS_TOTAL;
 //state variable updates
@@ -18,59 +16,6 @@ function setBookReadTotals() {
 	currentBooksReadCount = DEFAULT_BOOKS_READ;
 	currentBooksTotalCount = DEFAULT_BOOKS_TOTAL;
 }
-
-//theme toggle
-const headerEl = document.querySelector("#header-container");
-const heroEl = document.querySelector("#hero-container");
-const bookSectionEl = document.querySelector("#book-container");
-const addBookFormEl = document.querySelector(".add_book_section");
-const faviconEl = document.querySelector("#favicon");
-const siteLogoEl = document.querySelector("#site-logo");
-const themeToggle = document.querySelector("#theme-toggle");
-function setCurrentTheme(newTheme) {
-	currentTheme = newTheme;
-	if (currentTheme === "dark") {
-		headerEl.classList.add("dark");
-		heroEl.classList.add("dark");
-		bookSectionEl.classList.add("dark");
-		addBookFormEl.classList.add("dark");
-		faviconEl.setAttribute("href", "./assets/icons/favicon_light.ico");
-		siteLogoEl.setAttribute(
-			"src",
-			"./assets/icons/book-open-page-variant-outline_light.svg"
-		);
-		themeToggle.checked = true;
-	}
-}
-
-themeToggle.addEventListener("click", function (event) {
-	let element = event.target;
-	if (element.checked) {
-		headerEl.classList.toggle("dark");
-		heroEl.classList.toggle("dark");
-		bookSectionEl.classList.toggle("dark");
-		addBookFormEl.classList.toggle("dark");
-		faviconEl.setAttribute("href", "./assets/icons/favicon_light.ico");
-		siteLogoEl.setAttribute(
-			"src",
-			"./assets/icons/book-open-page-variant-outline_light.svg"
-		);
-		setCurrentTheme("dark");
-		localStorage.setItem("theme", "dark");
-	} else {
-		headerEl.classList.toggle("dark");
-		heroEl.classList.toggle("dark");
-		bookSectionEl.classList.toggle("dark");
-		addBookFormEl.classList.toggle("dark");
-		faviconEl.setAttribute("href", "./assets/icons/favicon.ico");
-		siteLogoEl.setAttribute(
-			"src",
-			"./assets/icons/book-open-page-variant-outline.svg"
-		);
-		setCurrentTheme("light");
-		localStorage.setItem("theme", "light");
-	}
-});
 
 //hamburger mobile menu
 const hamburger = document.querySelector(".hamburger");
@@ -105,7 +50,7 @@ function Book(title, author, pages, language, publishDate, readStatus) {
 // 	}
 // }
 
-async function postBookData(url = "", data = {}) {
+async function postData(url = "", data = {}) {
 	// Default options are marked with *
 	const response = await fetch(url, {
 		method: "POST",
@@ -132,7 +77,7 @@ async function addBookToLibrary() {
 		bookReadStatusForm.value
 	);
 	// if ((bookReadStatusForm.value === true))
-	const response = postBookData("/api/books");
+	const response = postData("/api/books");
 	console.log(response);
 
 	currentBooks.push(newBook);
