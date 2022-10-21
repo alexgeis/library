@@ -407,6 +407,7 @@ nav {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    gap: 1rem;
     font-size: 1rem;
     text-align: start;
     padding: 1rem 1rem;
@@ -434,7 +435,12 @@ nav {
     text-transform: capitalize;
     color: #000;
     font-weight: 500;
-  }
+}
+
+.err-msg {
+    display: none;
+    color: red;
+}
 
 .empty_library_section {
     position: relative;
