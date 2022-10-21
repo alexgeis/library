@@ -437,6 +437,14 @@ nav {
     font-weight: 500;
 }
 
+.new-book-form h4 {
+    font-size: .5rem;
+}
+
+.new-book-form input {
+    margin-left: .7rem;
+}
+
 .err-msg {
     display: none;
     color: red;
