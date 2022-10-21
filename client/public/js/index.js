@@ -134,6 +134,7 @@ async function addBookToLibrary() {
 	// if ((bookReadStatusForm.value === true))
 	const response = postBookData("/api/books");
 	console.log(response);
+
 	currentBooks.push(newBook);
 	setCurrentBooks(currentBooks);
 	console.log(currentBooks);
