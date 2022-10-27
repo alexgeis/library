@@ -30,6 +30,29 @@ function closeForm() {
 	addBookSection.setAttribute("style", "display: none;");
 }
 
+//ADD BOOK FUNCTION
+async function addBookToLibrary() {
+	const newBook = new Book(
+		bookTitleForm.value,
+		bookAuthorForm.value,
+		bookPagesForm.value,
+		bookLanguageForm.value,
+		bookDateForm.value,
+		bookReadStatusForm.value
+	);
+	// if ((bookReadStatusForm.value === true))
+	const response = postData("/api/books");
+	// console.log(response);
+
+	currentBooks.push(newBook);
+	setCurrentBooks(currentBooks);
+	console.log(currentBooks);
+	localStorage.setItem("books", JSON.stringify(currentBooks));
+	addBookSection.setAttribute("style", "display: none;");
+	setBookReadTotals();
+	renderBooks();
+}
+
 // newBookForm.addEventListener("submit", addBookToLibrary);
 addBookFormBtn.addEventListener("click", addBookToLibrary);
 clearFormBtn.addEventListener("click", clearBookForm);
