@@ -387,7 +387,8 @@ nav {
     FORM SECTION
 */
 .add_book_section,
-.login_section {
+.login_section,
+.signup_section {
     display: none;
     /* hide for now */
     width: 100vw;
@@ -402,7 +403,8 @@ nav {
 }
 
 .new-book-form,
-.login-form {
+.login-form,
+.signup-form {
     width: max-content;
     max-width: 100vw;
     max-height: 100vh;
@@ -440,14 +442,16 @@ nav {
 }
 
 .new-book-form h4,
-.login-form h4 {
+.login-form h4, 
+.signup-form h4 {
     font-size: .7rem;
     text-align: center;
     margin-top: -.8rem;
 }
 
 .new-book-form input,
-.login-form input {
+.login-form input,
+.signup-form input {
     margin-left: .7rem;
 }
 
@@ -457,7 +461,8 @@ nav {
 }
 
 .new-book-buttons,
-.login-buttons {
+.login-buttons,
+.signup-buttons {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
@@ -465,7 +470,8 @@ nav {
 }
 
 .new-book-buttons button,
-.login-buttons button {
+.login-buttons button,
+.signup-buttons button {
     box-sizing: border-box;
     appearance: none;
     background-color: transparent;
@@ -487,7 +493,9 @@ nav {
 .new-book-buttons button:hover,
 .new-book-buttons button:focus,
 .login-buttons button:hover,
-.login-buttons button:focus {
+.login-buttons button:focus,
+.signup-buttons button:hover,
+.signup-buttons button:focus {
     color: #fff;
     outline: 0;
     box-shadow: 0 0 40px 40px rgba(2, 132, 199, 0.8) inset;

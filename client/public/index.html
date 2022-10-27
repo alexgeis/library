@@ -227,10 +227,10 @@
 				</div>
 			</div>
 		</section>
-		<!-- LOGIN/SIGNUP FORM -->
+		<!-- LOGIN FORM -->
 		<section class="login_section">
 			<div class="login-form">
-				<h2 class="form_title">Login / Signup</h2>
+				<h2 class="form_title">Login</h2>
 				<h4>* = required</h4>
 				<span class="material-icons close-form" id="close-login-form">
 					close
@@ -256,7 +256,7 @@
 				>
 				<p>
 					Don't have an account?
-					<a href="http://" id="signup-login-form">Sign up</a>
+					<a href="http://" id="login-to-signup-form">Sign up</a>
 				</p>
 
 				<div class="login-buttons">
@@ -265,6 +265,46 @@
 				</div>
 			</div>
 		</section>
+		<!-- SIGNUP FORM -->
+		<section class="signup_section">
+			<div class="signup-form">
+				<h2 class="form_title">Signup</h2>
+				<h4>* = required</h4>
+				<span class="material-icons close-form" id="close-signup-form">
+					close
+				</span>
+				<label for="signup-email"
+					>Email*
+					<input
+						class="form-control"
+						type="email"
+						name="signup-email"
+						id="signup-email"
+						placeholder="zeus@yahoo.com"
+					/><small class="err-msg">* Email is required for signup</small></label
+				>
+				<label for="signup-password"
+					>Password*
+					<input
+						class="form-control"
+						type="password"
+						name="signup-password"
+						id="signup-password"
+					/><small class="err-msg">* Password is required</small></label
+				>
+				<p>
+					Already have an account?
+					<a href="http://" id="signup-to-login-form">Login</a>
+				</p>
+
+				<div class="signup-buttons">
+					<button class="btn" id="signup-btn">signup</button>
+					<button class="btn clear" id="clear-signup-form">Clear fields</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- JAVASCRIPT -->
 		<script src="./js/state.js"></script>
 		<script src="./js/heroDisplay.js"></script>
 		<script src="./js/hamburgerMenu.js"></script>
