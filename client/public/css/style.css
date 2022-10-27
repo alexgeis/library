@@ -383,10 +383,11 @@ nav {
     right: 65px;
     bottom: 7.5px;
 }
-                            /* 
-                                ADD BOOK FORM
-                            */
-.add_book_section {
+/* 
+    FORM SECTION
+*/
+.add_book_section,
+.login_section {
     display: none;
     /* hide for now */
     width: 100vw;
@@ -400,7 +401,8 @@ nav {
     align-items: center;
 }
 
-.new-book-form {
+.new-book-form,
+.login-form {
     width: max-content;
     max-width: 100vw;
     max-height: 100vh;
@@ -437,13 +439,15 @@ nav {
     font-weight: 500;
 }
 
-.new-book-form h4 {
+.new-book-form h4,
+.login-form h4 {
     font-size: .7rem;
     text-align: center;
     margin-top: -.8rem;
 }
 
-.new-book-form input {
+.new-book-form input,
+.login-form input {
     margin-left: .7rem;
 }
 
@@ -452,33 +456,38 @@ nav {
     color: red;
 }
 
-.new-book-buttons {
+.new-book-buttons,
+.login-buttons {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
     margin: 0 auto;
 }
-.new-book-buttons button {
- box-sizing: border-box;
- appearance: none;
- background-color: transparent;
- border: 2px solid rgba(2, 132, 199, 0.8);
- border-radius: 0.6rem;
- color: rgba(2, 132, 199, 0.8);
- cursor: pointer;
- display: flex;
- align-self: center;
- font-size: 1rem;
- line-height: 1;
- /* margin: 20px; */
- padding: 1.2em 2.8em;
- text-decoration: none;
- text-align: center;
- text-transform: uppercase;
- transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+
+.new-book-buttons button,
+.login-buttons button {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid rgba(2, 132, 199, 0.8);
+    border-radius: 0.6rem;
+    color: rgba(2, 132, 199, 0.8);
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    line-height: 1;
+    /* margin: 20px; */
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 }
 .new-book-buttons button:hover,
-.new-book-buttons button:focus {
+.new-book-buttons button:focus,
+.login-buttons button:hover,
+.login-buttons button:focus {
     color: #fff;
     outline: 0;
     box-shadow: 0 0 40px 40px rgba(2, 132, 199, 0.8) inset;

@@ -8,7 +8,7 @@ addBookBtn.addEventListener("click", renderAddBookForm);
 
 // NEW BOOK FORM
 const newBookForm = document.querySelector(".new-book-form");
-const closeFormBtn = document.querySelector("#close-form");
+const closeBookFormBtn = document.querySelector("#close-book-form");
 const bookTitleForm = document.querySelector("#b-title");
 const bookAuthorForm = document.querySelector("#b-author");
 const bookPagesForm = document.querySelector("#b-pages");
@@ -16,7 +16,7 @@ const bookLanguageForm = document.querySelector("#b-language");
 const bookDateForm = document.querySelector("#b-publishing_date");
 const bookReadStatusForm = document.querySelector("#b-read_status");
 const addBookFormBtn = document.querySelector(".add-book");
-const clearFormBtn = document.querySelector(".clear");
+const clearBookFormBtn = document.querySelector("#clear-book-form");
 
 function clearBookForm() {
 	bookTitleForm.value = "";
@@ -26,7 +26,7 @@ function clearBookForm() {
 	bookDateForm.value = "";
 	bookReadStatusForm.options.selectedIndex = 0;
 }
-function closeForm() {
+function closeBookForm() {
 	addBookSection.setAttribute("style", "display: none;");
 }
 
@@ -55,5 +55,5 @@ async function addBookToLibrary() {
 
 // newBookForm.addEventListener("submit", addBookToLibrary);
 addBookFormBtn.addEventListener("click", addBookToLibrary);
-clearFormBtn.addEventListener("click", clearBookForm);
-closeFormBtn.addEventListener("click", closeForm);
+clearBookFormBtn.addEventListener("click", clearBookForm);
+closeBookFormBtn.addEventListener("click", closeBookForm);
