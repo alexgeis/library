@@ -1,46 +1,3 @@
-//DEFAULTS
-const savedBooks = JSON.parse(localStorage.getItem("books")) || [];
-const currentlyRead = savedBooks.filter((book) => book.readStatus === true);
-const DEFAULT_BOOKS_READ = currentlyRead.length;
-const DEFAULT_BOOKS_TOTAL = savedBooks.length;
-
-//state variables
-let currentBooks = savedBooks;
-let currentBooksReadCount = DEFAULT_BOOKS_READ;
-let currentBooksTotalCount = DEFAULT_BOOKS_TOTAL;
-//state variable updates
-function setCurrentBooks(newBooks) {
-	currentBooks = newBooks;
-}
-function setBookReadTotals() {
-	currentBooksReadCount = DEFAULT_BOOKS_READ;
-	currentBooksTotalCount = DEFAULT_BOOKS_TOTAL;
-}
-
-//BOOK CONSTRUCTOR
-function Book(title, author, pages, language, publishDate, readStatus) {
-	this.title = title;
-	this.author = author;
-	this.pages = pages;
-	this.language = language;
-	this.publishDate = publishDate;
-	this.readStatus = readStatus;
-	this.insertion_date = new Date().toLocaleString();
-}
-
-// CLASS VERSION OF ABOVE CODE 84-93//
-// class Book {
-// 	constructor(title, author, pages, language, publishDate, readStatus) {
-// 		this.title = title;
-// 		this.author = author;
-// 		this.pages = pages;
-// 		this.language = language;
-// 		this.publishDate = publishDate;
-// 		this.readStatus = readStatus;
-// 		this.insertion_date = new Date().toLocaleString();
-// 	}
-// }
-
 async function postData(url = "", data = {}) {
 	// Default options are marked with *
 	const response = await fetch(url, {
@@ -57,6 +14,7 @@ async function postData(url = "", data = {}) {
 	});
 	return response.json(); // parses JSON response into native JavaScript objects
 }
+
 //ADD BOOK FUNCTION
 async function addBookToLibrary() {
 	const newBook = new Book(
