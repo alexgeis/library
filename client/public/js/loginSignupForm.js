@@ -44,8 +44,7 @@ function closeLoginForm() {
 const loginToSignupBtn = document.querySelector("#login-to-signup-form");
 loginToSignupBtn.addEventListener("click", renderSignupSection);
 
-// newBookForm.addEventListener("submit", addUser);
-// loginFormBtn.addEventListener("click", addUser);
+loginFormBtn.addEventListener("click", addUser);
 clearLoginFormBtn.addEventListener("click", clearLoginForm);
 closeLoginFormBtn.addEventListener("click", closeLoginForm);
 
