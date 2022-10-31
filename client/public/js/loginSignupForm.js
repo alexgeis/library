@@ -8,8 +8,6 @@ function renderLoginSection() {
 const loginBtn = document.querySelector("#login");
 loginBtn.addEventListener("click", renderLoginSection);
 
-// const newLoginForm = document.querySelector(".login-form");
-
 const clearLoginForm = () => {
 	const loginInputs = document.querySelectorAll(".login-form-control");
 	for (const input of loginInputs) {
@@ -78,7 +76,9 @@ function renderSignupSection() {
 const signupBtn = document.querySelector("#signup");
 signupBtn.addEventListener("click", renderSignupSection);
 
-// NEW SIGNUP FORM
+const signupToLoginBtn = document.querySelector("#signup-to-login-form");
+signupToLoginBtn.addEventListener("click", renderLoginSection);
+
 const createUser = async function (e) {
 	e.preventDefault();
 	const email = document.querySelector("#signup-email").value;
@@ -134,9 +134,5 @@ function closeSignupForm() {
 const closeSignupFormBtn = document.querySelector("#close-signup-form");
 closeSignupFormBtn.addEventListener("click", closeSignupForm);
 
-const signupToLoginBtn = document.querySelector("#signup-to-login-form");
-signupToLoginBtn.addEventListener("click", renderLoginSection);
-
 const signupFormBtn = document.querySelector("#signup-btn");
-// // newBookForm.addEventListener("submit", addUser);
 // signupFormBtn.addEventListener("click", addUser);
