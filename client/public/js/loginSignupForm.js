@@ -55,6 +55,8 @@ const loginUser = async function (e) {
 		// setBookReadTotals();
 		// renderBooks();
 	}
+};
+
 const createUser = async function (e) {
 	e.preventDefault();
 	const email = document.querySelector("#signup-email").value;
