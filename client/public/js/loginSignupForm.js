@@ -74,11 +74,12 @@ const createUser = async function (e) {
 
 	if (email === "") {
 		const signupEmailErrMsg = document.querySelector("#signup-err-no-email");
-		signupErrMsg.setAttribute("style", "display: block;");
-	}
-	if (email === "") {
-		const signupEmailErrMsg = document.querySelector("#signup-err-no-email");
-		signupErrMsg.setAttribute("style", "display: block;");
+		signupEmailErrMsg.setAttribute("style", "display: block;");
+
+		const timeoutAmt = 1000 * 3;
+		setTimeout(() => {
+			signupEmailErrMsg.setAttribute("style", "display: none;");
+		}, timeoutAmt);
 	}
 
 	if (password) {
@@ -88,21 +89,21 @@ const createUser = async function (e) {
 			password,
 		};
 
-		postData("/api/users", newUser);
+		const userData = postData("/api/users", newUser);
 		// setBookReadTotals();
 		// renderBooks();
 	}
 
 	// const response = postData("/api/users");
 
-	// old logic
-	currentBooks.push(newUser);
-	setCurrentBooks(currentUsers);
-	console.log(currentUsers);
-	localStorage.setItem("books", JSON.stringify(currentBooks));
-	addBookSection.setAttribute("style", "display: none;");
-	setBookReadTotals();
-	renderBooks();
+	// // old logic
+	// currentBooks.push(newUser);
+	// setCurrentBooks(currentUsers);
+	// console.log(currentUsers);
+	// localStorage.setItem("books", JSON.stringify(currentBooks));
+	// addBookSection.setAttribute("style", "display: none;");
+	// setBookReadTotals();
+	// renderBooks();
 };
 
 const newPost = async function (event) {
