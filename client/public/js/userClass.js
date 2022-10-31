@@ -1,25 +1,17 @@
-//BOOK CONSTRUCTOR
-const Book = function (title, author, pages, language, publishDate, readStatus) {
+//USER CONSTRUCTOR
+const User = function (username, email, password) {
 	return {
-        title,
-        author,
-        pages,
-        language,
-        publishDate,
-        readStatus,
-        insertion_date = new Date().toLocaleString();
-    }
-}
+		username,
+		email,
+		password,
+	};
+};
 
-// CLASS VERSION OF ABOVE CODE 84-93//
-// class Book {
-// 	constructor(title, author, pages, language, publishDate, readStatus) {
-// 		this.title = title;
-// 		this.author = author;
-// 		this.pages = pages;
-// 		this.language = language;
-// 		this.publishDate = publishDate;
-// 		this.readStatus = readStatus;
-// 		this.insertion_date = new Date().toLocaleString();
+// CLASS VERSION //
+// class User {
+// 	constructor(username, email, password) {
+// 		this.username = username;
+// 		this.email = email;
+// 		this.password = password;
 // 	}
 // }
