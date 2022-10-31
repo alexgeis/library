@@ -31,7 +31,7 @@ loginToSignupBtn.addEventListener("click", renderSignupSection);
 // const loginEmailForm = document.querySelector("#login-email");
 // const loginUsernameForm = document.querySelector("#login-username");
 // const loginPasswordForm = document.querySelector("#login-password");
-const createUser = async function (e) {
+const loginUser = async function (e) {
 	e.preventDefault();
 	const email = document.querySelector("#login-email").value;
 	const username = document.querySelector("#login-username").value;
@@ -39,7 +39,35 @@ const createUser = async function (e) {
 
 	if (email === "" && username === "") {
 		const loginErrMsg = document.querySelector("#login-err-no-user-email");
-		loginErrMsg.setAttribute("style", "display: block;");
+		setTimeout(() => {
+			loginErrMsg.setAttribute("style", "display: block;");
+		}, 3000);
+	}
+
+	if (password) {
+		const newUser = {
+			email,
+			username,
+			password,
+		};
+
+		const userData = await postData("/api/users", newUser);
+		// setBookReadTotals();
+		// renderBooks();
+	}
+const createUser = async function (e) {
+	e.preventDefault();
+	const email = document.querySelector("#signup-email").value;
+	const username = document.querySelector("#signup-username").value;
+	const password = document.querySelector("#signup-password").value;
+
+	if (email === "") {
+		const signupEmailErrMsg = document.querySelector("#signup-err-no-email");
+		signupErrMsg.setAttribute("style", "display: block;");
+	}
+	if (email === "") {
+		const signupEmailErrMsg = document.querySelector("#signup-err-no-email");
+		signupErrMsg.setAttribute("style", "display: block;");
 	}
 
 	if (password) {
