@@ -66,6 +66,19 @@ const loginUser = async function (e) {
 	}
 };
 
+const loginFormBtn = document.querySelector("#login-btn");
+loginFormBtn.addEventListener("click", createUser);
+
+// SIGNUP FORM
+function renderSignupSection() {
+	loginSection.setAttribute("style", "display: none;");
+	signupSection.setAttribute("style", "display: block;");
+}
+
+const signupBtn = document.querySelector("#signup");
+signupBtn.addEventListener("click", renderSignupSection);
+
+// NEW SIGNUP FORM
 const createUser = async function (e) {
 	e.preventDefault();
 	const email = document.querySelector("#signup-email").value;
@@ -106,70 +119,24 @@ const createUser = async function (e) {
 	// renderBooks();
 };
 
-const newPost = async function (event) {
-	event.preventDefault();
-	const title = document.querySelector('input[name="post-title"]').value;
-	const body = document.querySelector('textarea[name="post-body"]').value;
-
-	await fetch(`/api/post`, {
-		method: "POST",
-		body: JSON.stringify({
-			title,
-			body,
-		}),
-		headers: { "Content-Type": "application/json" },
-	});
-
-	document.location.replace("/dashboard");
-};
-const loginFormBtn = document.querySelector("#login-btn");
-loginFormBtn.addEventListener("click", createUser);
-
-// SIGNUP FORM
-function renderSignupSection() {
-	loginSection.setAttribute("style", "display: none;");
-	signupSection.setAttribute("style", "display: block;");
-}
-
-const signupBtn = document.querySelector("#signup");
-signupBtn.addEventListener("click", renderSignupSection);
-
-// NEW SIGNUP FORM
-const newSignupForm = document.querySelector(".signup-form");
-const signupEmailForm = document.querySelector("#signup-email");
-const signupPasswordForm = document.querySelector("#signup-password");
-const signupFormBtn = document.querySelector("#signup-btn");
-
-//ADD USER FUNCTION
-// async function addUser() {
-// 	const newUser = new User(signupEmailForm.value, signupPasswordForm.value);
-// 	// if ((bookReadStatusForm.value === true))
-// 	// const response = postData("/api/users");
-// 	// console.log(response);
-
-// 	// currentBooks.push(newUser);
-// 	// setCurrentBooks(currentUsers);
-// 	// console.log(currentUsers);
-// 	// localStorage.setItem("books", JSON.stringify(currentBooks));
-// 	// addBookSection.setAttribute("style", "display: none;");
-// 	// setBookReadTotals();
-// 	// renderBooks();
-// }
-const closeSignupFormBtn = document.querySelector("#close-signup-form");
-const clearSignupFormBtn = document.querySelector("#clear-signup-form");
-
 function clearSignupForm() {
-	signupEmailForm.value = "";
-	signupPasswordForm.value = "";
+	const signupInputs = document.querySelectorAll(".signup-form-control");
+	for (const input of signupInputs) {
+		input.value = "";
+	}
 }
+const clearSignupFormBtn = document.querySelector("#clear-signup-form");
+clearSignupFormBtn.addEventListener("click", clearSignupForm);
+
 function closeSignupForm() {
 	signupSection.setAttribute("style", "display: none;");
 }
+const closeSignupFormBtn = document.querySelector("#close-signup-form");
+closeSignupFormBtn.addEventListener("click", closeSignupForm);
 
 const signupToLoginBtn = document.querySelector("#signup-to-login-form");
 signupToLoginBtn.addEventListener("click", renderLoginSection);
 
+const signupFormBtn = document.querySelector("#signup-btn");
 // // newBookForm.addEventListener("submit", addUser);
 // signupFormBtn.addEventListener("click", addUser);
-clearSignupFormBtn.addEventListener("click", clearSignupForm);
-closeSignupFormBtn.addEventListener("click", closeSignupForm);
