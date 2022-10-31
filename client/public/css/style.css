@@ -460,6 +460,20 @@ nav {
     color: red;
 }
 
+#login-err-no-user-email {
+    color: black;
+    /* padding: .1rem .2rem; */
+    animation: fadeIn 1s;  
+    transition: opacity 1s;
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+.removed {
+    opacity: 0;
+}
+
 .new-book-buttons,
 .login-buttons,
 .signup-buttons {

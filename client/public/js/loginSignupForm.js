@@ -27,10 +27,6 @@ closeLoginFormBtn.addEventListener("click", closeLoginForm);
 const loginToSignupBtn = document.querySelector("#login-to-signup-form");
 loginToSignupBtn.addEventListener("click", renderSignupSection);
 
-//ADD USER FUNCTION
-// const loginEmailForm = document.querySelector("#login-email");
-// const loginUsernameForm = document.querySelector("#login-username");
-// const loginPasswordForm = document.querySelector("#login-password");
 const loginUser = async function (e) {
 	e.preventDefault();
 	const email = document.querySelector("#login-email").value;
@@ -38,10 +34,23 @@ const loginUser = async function (e) {
 	const password = document.querySelector("#login-password").value;
 
 	if (email === "" && username === "") {
-		const loginErrMsg = document.querySelector("#login-err-no-user-email");
+		const loginForm = document.querySelector(".login-form");
+		const loginErrMsg = document.createElement("small");
+		loginErrMsg.classList.remove("removed");
+		loginErrMsg.classList.add("err-msg");
+		loginErrMsg.setAttribute("id", "login-err-no-user-email");
+		loginErrMsg.textContent =
+			"* Enter at least 1 of the following: email or username";
+
+		loginForm.insertBefore(loginErrMsg, loginForm.childNodes[6]);
+
+		const timeoutAmt = 1000 * 2;
 		setTimeout(() => {
-			loginErrMsg.setAttribute("style", "display: block;");
-		}, 3000);
+			loginErrMsg.classList.add("removed");
+			loginErrMsg.addEventListener("transitionend", () =>
+				loginForm.removeChild(loginErrMsg)
+			);
+		}, timeoutAmt);
 	}
 
 	if (password) {
