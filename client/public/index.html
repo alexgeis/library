@@ -231,7 +231,8 @@
 		<section class="login_section">
 			<div class="login-form">
 				<h2 class="form_title">Login</h2>
-				<h4>* = required</h4>
+				<h4>Enter your email OR username and password*</h4>
+				<h5>* required</h5>
 				<span class="material-icons close-form" id="close-login-form">
 					close
 				</span>
@@ -243,8 +244,25 @@
 						name="login-email"
 						id="login-email"
 						placeholder="zeus@yahoo.com"
-					/><small class="err-msg">* Email is required for login</small></label
-				>
+					/>
+					<!-- <small class="err-msg">* Email is required for login</small> -->
+				</label>
+				<label for="login-username"
+					>Username*
+					<input
+						class="form-control"
+						type="text"
+						name="login-username"
+						id="login-username"
+						placeholder="zeus@yahoo.com"
+					/>
+					<!-- <small class="err-msg"
+						>* Username is required for login</small
+					> -->
+				</label>
+				<small id="login-err-no-user-email" class="err-msg"
+					>* Enter at least 1 of the following: email or username
+				</small>
 				<label for="login-password"
 					>Password*
 					<input
@@ -309,6 +327,7 @@
 		<script src="./js/heroDisplay.js"></script>
 		<script src="./js/hamburgerMenu.js"></script>
 		<script src="./js/themeToggle.js"></script>
+		<script src="./js/userClass.js"></script>
 		<script src="./js/bookClass.js"></script>
 		<script src="./js/requestMethods.js"></script>
 		<script src="./js/loginSignupForm.js"></script>
