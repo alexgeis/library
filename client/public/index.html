@@ -239,7 +239,7 @@
 				<label for="login-email"
 					>Email*
 					<input
-						class="form-control"
+						class="form-control login-form-control"
 						type="email"
 						name="login-email"
 						id="login-email"
@@ -250,7 +250,7 @@
 				<label for="login-username"
 					>Username*
 					<input
-						class="form-control"
+						class="form-control login-form-control"
 						type="text"
 						name="login-username"
 						id="login-username"
@@ -266,7 +266,7 @@
 				<label for="login-password"
 					>Password*
 					<input
-						class="form-control"
+						class="form-control login-form-control"
 						type="password"
 						name="login-password"
 						id="login-password"
@@ -287,7 +287,8 @@
 		<section class="signup_section">
 			<div class="signup-form">
 				<h2 class="form_title">Signup</h2>
-				<h4>* = required</h4>
+				<h4>Email and password are required</h4>
+				<h4>Username can be provided for login use</h4>
 				<span class="material-icons close-form" id="close-signup-form">
 					close
 				</span>
@@ -301,6 +302,15 @@
 						placeholder="zeus@yahoo.com"
 					/><small class="err-msg">* Email is required for signup</small></label
 				>
+				<label for="signup-username"
+					>Username*
+					<input
+						class="form-control"
+						type="text"
+						name="signup-username"
+						id="signup-username"
+						placeholder="lightningMan"
+				/></label>
 				<label for="signup-password"
 					>Password*
 					<input

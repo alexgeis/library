@@ -8,39 +8,50 @@ function renderLoginSection() {
 const loginBtn = document.querySelector("#login");
 loginBtn.addEventListener("click", renderLoginSection);
 
-const newLoginForm = document.querySelector(".login-form");
-const loginEmailForm = document.querySelector("#login-email");
-const loginUsernameForm = document.querySelector("#login-username");
-const loginPasswordForm = document.querySelector("#login-password");
+// const newLoginForm = document.querySelector(".login-form");
 
-const closeLoginFormBtn = document.querySelector("#close-login-form");
+const clearLoginForm = () => {
+	const loginInputs = document.querySelectorAll(".login-form-control");
+	for (const input of loginInputs) {
+		input.value = "";
+	}
+};
 const clearLoginFormBtn = document.querySelector("#clear-login-form");
-
-function clearLoginForm() {
-	loginEmailForm.value = "";
-	loginPasswordForm.value = "";
-}
 clearLoginFormBtn.addEventListener("click", clearLoginForm);
-function closeLoginForm() {
+
+const closeLoginForm = () =>
 	loginSection.setAttribute("style", "display: none;");
-}
+const closeLoginFormBtn = document.querySelector("#close-login-form");
 closeLoginFormBtn.addEventListener("click", closeLoginForm);
 
 const loginToSignupBtn = document.querySelector("#login-to-signup-form");
 loginToSignupBtn.addEventListener("click", renderSignupSection);
 
 //ADD USER FUNCTION
+// const loginEmailForm = document.querySelector("#login-email");
+// const loginUsernameForm = document.querySelector("#login-username");
+// const loginPasswordForm = document.querySelector("#login-password");
 const createUser = async function (e) {
 	e.preventDefault();
-	const email = loginEmailForm.value;
-	const password = loginPasswordForm.value;
-	const username = loginUsernameForm.value;
+	const email = document.querySelector("#login-email").value;
+	const username = document.querySelector("#login-username").value;
+	const password = document.querySelector("#login-password").value;
 
-	const newUser = new User(email, password);
-
-	const loginErrMsg = document.querySelector("#login-err-no-user-email");
 	if (email === "" && username === "") {
+		const loginErrMsg = document.querySelector("#login-err-no-user-email");
 		loginErrMsg.setAttribute("style", "display: block;");
+	}
+
+	if (password) {
+		const newUser = {
+			email,
+			username,
+			password,
+		};
+
+		postData("/api/users", newUser);
+		// setBookReadTotals();
+		// renderBooks();
 	}
 
 	// const response = postData("/api/users");
@@ -72,7 +83,7 @@ const newPost = async function (event) {
 	document.location.replace("/dashboard");
 };
 const loginFormBtn = document.querySelector("#login-btn");
-loginFormBtn.addEventListener("click", addUser);
+loginFormBtn.addEventListener("click", createUser);
 
 // SIGNUP FORM
 function renderSignupSection() {
