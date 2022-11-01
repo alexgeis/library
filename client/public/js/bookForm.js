@@ -9,22 +9,25 @@ addBookBtn.addEventListener("click", renderAddBookForm);
 // NEW BOOK FORM
 const newBookForm = document.querySelector(".new-book-form");
 const closeBookFormBtn = document.querySelector("#close-book-form");
-const bookTitleForm = document.querySelector("#b-title");
-const bookAuthorForm = document.querySelector("#b-author");
-const bookPagesForm = document.querySelector("#b-pages");
-const bookLanguageForm = document.querySelector("#b-language");
-const bookDateForm = document.querySelector("#b-publishing_date");
-const bookReadStatusForm = document.querySelector("#b-read_status");
+
+const bookTitleInput = document.querySelector("#b-title");
+const bookAuthorInput = document.querySelector("#b-author");
+const bookISBNInput = document.querySelector("#b-isbn");
+const bookPagesInput = document.querySelector("#b-pages");
+const bookEditionInput = document.querySelector("#b-edition");
+const bookDateInput = document.querySelector("#b-publishing_date");
+const bookReadStatusInput = document.querySelector("#b-read_status");
+
 const addBookFormBtn = document.querySelector(".add-book");
 const clearBookFormBtn = document.querySelector("#clear-book-form");
 
 function clearBookForm() {
-	bookTitleForm.value = "";
-	bookAuthorForm.value = "";
-	bookPagesForm.value = "";
-	bookLanguageForm.value = "";
-	bookDateForm.value = "";
-	bookReadStatusForm.options.selectedIndex = 0;
+	const bookInputs = document.querySelectorAll(".book-form-control");
+	for (const input of bookInputs) {
+		if (input.tagName.toLowerCase() === "select")
+			input.options.selectedIndex = 0;
+		else input.value = "";
+	}
 }
 function closeBookForm() {
 	addBookSection.setAttribute("style", "display: none;");
@@ -33,14 +36,14 @@ function closeBookForm() {
 //ADD BOOK FUNCTION
 async function addBookToLibrary() {
 	const newBook = new Book(
-		bookTitleForm.value,
-		bookAuthorForm.value,
-		bookPagesForm.value,
+		bookTitleInput.value,
+		bookAuthorInput.value,
+		bookPagesInput.value,
 		bookLanguageForm.value,
-		bookDateForm.value,
-		bookReadStatusForm.value
+		bookDateInput.value,
+		bookReadStatusInput.value
 	);
-	// if ((bookReadStatusForm.value === true))
+	// if ((bookReadStatusInput.value === true))
 	const response = postData("/api/books");
 	// console.log(response);
 

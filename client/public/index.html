@@ -150,7 +150,7 @@
 				<label for="b-title"
 					>Title*
 					<input
-						class="form-control"
+						class="form-control book-form-control"
 						type="text"
 						name="book-title"
 						id="b-title"
@@ -160,7 +160,7 @@
 				<label for="b-author"
 					>Author*
 					<input
-						class="form-control"
+						class="form-control book-form-control"
 						type="text"
 						name="book-author"
 						id="b-author"
@@ -170,7 +170,7 @@
 				<label for="b-isbn"
 					>ISBN
 					<input
-						class="form-control"
+						class="form-control book-form-control"
 						type="number"
 						name="book-isbn"
 						id="b-isbn"
@@ -179,7 +179,7 @@
 				<label for="b-pages"
 					>Number of pages
 					<input
-						class="form-control"
+						class="form-control book-form-control"
 						type="number"
 						name="pages-count"
 						id="b-pages"
@@ -189,7 +189,7 @@
 				<label for="b-edition"
 					>Edition
 					<input
-						class="form-control"
+						class="form-control book-form-control"
 						type="text"
 						name="book-edition"
 						id="b-edition"
@@ -204,11 +204,16 @@
 						step="1"
 						value="1917"
 						name="book-publishing-date"
+						class="form-control book-form-control"
 						id="b-publishing_date"
 				/></label>
 				<label for="b-read_status"
 					>Have you read this book?*
-					<select class="form-control" name="book-status" id="b-read_status">
+					<select
+						class="form-control book-form-control"
+						name="book-status"
+						id="b-read_status"
+					>
 						<!-- <option value="null" disabled="" selected="">
 							did you read this book?
 						</option> -->
