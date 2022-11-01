@@ -27,9 +27,9 @@ loginToSignupBtn.addEventListener("click", renderSignupSection);
 
 const loginUser = async function (e) {
 	e.preventDefault();
-	const email = document.querySelector("#login-email").value;
-	const username = document.querySelector("#login-username").value;
-	const password = document.querySelector("#login-password").value;
+	const email = document.querySelector("#login-email").value.trim();
+	const username = document.querySelector("#login-username").value.trim();
+	const password = document.querySelector("#login-password").value.trim();
 
 	if (email === "" && username === "") {
 		const loginForm = document.querySelector(".login-form");
@@ -58,7 +58,19 @@ const loginUser = async function (e) {
 			password,
 		};
 
-		const userData = await postData("/api/users", newUser);
+		const response = await fetch("/api/users/login", {
+			method: "POST",
+			body: JSON.stringify(newUser),
+			headers: { "Content-Type": "application/json" },
+		});
+
+		if (response.ok) {
+			document.location.replace("/");
+		} else {
+			alert("Failed to log in.");
+		}
+
+		// const userData = await postData("/api/users", newUser);
 		// setBookReadTotals();
 		// renderBooks();
 	}
@@ -102,8 +114,19 @@ const createUser = async function (e) {
 			password,
 		};
 
-		const userData = postData("/api/users", newUser);
-		console.log(userData);
+		const response = await fetch("/api/users", {
+			method: "POST",
+			body: JSON.stringify(newUser),
+			headers: { "Content-Type": "application/json" },
+		});
+
+		if (response.ok) {
+			document.location.replace("/");
+		} else {
+			alert("Failed to sign up.");
+		}
+
+		// const userData = postData("/api/users", newUser);
 		// setBookReadTotals();
 		// renderBooks();
 	}
