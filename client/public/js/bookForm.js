@@ -36,8 +36,9 @@ async function addBookToLibrary() {
 	const newBook = new Book(
 		bookTitleInput.value,
 		bookAuthorInput.value,
+		bookISBNInput.value,
 		bookPagesInput.value,
-		bookLanguageForm.value,
+		bookEditionInput.value,
 		bookDateInput.value,
 		bookReadStatusInput.value
 	);

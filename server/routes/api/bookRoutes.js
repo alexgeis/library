@@ -87,9 +87,8 @@ router.post("/", async (req, res) => {
 			isbn: req.body.isbn,
 			pages: req.body.pages,
 			edition: req.body.edition,
-			is_paperback: req.body.is_paperback,
 			is_read: req.body.is_read,
-			user_id: req.body.user_id,
+			// user_id: req.body.user_id,
 		});
 		res.status(200).json(newBook);
 	} catch (err) {

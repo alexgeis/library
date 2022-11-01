@@ -1,23 +1,27 @@
 const router = require("express").Router();
 const { User, Book } = require("../../models");
+const bcrypt = require("bcrypt");
 
 // GET all users
 router.get("/", async (req, res) => {
 	try {
+		// const userData = await User.findAll({
+		// 	include: [{ model: Book }],
+		// 	attributes: {
+		// 		include: [
+		// 			[
+		// 				// Use plain SQL to add up the total book pages
+		// 				sequelize.literal(
+		// 					"(SELECT SUM(pages) FROM book WHERE book.user_id = user.id)"
+		// 				),
+		// 				//name of new column containing the result of aggregate function above
+		// 				"totalPages",
+		// 			],
+		// 		],
+		// 	},
+		// });
 		const userData = await User.findAll({
 			include: [{ model: Book }],
-			attributes: {
-				include: [
-					[
-						// Use plain SQL to add up the total book pages
-						sequelize.literal(
-							"(SELECT SUM(pages) FROM book WHERE book.user_id = user.id)"
-						),
-						//name of new column containing the result of aggregate function above
-						"totalPages",
-					],
-				],
-			},
 		});
 		res.status(200).json(userData);
 	} catch (err) {
@@ -53,18 +57,18 @@ router.get("/:id", async (req, res) => {
 	try {
 		const userData = await User.findByPk(req.params.id, {
 			include: [{ model: Book }],
-			attributes: {
-				include: [
-					[
-						// Use plain SQL to add up the total book pages
-						sequelize.literal(
-							"(SELECT SUM(pages) FROM book WHERE book.user_id = user.id)"
-						),
-						//name of new column containing the result of aggregate function above
-						"totalPages",
-					],
-				],
-			},
+			// attributes: {
+			// 	include: [
+			// 		[
+			// 			// Use plain SQL to add up the total book pages
+			// 			sequelize.literal(
+			// 				"(SELECT SUM(pages) FROM book WHERE book.user_id = user.id)"
+			// 			),
+			// 			//name of new column containing the result of aggregate function above
+			// 			"totalPages",
+			// 		],
+			// 	],
+			// },
 		});
 
 		if (!userData) {

@@ -103,6 +103,7 @@ const createUser = async function (e) {
 		};
 
 		const userData = postData("/api/users", newUser);
+		console.log(userData);
 		// setBookReadTotals();
 		// renderBooks();
 	}
