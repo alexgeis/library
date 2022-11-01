@@ -5,7 +5,7 @@
       "isbn": "9780099533214",
       "pages": "760",
       "edition": "1",
-      "is_paperback": "true",
+      "publish_date": "1973",
       "is_read": "true"
     },
     {
@@ -14,7 +14,7 @@
       "isbn": "9780521354028",
       "pages": "784",
       "edition": "2",
-      "is_paperback": "true",
+      "publish_date": "1781",
       "is_read": "false"
     },
     {
@@ -23,7 +23,7 @@
       "isbn": "9781543625516",
       "pages": "462",
       "edition": "3",
-      "is_paperback": "false",
+      "publish_date": "2017",
       "is_read": "true"
     }
   ]

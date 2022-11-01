@@ -29,14 +29,17 @@ Book.init(
 			type: DataTypes.INTEGER,
 			defaultValue: 1,
 		},
-		is_paperback: {
-			type: DataTypes.BOOLEAN,
-			defaultValue: true,
+		publish_date: {
+			type: DataTypes.INTEGER,
 		},
 		is_read: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
 			defaultValue: false,
+		},
+		insertion_date: {
+			type: DataTypes.DATE,
+			defaultValue: DataTypes.NOW,
 		},
 		user_id: {
 			type: DataTypes.INTEGER,
