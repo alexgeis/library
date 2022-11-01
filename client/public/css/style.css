@@ -19,33 +19,38 @@ body {
     background-color: azure;
 }
 
-                    /* DARK MODE TOGGLE */
+/* DARK MODE TOGGLE */
 header#header-container.dark {
     background: linear-gradient(135deg, rgba(12, 74, 110, 0.8) 0%, rgba(2, 132, 199, 0.8) 100%);   
-    color: white;   
-    
+    color: white;
+    transition: 0.7s ease;
 }
 div#hero-container.dark {
     background: rgb(101, 101, 101);
-    color: white; 
+    color: white;
+    transition: 0.7s ease; 
 }
 div#book-container.dark {
     background: black;
-    color: white;   
+    color: white;
+    transition: 0.7s ease;
 }
 #order_by,
 #order,
 header.dark > .header > .hamburger > .bar  {
     background-color: white;
+    transition: 0.7s ease;
 }
 
 .dark * .nav-link {
     color: white;
+    transition: 0.7s ease;
 }
 
 .dark * .add-book-form-open {
     background-color: #fff;
     color: #000;
+    transition: 0.7s ease;
 }
                                                 /* ----CONTAINER */
 .container {
@@ -99,7 +104,7 @@ margin: 0 auto;
     background-color: #000;
     color: #fff;
 }
-                                        /* TOGGLE BUTTON */
+/* TOGGLE BUTTON */
 .switch {
 position: relative;
 display: inline-block;
@@ -107,7 +112,7 @@ width: 50px;
 height: 34px;
 }
 
-        /* Hide default HTML checkbox */
+/* Hide default HTML checkbox */
 .switch input {
 opacity: 0;
 width: 0;
@@ -141,7 +146,7 @@ background-color: white;
 -webkit-transition: .4s;
 transition: .4s;
 }
-                        /* transition of switch background color */
+/* transition of switch background color */
 input:checked + .slider {
 /* background-color: #2196F3; */
 background-color: #2e2e2e;
@@ -151,7 +156,7 @@ input:focus + .slider {
 /* box-shadow: 0 0 1px #2196F3; */
 box-shadow: 0 0 1px #2e2e2e;
 }
-                        /* transition of .slider:before - the toggle switch circle */
+/* transition of .slider:before - the toggle switch circle */
 input:checked + .slider:before,
 input:checked + .read-toggle-slider:before {
 -webkit-transform: translateX(17px);
@@ -170,11 +175,10 @@ border-radius: 34px;
 border-radius: 50%;
 }
 
-#light-toggle-text,
-#dark-toggle-text {
+.toggle-text {
     text-align: center;
 }
-                                    /* READ TOGGLE */
+/* READ TOGGLE */
 .single-book .switch {
     position: absolute;
 cursor: pointer;
@@ -191,7 +195,7 @@ input:focus + .read-toggle-slider {
 box-shadow: 0 0 1px #2196F3;
 /* box-shadow: 0 0 1px #2e2e2e; */
 }
-                                                /* NAVIGATION */
+/* NAVIGATION */
 nav {
     display: flex;
 }
@@ -286,9 +290,10 @@ nav {
 ~~  BOOK SECTION ~~
 */
 
-/* #book-container {
-    background-color: rgb(210, 38, 207);
-} */
+#book-container {
+    /* background-color: rgb(210, 38, 207); */
+    height: calc(100vh - 160px);
+}
 
 .book-section {
     /* grid-column: ; */
@@ -622,6 +627,10 @@ nav {
     }
     #search-section-hero {
         display: flex;
+    }
+
+    #book-container {
+        height: calc(100vh - 293px);
     }
 }
 
