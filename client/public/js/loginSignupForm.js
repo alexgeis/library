@@ -65,7 +65,7 @@ const loginUser = async function (e) {
 };
 
 const loginFormBtn = document.querySelector("#login-btn");
-loginFormBtn.addEventListener("click", createUser);
+// loginFormBtn.addEventListener("click", createUser);
 
 // SIGNUP FORM
 function renderSignupSection() {

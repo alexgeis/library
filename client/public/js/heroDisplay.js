@@ -10,23 +10,23 @@ const bookTotalDisplayHero = document.querySelector(
 );
 bookTotalDisplayHero.textContent = `Books total: ${currentBooksTotalCount}`;
 
-// working progress bar JS
-// let i = 0;
-// function move() {
-// 	if (i == 0) {
-// 		i = 1;
-// 		let elem = document.getElementById("myBar");
-// 		let width = 10;
-// 		let id = setInterval(frame, 10);
-// 		function frame() {
-// 			if (width >= 100) {
-// 				clearInterval(id);
-// 				i = 0;
-// 			} else {
-// 				width++;
-// 				elem.style.width = width + "%";
-// 				elem.innerHTML = width + "%";
-// 			}
-// 		}
-// 	}
-// }
+// PROGRESS BAR
+const renderProgressBar = () => {
+	const progressBar = document.querySelector(".progress-bar");
+	const progressBarHero = document.querySelector(".progress-bar-hero");
+
+	let progressWidth;
+	if (currentBooksReadCount === 0 && currentBooksTotalCount === 0) {
+		progressWidth = 0;
+	} else {
+		progressWidth = Math.floor(
+			(currentBooksReadCount / currentBooksTotalCount) * 100
+		);
+	}
+
+	console.log(progressWidth);
+
+	progressBar.style.width = `${progressWidth}%`;
+	progressBarHero.style.width = `${progressWidth}%`;
+};
+renderProgressBar();

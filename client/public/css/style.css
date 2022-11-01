@@ -275,7 +275,7 @@ nav {
 }
 .progress-bar,
 .progress-bar-hero {
-    width: 10%;
+    /* width: 10%; */
     height: 30px;
     background-color: #04AA6D;
     text-align: center;
