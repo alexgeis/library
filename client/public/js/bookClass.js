@@ -2,19 +2,21 @@
 const Book = function (
 	title,
 	author,
+	isbn,
 	pages,
-	language,
+	edition,
 	publishDate,
-	readStatus
+	is_read
 ) {
 	return {
 		title,
 		author,
+		isbn,
 		pages,
-		language,
+		edition,
 		publishDate,
-		readStatus,
-		insertion_date: new Date().toLocaleString(),
+		is_read,
+		// insertion_date: new Date().toLocaleString(),
 	};
 };
 
