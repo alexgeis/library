@@ -42,10 +42,14 @@ router.post("/", async (req, res) => {
 
 		// if password hashing
 		const newUser = req.body;
+
+		//TODO: currently this hashing is redundant with the model hooks hashing
 		// hashed password                                  // salt
 		newUser.password = await bcrypt.hash(req.body.password, 10);
 		// create the newUser with the hashed password and save to DB
-		const userData = await User.create(newUser);
+		const userData = await User.create(newUser, {
+			individualHooks: true, // //TODO: double check if this is needed
+		});
 
 		// Set up sessions with a 'loggedIn' variable set to `true`
 		req.session.save(() => {
@@ -129,13 +133,18 @@ router.delete("/:id", async (req, res) => {
 // POST user login
 router.post("/login", async (req, res) => {
 	try {
-		// First we find one user record with an email address that matches the one provided by the user logging in
-		const userData = await User.findOne({ where: { email: req.body.email } });
-		// If an account with that email address doesn't exist, the user will recieve an error message
+		// First we find one user record with an email address (or username) that matches the one provided by the user logging in
+		let userData;
+		if (req.body.email)
+			userData = await User.findOne({ where: { email: req.body.email } });
+		else if (!req.body.email && req.body.username)
+			userData = await User.findOne({ where: { username: req.body.username } });
+
+		// If an account with that email address or username doesn't exist, the user will recieve an error message
 		if (!userData) {
-			res
-				.status(400)
-				.json({ message: "Incorrect email or password, please try again" });
+			res.status(400).json({
+				message: "Incorrect email, username, or password, please try again",
+			});
 			return;
 		}
 		// If the user does exist, we will use the checkPassword() instance method to compare the user's input to the password stored in the record
@@ -148,7 +157,14 @@ router.post("/login", async (req, res) => {
 			return;
 		}
 		// If checkPassword() evaluates as true, the user will be logged in
-		res.json({ user: userData, message: "You are now logged in!" });
+		// Once the user successfully logs in, set up the sessions variable 'loggedIn'
+		req.session.save(() => {
+			req.session.loggedIn = true;
+
+			res
+				.status(200)
+				.json({ user: userData, message: "You are now logged in!" });
+		});
 	} catch (err) {
 		res.status(400).json(err);
 	}
