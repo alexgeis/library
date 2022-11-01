@@ -2,25 +2,10 @@ const addBookSection = document.querySelector(".add_book_section");
 function renderAddBookForm() {
 	addBookSection.setAttribute("style", "display: block;");
 }
-
 const addBookBtn = document.querySelector(".add-book-form-open");
 addBookBtn.addEventListener("click", renderAddBookForm);
 
-// NEW BOOK FORM
-const newBookForm = document.querySelector(".new-book-form");
-const closeBookFormBtn = document.querySelector("#close-book-form");
-
-const bookTitleInput = document.querySelector("#b-title");
-const bookAuthorInput = document.querySelector("#b-author");
-const bookISBNInput = document.querySelector("#b-isbn");
-const bookPagesInput = document.querySelector("#b-pages");
-const bookEditionInput = document.querySelector("#b-edition");
-const bookDateInput = document.querySelector("#b-publishing_date");
-const bookReadStatusInput = document.querySelector("#b-read_status");
-
-const addBookFormBtn = document.querySelector(".add-book");
-const clearBookFormBtn = document.querySelector("#clear-book-form");
-
+// CLEAR BOOK FORM
 function clearBookForm() {
 	const bookInputs = document.querySelectorAll(".book-form-control");
 	for (const input of bookInputs) {
@@ -29,11 +14,24 @@ function clearBookForm() {
 		else input.value = "";
 	}
 }
+const clearBookFormBtn = document.querySelector("#clear-book-form");
+clearBookFormBtn.addEventListener("click", clearBookForm);
+// CLOSE BOOK FORM
 function closeBookForm() {
 	addBookSection.setAttribute("style", "display: none;");
 }
+const closeBookFormBtn = document.querySelector("#close-book-form");
+closeBookFormBtn.addEventListener("click", closeBookForm);
 
 //ADD BOOK FUNCTION
+const bookTitleInput = document.querySelector("#b-title");
+const bookAuthorInput = document.querySelector("#b-author");
+const bookISBNInput = document.querySelector("#b-isbn");
+const bookPagesInput = document.querySelector("#b-pages");
+const bookEditionInput = document.querySelector("#b-edition");
+const bookDateInput = document.querySelector("#b-publishing_date");
+const bookReadStatusInput = document.querySelector("#b-read_status");
+
 async function addBookToLibrary() {
 	const newBook = new Book(
 		bookTitleInput.value,
@@ -56,7 +54,8 @@ async function addBookToLibrary() {
 	renderBooks();
 }
 
+// // NEW BOOK FORM
+// const newBookForm = document.querySelector(".new-book-form");
 // newBookForm.addEventListener("submit", addBookToLibrary);
+const addBookFormBtn = document.querySelector(".add-book");
 addBookFormBtn.addEventListener("click", addBookToLibrary);
-clearBookFormBtn.addEventListener("click", clearBookForm);
-closeBookFormBtn.addEventListener("click", closeBookForm);

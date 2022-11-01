@@ -24,8 +24,6 @@ const renderProgressBar = () => {
 		);
 	}
 
-	console.log(progressWidth);
-
 	progressBar.style.width = `${progressWidth}%`;
 	progressBarHero.style.width = `${progressWidth}%`;
 };
