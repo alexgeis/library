@@ -15,10 +15,10 @@ const PORT = process.env.PORT || 3001;
 
 // Sets up session and connect to our Sequelize db
 const sess = {
-	// Function to call to generate a new session ID
-	genid: function (req) {
-		return genuuid(); // use UUIDs for session IDs
-	},
+	// // Function to call to generate a new session ID
+	// genid: function (req) {
+	// 	return genuuid(); // use UUIDs for session IDs
+	// },
 	secret: process.env.SESS_SECRET,
 	// Express session will use cookies by default, but we can specify options for those cookies by adding a cookies property to our session options.
 	cookie: {
@@ -50,9 +50,9 @@ app.use(routes);
 app.use(express.static(path.join(__dirname, "..", "client", "public")));
 
 // GET Route for homepage
-app.get("/", (req, res) =>
-	res.sendFile(path.join(__dirname, "..", "index.html"))
-);
+// app.get("/", (req, res) =>
+// 	res.sendFile(path.join(__dirname, "..", "index.html"))
+// );
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
