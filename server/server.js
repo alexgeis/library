@@ -1,5 +1,6 @@
 const express = require("express");
 const session = require("express-session");
+require("dotenv").config();
 const path = require("path");
 const routes = require("./routes");
 const sequelize = require("./config/connection");
@@ -12,15 +13,27 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Set up sessions with cookies
+// Sets up session and connect to our Sequelize db
 const sess = {
-	secret: "Super secret secret",
+	// Function to call to generate a new session ID
+	genid: function (req) {
+		return genuuid(); // use UUIDs for session IDs
+	},
+	secret: process.env.SESS_SECRET,
+	// Express session will use cookies by default, but we can specify options for those cookies by adding a cookies property to our session options.
 	cookie: {
-		// Stored in milliseconds (86400 === 1 day)
-		maxAge: 86400,
+		// maxAge sets the maximum age for the session to be active. Listed in milliseconds.
+		maxAge: 3600,
+		// httpOnly tells express-session to only store session cookies when the protocol being used to connect to the server is HTTP.
+		httpOnly: true, // default
+		// secure tells express-session to only initialize session cookies when the protocol being used is HTTPS. Having this set to true, and running a server without encryption will result in the cookies not showing up in your developer console.
+		secure: false, // default
+		// sameSite tells express-session to only initialize session cookies when the referrer provided by the client matches the domain out server is hosted from.
+		sameSite: "strict",
 	},
 	resave: false,
 	saveUninitialized: true,
+	// Sets up session store
 	store: new SequelizeStore({
 		db: sequelize,
 	}),
