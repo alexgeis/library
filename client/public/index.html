@@ -21,331 +21,67 @@
 			type="image/x-icon"
 			href="./assets/icons/favicon.ico"
 		/>
-		<title>Library</title>
+		<title>Login / Signup</title>
 	</head>
 	<body>
-		<div class="container">
-			<header id="header-container">
-				<div class="content-container header">
-					<img
-						id="site-logo"
-						src="./assets/icons/book-open-page-variant-outline.svg"
-						alt="icon of book opening"
-					/>
-					<div class="site-title">Library</div>
-					<button class="add-book-form-open">Add Book +</button>
-					<!-- TOGGLE -->
-					<div class="theme">
-						<div class="toggle-text" id="light-toggle-text">Light</div>
-
-						<label class="switch">
-							<input type="checkbox" id="theme-toggle" />
-
-							<span class="slider round"></span>
-						</label>
-
-						<div class="toggle-text" id="dark-toggle-text">Dark</div>
-					</div>
-					<!-- TOGGLE END -->
-					<nav>
-						<ul class="nav-menu">
-							<li class="nav-item">
-								<a href="#" class="nav-link" id="login">Login</a>
-							</li>
-							<li class="nav-item">
-								<a href="#" class="nav-link" id="signup">Signup</a>
-							</li>
-							<!-- <li class="nav-item">
-					<a href="" class="nav-link"></a>
-				</li> -->
-						</ul>
-					</nav>
-					<div id="search-section">
+		<div id="container">
+			<div id="column-wrap">
+				<div id="column-left">
+					<div class="inner">
 						<img
-							id="search-icon"
-							src="./assets/icons/magnify.svg"
-							alt="magnifying glass search icon"
+							src="./assets/icons/book-open-page-variant-outline.svg"
+							alt="Library Bookshelf Icon"
 						/>
-						<input type="search" id="book-search" name="book-search" />
-					</div>
-					<div class="book-totals">
-						<div class="books-read-display"></div>
-						<div class="book-progress-bar">
-							<div class="progress-bar"></div>
-						</div>
-						<div class="books-total-display"></div>
-					</div>
-					<div class="hamburger">
-						<span class="bar"></span><span class="bar"></span
-						><span class="bar"></span>
+
+						<h1>Log In</h1>
+
+						<p class="create">
+							Don't have an account?
+							<a href="#">Signup Now</a>.
+						</p>
+
+						<form action="/api/users/login" method="post" id="login-form">
+							<div class="input-wrap">
+								<label for="username">Email Address</label>
+								<input type="text" id="username" name="username" required="" />
+							</div>
+
+							<div class="input-wrap">
+								<label for="password">Password</label>
+								<input
+									type="password"
+									id="password"
+									name="password"
+									required=""
+								/>
+							</div>
+
+							<!-- <div class="input-wrap">
+								<label for="remember" class="regular">
+									<input type="checkbox" id="remember" name="rememberme" />
+									Stay signed in for 2 weeks
+								</label>
+							</div> -->
+
+							<button class="login-submit-btn">Log In</button>
+						</form>
+
+						<p class="forgot">
+							<a href="#">Forgot your password?</a>
+						</p>
+
+						<p class="footer">© 2022 made by Alex Geis</p>
 					</div>
 				</div>
-			</header>
-
-			<div id="hero-container">
-				<div class="content-container hero">
-					<div id="search-section-hero">
-						<img
-							id="search-icon-hero"
-							src="./assets/icons/magnify.svg"
-							alt="magnifying glass search icon"
-						/>
-						<input
-							type="search"
-							id="book-search-hero"
-							name="book-search-hero"
-						/>
-					</div>
-					<div class="book-totals-hero">
-						<div class="books-read-display-hero"></div>
-						<div class="book-progress-bar-hero">
-							<div class="progress-bar-hero"></div>
-						</div>
-						<div class="books-total-display-hero"></div>
-					</div>
-				</div>
-			</div>
-
-			<div id="book-container">
-				<div class="content-container book-section">
-					<div class="book-sort-status-section">
-						<div class="sort">
-							<label for="order_by"
-								>Order By:
-								<select name="order_by" id="order_by">
-									<option value="insertion_date" selected="">
-										Insertion date
-									</option>
-									<option value="publishing_date">Publishing date</option>
-								</select>
-								<select name="order" id="order">
-									<option value="ascending">Asc</option>
-									<option value="descending" selected="">Desc</option>
-								</select>
-							</label>
-						</div>
-						<div class="status">
-							<div class="read_color"></div>
-							<h4>Read</h4>
-							<div class="unread_color"></div>
-							<h4>Not read</h4>
-						</div>
-					</div>
-
-					<div class="book-card-container">
-						<!-- <div class="book-list"></div>
-				<div class="book-grid"></div> -->
-					</div>
-				</div>
+				<div id="column-right"></div>
 			</div>
 		</div>
-		<!-- ADD BOOK FORM -->
-		<section class="add_book_section">
-			<div class="new-book-form">
-				<h2 class="form_title">Add new book</h2>
-				<h4>* = required</h4>
-				<span class="material-icons close-form" id="close-book-form">
-					close
-				</span>
-				<label for="b-title"
-					>Title*
-					<input
-						class="form-control book-form-control"
-						type="text"
-						name="book-title"
-						id="b-title"
-						placeholder="Title"
-					/><small class="err-msg"> * Book title is required</small></label
-				>
-				<label for="b-author"
-					>Author*
-					<input
-						class="form-control book-form-control"
-						type="text"
-						name="book-author"
-						id="b-author"
-						placeholder="Author"
-					/><small class="err-msg"> * Book author is required</small></label
-				>
-				<label for="b-isbn"
-					>ISBN
-					<input
-						class="form-control book-form-control"
-						type="number"
-						name="book-isbn"
-						id="b-isbn"
-						placeholder="3836562219"
-				/></label>
-				<label for="b-pages"
-					>Number of pages
-					<input
-						class="form-control book-form-control"
-						type="number"
-						name="pages-count"
-						id="b-pages"
-						placeholder="100"
-						min="1"
-				/></label>
-				<label for="b-edition"
-					>Edition
-					<input
-						class="form-control book-form-control"
-						type="text"
-						name="book-edition"
-						id="b-edition"
-						placeholder="1"
-				/></label>
-				<label for="b-publishing_date"
-					>Year Published
-					<input
-						type="number"
-						min="0"
-						max="2023"
-						step="1"
-						value="1917"
-						name="book-publishing-date"
-						class="form-control book-form-control"
-						id="b-publishing_date"
-				/></label>
-				<label for="b-read_status"
-					>Have you read this book?*
-					<select
-						class="form-control book-form-control"
-						name="book-status"
-						id="b-read_status"
-					>
-						<!-- <option value="null" disabled="" selected="">
-							did you read this book?
-						</option> -->
-						<option value="false">NO</option>
-						<option value="true">YES</option>
-					</select>
-					<small class="err-msg"> * Book reading status is required</small>
-				</label>
-
-				<div class="new-book-buttons">
-					<button class="btn add-book">add</button>
-					<button class="btn clear" id="clear-book-form">Clear fields</button>
-				</div>
-			</div>
-		</section>
-		<!-- LOGIN FORM -->
-		<section class="login_section">
-			<div class="login-form">
-				<h2 class="form_title">Login</h2>
-				<h4>Enter your email OR username and password*</h4>
-				<h5>* required</h5>
-				<span class="material-icons close-form" id="close-login-form">
-					close
-				</span>
-				<label for="login-email"
-					>Email*
-					<input
-						class="form-control login-form-control"
-						type="email"
-						name="login-email"
-						id="login-email"
-						placeholder="zeus@yahoo.com"
-					/>
-					<!-- <small class="err-msg">* Email is required for login</small> -->
-				</label>
-				<label for="login-username"
-					>Username*
-					<input
-						class="form-control login-form-control"
-						type="text"
-						name="login-username"
-						id="login-username"
-						placeholder="zeus@yahoo.com"
-					/>
-					<!-- <small class="err-msg"
-						>* Username is required for login</small
-					> -->
-				</label>
-				<small id="login-err-no-user-email" class="err-msg"
-					>* Enter at least 1 of the following: email or username
-				</small>
-				<label for="login-password"
-					>Password*
-					<input
-						class="form-control login-form-control"
-						type="password"
-						name="login-password"
-						id="login-password"
-					/><small class="err-msg">* Password is required</small></label
-				>
-				<p>
-					Don't have an account?
-					<a href="javascript:;" id="login-to-signup-form">Sign up</a>
-				</p>
-
-				<div class="login-buttons">
-					<button class="btn" id="login-btn">login</button>
-					<button class="btn clear" id="clear-login-form">Clear fields</button>
-				</div>
-			</div>
-		</section>
-		<!-- SIGNUP FORM -->
-		<section class="signup_section">
-			<div class="signup-form">
-				<h2 class="form_title">Signup</h2>
-				<h4>Email and password are required</h4>
-				<h4>Username can be provided for login use</h4>
-				<span class="material-icons close-form" id="close-signup-form">
-					close
-				</span>
-				<label for="signup-email"
-					>Email*
-					<input
-						class="form-control signup-form-control"
-						type="email"
-						name="signup-email"
-						id="signup-email"
-						placeholder="zeus@yahoo.com"
-					/><small class="err-msg">* Email is required for signup</small></label
-				>
-				<label for="signup-username"
-					>Username*
-					<input
-						class="form-control signup-form-control"
-						type="text"
-						name="signup-username"
-						id="signup-username"
-						placeholder="lightningMan"
-				/></label>
-				<label for="signup-password"
-					>Password*
-					<input
-						class="form-control signup-form-control"
-						type="password"
-						name="signup-password"
-						id="signup-password"
-					/><small class="err-msg">* Password is required</small></label
-				>
-				<p>
-					Already have an account?
-					<a href="javascript:;" id="signup-to-login-form">Login</a>
-				</p>
-
-				<div class="signup-buttons">
-					<button class="btn" id="signup-btn">signup</button>
-					<button class="btn clear" id="clear-signup-form">Clear fields</button>
-				</div>
-			</div>
-		</section>
 
 		<!-- JAVASCRIPT -->
-		<script src="./js/state.js"></script>
-		<script src="./js/heroDisplay.js"></script>
-		<script src="./js/hamburgerMenu.js"></script>
 		<script src="./js/themeToggle.js"></script>
-		<script src="./js/userClass.js"></script>
-		<script src="./js/bookClass.js"></script>
 		<script src="./js/requestMethods.js"></script>
-		<script src="./js/loginSignupForm.js"></script>
-		<script src="./js/bookForm.js"></script>
-		<script src="./js/renderBooks.js"></script>
-		<script src="./js/search.js"></script>
+		<script src="./js/login/loginSignupForm.js"></script>
+		<script src="./js/login/logout.js"></script>
 		<script src="./index.js"></script>
 	</body>
 </html>
