@@ -158,7 +158,8 @@ router.post("/login", async (req, res) => {
 		}
 		// If checkPassword() evaluates as true, the user will be logged in
 		// Once the user successfully logs in, set up the sessions variable 'loggedIn'
-		req.session.save(() => {
+		req.session.save((err) => {
+			if (err) return next(err);
 			req.session.user_id = userData.id;
 			req.session.loggedIn = true;
 
