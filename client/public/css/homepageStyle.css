@@ -55,6 +55,82 @@ body {
     align-items: center;
 }
 
+#column-left .inner {
+    padding: 0 50px;
+    margin: 0 auto;
+    max-width: 485px;
+}
+
+#column-left h1 {
+    /* font-family: 'Arvo', serif; */
+    color: #444;
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+    margin: 24px 0;
+}
+
+#column-left .create {
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+
+#column-left form {
+    margin: 20px 0;
+}
+
+#column-left .input-wrap {
+    margin: 0 0 25px 0;
+}
+#column-left label {
+    display: block;
+    color: #777;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+}
+#column-left input[type=text], 
+#column-left input[type=password] {
+    display: block;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 18px;
+    line-height: 1;
+    padding: 13px 15px;
+    color: #444;
+    -webkit-appearance: none;
+    appearance: none;
+}
+#column-left button {
+    display: block;
+    width: 100%;
+    line-height: 1;
+    background-color: #e27730;
+    border-radius: 3px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 16px 15px;
+    cursor: pointer;
+}
+#column-left .forgot {
+    text-align: center;
+    font-size: 16px;
+    margin: 20px 0 0;
+}
+#column-left .forgot a {
+    color: #666;
+    text-decoration: underline;
+}
+#column-left .footer {
+    text-align: center;
+    margin: 40px 0 0;
+    color: #888;
+    font-size: 12px;
+}
+
 #column-right {
     margin: 0;
     width: 65%;
@@ -76,3 +152,50 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+#column-right .inner {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+#column-right .inner .landing_page_message {
+    padding: 44px 60px 50px 60px;
+    background-color: #fff;
+    max-width: 440px;
+    margin: auto;
+    text-align: left;
+}
+
+#column-right .inner .landing_page_message .msg_title {
+    /* font-family: 'Arvo', serif; */
+    color: #444444;
+    margin-bottom: 26px;
+    line-height: 1.4;
+    font-size: 27px;
+    font-weight: 400;
+    margin-top: 0;
+}
+
+#column-right .inner .landing_page_message .msg_content {
+    color: #777777;
+    font-size: 18px;
+    margin-bottom: 32px;
+    line-height: 1.6em;
+}
+
+#column-right .inner .landing_page_message .msg_button {
+    background-color: #DE7739;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 959px) {
+    #column-left .inner {
+        padding: 0 30px;
+    }
+    #column-right {
+        display: none;
+    }
+}
+
