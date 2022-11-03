@@ -162,9 +162,10 @@ router.post("/login", async (req, res) => {
 			req.session.user_id = userData.id;
 			req.session.loggedIn = true;
 
-			res
-				.status(200)
-				.json({ user: userData, message: "You are now logged in!" });
+			res.redirect("/");
+			// res
+			// 	.status(200)
+			// 	.json({ user: userData, message: "You are now logged in!" });
 		});
 	} catch (err) {
 		res.status(400).json(err);
@@ -175,7 +176,8 @@ router.post("/login", async (req, res) => {
 router.post("/logout", (req, res) => {
 	// When the user logs out, destroy the session
 	if (req.session.loggedIn) {
-		req.session.destroy(() => {
+		req.session.destroy((err) => {
+			if (err) return next(err);
 			res.status(204).end();
 		});
 	} else {
