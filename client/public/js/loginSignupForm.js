@@ -65,6 +65,7 @@ const loginUser = async function (e) {
 		});
 
 		if (response.ok) {
+			// direct logged-in user to home page
 			document.location.replace("/");
 		} else {
 			alert("Failed to log in.");

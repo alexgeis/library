@@ -5,14 +5,22 @@ const withAuth = require("../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
 	try {
-		const userData = await User.findAll({
-			attributes: { exclude: ["password"] },
-			order: [["name", "ASC"]],
-		});
-
 		res.sendFile(
-			path.join(__dirname, "..", "..", "client", "public", "index.html")
+			path.join(
+				__dirname,
+				"..",
+				"..",
+				"client",
+				"public",
+				"html",
+				"library.html"
+			)
 		);
+
+		// const userData = await User.findAll({
+		//     attributes: { exclude: ["password"] },
+		//     order: [["name", "ASC"]],
+		// });
 		// // Serialize data so the template can read it
 		// const users = userData.map((project) => project.get({ plain: true }));
 
@@ -31,7 +39,7 @@ router.get("/login", (req, res) => {
 		res.redirect("/");
 		return;
 	}
-	console.log(__dirname);
+
 	res.sendFile(
 		path.join(__dirname, "..", "..", "client", "public", "index.html")
 	);

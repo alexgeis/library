@@ -1,0 +1,20 @@
+:root {
+    --primary-dark: black;
+    --secondary-dark: black;
+    --primary-light: white;
+    --secondary-light: white;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+body {
+    min-height: 100vh;
+    /* padding: 0 20px; */
+    background-color: azure;
+}
