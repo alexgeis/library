@@ -2,30 +2,29 @@ const renderBooks = async function () {
 	const bookContainer = document.querySelector(".book-card-container");
 	bookContainer.innerHTML = "";
 
-	const currentBooks = await fetch("/api/books");
+	const currentBooksData = await fetch("/api/books");
+	const currentBooks = await currentBooksData.json();
 	console.log(currentBooks);
 
 	for (let i = 0; i < currentBooks.length; i++) {
 		const book = currentBooks[i];
-		// console.log(book.readStatus);
-		//
 		const bookCard = document.createElement("div");
 
-		// if (book.readStatus === true || book.readStatus === "true")
-		if (book.readStatus === true || book.readStatus === "true") {
+		// if (book.is_read === true || book.is_read === "true")
+		if (book.is_read === true || book.is_read === "true") {
 			bookCard.classList.add("read");
-		} else if (book.readStatus === false) bookCard.classList.add("not-read");
+		} else if (book.is_read === false) bookCard.classList.add("not-read");
 
 		bookCard.classList.add("single-book", "scale-in-center");
 		bookCard.setAttribute("id", "book-" + i);
 		bookCard.setAttribute("data-index", i);
-		//
+
+		// CLOSE AND DELETE
 		const closeBtn = document.createElement("span");
 		closeBtn.classList.add("material-icons", "remove-book");
 		closeBtn.textContent = " close ";
 		closeBtn.addEventListener("click", function (event) {
 			let element = event.target;
-			console.log(element);
 			let index = element.parentElement.getAttribute("data-index");
 			currentBooks.splice(index, 1);
 			setCurrentBooks(currentBooks);
@@ -54,19 +53,19 @@ const renderBooks = async function () {
 		labelPages.classList.add("b-label");
 		labelPages.textContent = "Number of pages: ";
 		const bookPages = document.createElement("span");
-		bookPages.classList.add("b-pages");
+		bookPages.classList.add("pages");
 		bookPages.textContent = book.pages;
 		pagesCount.append(labelPages, bookPages);
 		//
-		const bookLanguage = document.createElement("span");
-		bookLanguage.classList.add("book-language");
-		const labelLanguage = document.createElement("span");
-		labelLanguage.classList.add("b-label");
-		labelLanguage.textContent = "Language: ";
-		const languageDisplay = document.createElement("span");
-		languageDisplay.classList.add("language");
-		languageDisplay.textContent = book.language;
-		bookLanguage.append(labelLanguage, languageDisplay);
+		const bookEdition = document.createElement("span");
+		bookEdition.classList.add("book-edition");
+		const labelEdition = document.createElement("span");
+		labelEdition.classList.add("b-label");
+		labelEdition.textContent = "Edition: ";
+		const editionDisplay = document.createElement("span");
+		editionDisplay.classList.add("edition");
+		editionDisplay.textContent = book.edition;
+		bookEdition.append(labelEdition, editionDisplay);
 		//
 		const publishDate = document.createElement("span");
 		publishDate.classList.add("book-published");
@@ -75,7 +74,7 @@ const renderBooks = async function () {
 		labelDate.textContent = "Published: ";
 		const dateDisplay = document.createElement("span");
 		dateDisplay.classList.add("publish-date");
-		dateDisplay.textContent = book.publishDate;
+		dateDisplay.textContent = book.publish_date;
 		publishDate.append(labelDate, dateDisplay);
 		//
 		const readToggleLabel = document.createElement("span");
@@ -87,29 +86,48 @@ const renderBooks = async function () {
 		const toggleControlCheckbox = document.createElement("input");
 		toggleControlCheckbox.setAttribute("type", "checkbox");
 		toggleControlCheckbox.classList.add("read_toggle");
-		// if (book.readStatus===true) toggleControlCheckbox.setAttribute("checked", "");
-		if (book.readStatus === true || book.readStatus === "true")
+		// if (book.is_read===true) toggleControlCheckbox.setAttribute("checked", "");
+		if (book.is_read === true || book.is_read === "true")
 			toggleControlCheckbox.checked = true;
-		if (bookReadStatusForm.value === true) toggleControlCheckbox.checked = true;
+		// if (bookReadStatusForm.value === true) toggleControlCheckbox.checked = true;
 		const toggleControlSpan = document.createElement("span");
 		toggleControlSpan.classList.add("read-toggle-slider", "round");
 		toggleControlLabel.append(toggleControlCheckbox, toggleControlSpan);
 		//
 
-		toggleControlCheckbox.addEventListener("click", function (event) {
+		toggleControlCheckbox.addEventListener("click", async function (event) {
 			let element = event.target;
-			// console.log(element.checked);
+
 			let bookContainer = element.parentElement.parentElement;
-			// console.log(bookContainer);
-			if (bookContainer.classList.contains("not-read") === true) {
+
+			if (bookContainer.classList.contains("not-read")) {
 				bookContainer.classList.remove("not-read");
 				bookContainer.classList.add("read");
-			} else if (bookContainer.classList.contains("read") === true) {
+			} else if (bookContainer.classList.contains("read")) {
 				bookContainer.classList.remove("read");
 				bookContainer.classList.add("not-read");
 			}
 			let index = bookContainer.getAttribute("data-index");
-			currentBooks[index].readStatus = element.checked;
+			currentBooks[index].is_read = element.checked;
+
+			const newReadStatusData = {
+				is_read: currentBooks[index].is_read,
+			};
+
+			const fetchURL = `/api/books/${book.id}`;
+			const response = await fetch(fetchURL, {
+				method: "PUT",
+				body: JSON.stringify(newReadStatusData),
+				headers: { "Content-Type": "application/json" },
+			});
+			if (response.ok) {
+				renderBooks();
+				// // direct logged-in user to home page
+				// document.location.replace("/");
+			} else {
+				alert("Failed to update book read status.");
+			}
+
 			// renderBooks();
 		});
 
@@ -118,7 +136,7 @@ const renderBooks = async function () {
 			bookTitle,
 			bookAuthor,
 			pagesCount,
-			bookLanguage,
+			bookEdition,
 			publishDate,
 			readToggleLabel,
 			toggleControlLabel

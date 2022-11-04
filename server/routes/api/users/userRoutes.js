@@ -146,7 +146,6 @@ router.delete("/:id", async (req, res) => {
 // POST user login
 router.post("/login", async (req, res) => {
 	try {
-		console.dir(req.session);
 		// First we find one user record with an email address (or username) that matches the one provided by the user logging in
 		const userData = await User.findOne({
 			where: {

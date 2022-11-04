@@ -4,7 +4,7 @@ const { Book, User } = require("../../../models");
 // GET all books by current logged in user /api/books/
 router.get("/", async (req, res) => {
 	try {
-		// req.session.user_id
+		console.log(req.session.user_id);
 		const bookData = await Book.findAll({
 			include: [{ model: User }],
 			where: {
