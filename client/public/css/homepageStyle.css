@@ -96,7 +96,8 @@ body {
     margin: 0 0 10px 0;
 }
 #column-left input[type=text], 
-#column-left input[type=password] {
+#column-left input[type=password],
+#column-left input[type=email] {
     display: block;
     width: 100%;
     border: 1px solid #ddd;
