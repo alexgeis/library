@@ -48,17 +48,26 @@ router.post("/", async (req, res) => {
 
 		//TODO: currently this hashing is redundant with the model hooks hashing
 		// hashed password                                  // salt
-		newUser.password = await bcrypt.hash(req.body.password, 10);
+		// newUser.password = await bcrypt.hash(req.body.password, 10);
 		// create the newUser with the hashed password and save to DB
 		const userData = await User.create(newUser, {
 			individualHooks: true, // //TODO: double check if this is needed
 		});
 
-		// Set up sessions with a 'loggedIn' variable set to `true`
-		req.session.save(() => {
+		req.session.regenerate(function (err) {
+			if (err) next(err);
+
+			// store user information in session
+			req.session.user_id = userData.id;
 			req.session.loggedIn = true;
 
-			res.status(200).json(userData);
+			// save the session before redirection to ensure page
+			// load does not happen before session is saved
+			req.session.save(function (err) {
+				if (err) return next(err);
+				res.redirect("/");
+			});
+			// res.status(200).json(userData);
 		});
 	} catch (err) {
 		res.status(400).json(err);
