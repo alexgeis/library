@@ -54,3 +54,4 @@ const createUserHandler = async function (e) {
 	// setBookReadTotals();
 	// renderBooks();
 };
+signupSubmitBtn.addEventListener("submit", createUserHandler);

@@ -46,6 +46,7 @@ router.post("/", async (req, res) => {
 		// if password hashing
 		const newUser = req.body;
 
+		console.log(req.body);
 		//TODO: currently this hashing is redundant with the model hooks hashing
 		// hashed password                                  // salt
 		// newUser.password = await bcrypt.hash(req.body.password, 10);
