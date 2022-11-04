@@ -16,10 +16,10 @@ function setCurrentTheme(newTheme) {
 		heroEl.classList.add("dark");
 		bookSectionEl.classList.add("dark");
 		addBookFormEl.classList.add("dark");
-		faviconEl.setAttribute("href", "./assets/icons/favicon_light.ico");
+		faviconEl.setAttribute("href", "../assets/icons/favicon_light.ico");
 		siteLogoEl.setAttribute(
 			"src",
-			"./assets/icons/book-open-page-variant-outline_light.svg"
+			"../assets/icons/book-open-page-variant-outline_light.svg"
 		);
 		themeToggle.checked = true;
 	}
@@ -32,7 +32,7 @@ themeToggle.addEventListener("click", function (event) {
 		heroEl.classList.toggle("dark");
 		bookSectionEl.classList.toggle("dark");
 		addBookFormEl.classList.toggle("dark");
-		faviconEl.setAttribute("href", "./assets/icons/favicon_light.ico");
+		faviconEl.setAttribute("href", "../assets/icons/favicon_light.ico");
 		siteLogoEl.setAttribute(
 			"src",
 			"./assets/icons/book-open-page-variant-outline_light.svg"
@@ -44,10 +44,10 @@ themeToggle.addEventListener("click", function (event) {
 		heroEl.classList.toggle("dark");
 		bookSectionEl.classList.toggle("dark");
 		addBookFormEl.classList.toggle("dark");
-		faviconEl.setAttribute("href", "./assets/icons/favicon.ico");
+		faviconEl.setAttribute("href", "../assets/icons/favicon.ico");
 		siteLogoEl.setAttribute(
 			"src",
-			"./assets/icons/book-open-page-variant-outline.svg"
+			"../assets/icons/book-open-page-variant-outline.svg"
 		);
 		setCurrentTheme("light");
 		localStorage.setItem("theme", "light");

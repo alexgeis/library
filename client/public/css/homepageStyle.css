@@ -195,6 +195,22 @@ body {
     border-radius: 3px;
     font-size: 16px;
 }
+#column-right .inner .landing_page_message .msg_button a {
+    display: block;
+    width: 100%;
+    color: #fff;
+    padding: 20px;
+    text-decoration: none;
+    background-image: url(../assets/icons/arrow-right-thin-circle-outline.png);
+    background-repeat: no-repeat;
+    background-position: calc(100% - 20px) center;
+    background-size: 18px;
+}
+.login-submit-btn:hover,
+#column-right .inner .landing_page_message .msg_button:hover {
+    color: #de7839bb;
+}
+
 
 @media screen and (max-width: 959px) {
     #column-left {
