@@ -158,7 +158,7 @@ router.post("/login", async (req, res) => {
 		}
 		// If the user does exist, we will use the checkPassword() instance method to compare the user's input to the password stored in the record
 		const validPassword = await userData.checkPassword(req.body.password);
-		// If checkPassword() evaluates as false, the user will receive an error message
+
 		if (!validPassword) {
 			res
 				.status(400)
@@ -180,41 +180,6 @@ router.post("/login", async (req, res) => {
 				res.redirect("/");
 			});
 		});
-		// Once the user successfully logs in, set up the sessions variable 'loggedIn'
-		// req.session.save((err) => {
-		// 	if (err) return next(err);
-		// 	req.session.user_id = userData.id;
-		// 	req.session.loggedIn = true;
-
-		// 	res.redirect("/");
-		// });
-		// res.sendFile(
-		// 	path.join(
-		// 		__dirname,
-		// 		"..",
-		// 		"..",
-		// 		"..",
-		// 		"..",
-		// 		"client",
-		// 		"public",
-		// 		"html",
-		// 		"library.html"
-		// 	)
-		// );
-		// res.redirect(path.join(
-		// 		__dirname,
-		// 		"..",
-		// 		"..",
-		// 		"..",
-		// 		"..",
-		// 		"client",
-		// 		"public",
-		// 		"html",
-		// 		"library.html"
-		// 	));
-		// res
-		// 	.status(200)
-		// 	.json({ user: userData, message: "You are now logged in!" });
 	} catch (err) {
 		console.error(err);
 		res.status(400).json(err);
@@ -223,15 +188,17 @@ router.post("/login", async (req, res) => {
 
 // Logout
 router.post("/logout", (req, res) => {
-	// When the user logs out, destroy the session
-	if (req.session.loggedIn) {
-		req.session.destroy((err) => {
-			if (err) return next(err);
-			res.status(204).end();
+	req.session.loggedIn = false;
+	req.session.save(function (err) {
+		if (err) next(err);
+
+		// regenerate the session, which is good practice to help
+		// guard against forms of session fixation
+		req.session.regenerate(function (err) {
+			if (err) next(err);
+			res.redirect("/");
 		});
-	} else {
-		res.status(404).end();
-	}
+	});
 });
 
 module.exports = router;
