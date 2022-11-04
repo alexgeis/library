@@ -3,7 +3,9 @@ const renderBooks = async function (searchTerm = "") {
 	bookContainer.innerHTML = "";
 
 	const currentBooksData = await fetch("/api/books");
-	const currentBooks = await currentBooksData.json();
+	console.log({ currentBooksData });
+	let currentBooks = await currentBooksData.json();
+	console.log({ currentBooks });
 
 	searchTerm = searchTerm.toLowerCase();
 	if (searchTerm !== "" && typeof searchTerm === "string") {

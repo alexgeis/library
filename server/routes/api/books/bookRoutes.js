@@ -5,6 +5,7 @@ const { Book, User } = require("../../../models");
 router.get("/", async (req, res) => {
 	try {
 		console.log(req.session.user_id);
+
 		const bookData = await Book.findAll({
 			include: [{ model: User }],
 			where: {
@@ -13,6 +14,7 @@ router.get("/", async (req, res) => {
 		});
 		res.status(200).json(bookData);
 	} catch (err) {
+		console.error(err);
 		res.status(500).json(err);
 	}
 });

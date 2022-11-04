@@ -1,11 +1,11 @@
 //GET
-async function getData(url = "") {
-	const response = await fetch(url, {
-		mode: "cors",
-		credentials: "same-origin",
-	});
-	return response.json(); // parses JSON response into native JavaScript objects
-}
+// async function getData(url = "") {
+// 	const response = await fetch(url, {
+// 		mode: "cors",
+// 		credentials: "same-origin",
+// 	});
+// 	return response.json(); // parses JSON response into native JavaScript objects
+// }
 
 //POST
 async function postData(url = "", data = {}) {
