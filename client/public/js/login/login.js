@@ -21,6 +21,8 @@ const loginUserHandler = async function (e) {
 			headers: { "Content-Type": "application/json" },
 		});
 
+		console.log(response);
+
 		if (response.ok) {
 			// direct logged-in user to home page
 			document.location.replace("/");

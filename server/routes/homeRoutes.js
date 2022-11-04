@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const path = require("path");
-const { User } = require("../models");
+// const { User } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
@@ -35,7 +35,7 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-	if (req.session.logged_in) {
+	if (req.session.loggedIn) {
 		res.redirect("/");
 		return;
 	}

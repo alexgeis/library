@@ -1,4 +1,6 @@
+const express = require("express");
 const router = require("express").Router();
+const path = require("path");
 const { User, Book } = require("../../../models");
 const bcrypt = require("bcrypt");
 const { Op } = require("sequelize");
@@ -134,6 +136,7 @@ router.delete("/:id", async (req, res) => {
 // POST user login
 router.post("/login", async (req, res) => {
 	try {
+		console.dir(req.session);
 		// First we find one user record with an email address (or username) that matches the one provided by the user logging in
 		const userData = await User.findOne({
 			where: {
@@ -163,17 +166,55 @@ router.post("/login", async (req, res) => {
 			return;
 		}
 		// If checkPassword() evaluates as true, the user will be logged in
-		// Once the user successfully logs in, set up the sessions variable 'loggedIn'
-		req.session.save((err) => {
-			if (err) return next(err);
+		req.session.regenerate(function (err) {
+			if (err) next(err);
+
+			// store user information in session
 			req.session.user_id = userData.id;
 			req.session.loggedIn = true;
 
-			res.redirect("/");
-			// res
-			// 	.status(200)
-			// 	.json({ user: userData, message: "You are now logged in!" });
+			// save the session before redirection to ensure page
+			// load does not happen before session is saved
+			req.session.save(function (err) {
+				if (err) return next(err);
+				res.redirect("/");
+			});
 		});
+		// Once the user successfully logs in, set up the sessions variable 'loggedIn'
+		// req.session.save((err) => {
+		// 	if (err) return next(err);
+		// 	req.session.user_id = userData.id;
+		// 	req.session.loggedIn = true;
+
+		// 	res.redirect("/");
+		// });
+		// res.sendFile(
+		// 	path.join(
+		// 		__dirname,
+		// 		"..",
+		// 		"..",
+		// 		"..",
+		// 		"..",
+		// 		"client",
+		// 		"public",
+		// 		"html",
+		// 		"library.html"
+		// 	)
+		// );
+		// res.redirect(path.join(
+		// 		__dirname,
+		// 		"..",
+		// 		"..",
+		// 		"..",
+		// 		"..",
+		// 		"client",
+		// 		"public",
+		// 		"html",
+		// 		"library.html"
+		// 	));
+		// res
+		// 	.status(200)
+		// 	.json({ user: userData, message: "You are now logged in!" });
 	} catch (err) {
 		console.error(err);
 		res.status(400).json(err);
