@@ -43,16 +43,26 @@ async function addBookToLibrary() {
 		bookReadStatusInput.value
 	);
 	// if ((bookReadStatusInput.value === true))
-	const response = postData("/api/books");
+	// const response = postData("/api/books");
 	// console.log(response);
+	const response = await fetch("/api/books", {
+		method: "POST",
+		body: JSON.stringify(newBook),
+		headers: { "Content-Type": "application/json" },
+	});
+	if (response.ok) {
+		addBookSection.setAttribute("style", "display: none;");
+		renderBooks();
+		// document.location.reload();
+	} else {
+		alert("Failed to create new book.");
+	}
 
-	currentBooks.push(newBook);
-	setCurrentBooks(currentBooks);
-	console.log(currentBooks);
-	localStorage.setItem("books", JSON.stringify(currentBooks));
-	addBookSection.setAttribute("style", "display: none;");
+	// currentBooks.push(newBook);
+	// setCurrentBooks(currentBooks);
+	// console.log(currentBooks);
+	// localStorage.setItem("books", JSON.stringify(currentBooks));
 	setBookReadTotals();
-	renderBooks();
 }
 
 // // NEW BOOK FORM

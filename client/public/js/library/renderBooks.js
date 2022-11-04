@@ -1,8 +1,10 @@
-//CARD
-const bookContainer = document.querySelector(".book-card-container");
-
-function renderBooks() {
+const renderBooks = async function () {
+	const bookContainer = document.querySelector(".book-card-container");
 	bookContainer.innerHTML = "";
+
+	const currentBooks = await fetch("/api/books");
+	console.log(currentBooks);
+
 	for (let i = 0; i < currentBooks.length; i++) {
 		const book = currentBooks[i];
 		// console.log(book.readStatus);
@@ -123,4 +125,4 @@ function renderBooks() {
 		);
 		bookContainer.appendChild(bookCard);
 	}
-}
+};

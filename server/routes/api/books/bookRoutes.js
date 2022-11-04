@@ -1,8 +1,24 @@
 const router = require("express").Router();
 const { Book, User } = require("../../../models");
 
-// GET all books
+// GET all books by current logged in user /api/books/
 router.get("/", async (req, res) => {
+	try {
+		// req.session.user_id
+		const bookData = await Book.findAll({
+			include: [{ model: User }],
+			where: {
+				user_id: req.session.user_id,
+			},
+		});
+		res.status(200).json(bookData);
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
+// GET all books /api/books/
+router.get("/getall", async (req, res) => {
 	// Get all books from the book table
 	try {
 		const bookData = await Book.findAll({
@@ -13,6 +29,7 @@ router.get("/", async (req, res) => {
 		res.status(500).json(err);
 	}
 });
+
 // GET a single book
 router.get("/:id", async (req, res) => {
 	// Find a single book by its id
