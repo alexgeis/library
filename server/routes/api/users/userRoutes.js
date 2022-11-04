@@ -135,16 +135,15 @@ router.delete("/:id", async (req, res) => {
 router.post("/login", async (req, res) => {
 	try {
 		// First we find one user record with an email address (or username) that matches the one provided by the user logging in
-		if (req.body.usernameInput) {
-			const userData = await User.findOne({
-				where: {
-					[Op.or]: [
-						{ email: req.body.usernameInput },
-						{ username: req.body.usernameInput },
-					],
-				},
-			});
-		}
+		const userData = await User.findOne({
+			where: {
+				[Op.or]: [
+					{ email: req.body.username },
+					{ username: req.body.username },
+				],
+			},
+		});
+
 		// userData = await User.findOne({ where: { email: req.body.email } });
 
 		// If an account with that email address or username doesn't exist, the user will recieve an error message
@@ -155,7 +154,7 @@ router.post("/login", async (req, res) => {
 			return;
 		}
 		// If the user does exist, we will use the checkPassword() instance method to compare the user's input to the password stored in the record
-		const validPassword = await userData.checkPassword(req.body.passwordInput);
+		const validPassword = await userData.checkPassword(req.body.password);
 		// If checkPassword() evaluates as false, the user will receive an error message
 		if (!validPassword) {
 			res
@@ -176,6 +175,7 @@ router.post("/login", async (req, res) => {
 			// 	.json({ user: userData, message: "You are now logged in!" });
 		});
 	} catch (err) {
+		console.error(err);
 		res.status(400).json(err);
 	}
 });
