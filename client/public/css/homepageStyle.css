@@ -11,7 +11,7 @@
 }
 
 body, html {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Arvo', serif;
 }
 body {
     min-height: 100vh;
@@ -90,8 +90,8 @@ body {
 }
 #column-left label {
     display: block;
-    color: #777;
-    font-size: 14px;
+    color: #444;
+    font-size: 1rem;
     font-weight: 700;
     margin: 0 0 10px 0;
 }
@@ -206,9 +206,9 @@ body {
     background-position: calc(100% - 20px) center;
     background-size: 18px;
 }
-.login-submit-btn:hover,
+#column-left button:hover,
 #column-right .inner .landing_page_message .msg_button:hover {
-    color: #de7839bb;
+    background-color: #c45e1b;
 }
 
 
