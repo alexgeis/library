@@ -17,7 +17,7 @@ const loginUserHandler = async function (e) {
 
 		const response = await fetch("/api/users/login", {
 			method: "POST",
-			body: JSON.stringify(newUser),
+			body: JSON.stringify(loginUserData),
 			headers: { "Content-Type": "application/json" },
 		});
 
