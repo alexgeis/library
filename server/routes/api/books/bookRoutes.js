@@ -1,10 +1,11 @@
 const router = require("express").Router();
 const { Book, User } = require("../../../models");
+const withAuth = require("../../../utils/auth");
 
 // GET all books by current logged in user /api/books/
-router.get("/", async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
 	try {
-		console.log(req.session.user_id);
+		console.log("/api/books/ GET request", req.session.user_id);
 
 		const bookData = await Book.findAll({
 			include: [{ model: User }],

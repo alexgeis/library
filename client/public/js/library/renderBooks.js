@@ -1,4 +1,5 @@
 const renderBooks = async function (searchTerm = "") {
+	console.log({ searchTerm });
 	const bookContainer = document.querySelector(".book-card-container");
 	bookContainer.innerHTML = "";
 
@@ -14,6 +15,7 @@ const renderBooks = async function (searchTerm = "") {
 				book.author.toLowerCase().includes(searchTerm);
 		});
 	}
+	console.log({ currentBooks });
 
 	for (let i = 0; i < currentBooks.length; i++) {
 		const book = currentBooks[i];
