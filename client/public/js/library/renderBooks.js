@@ -1,5 +1,4 @@
 const renderBooks = async function (searchTerm = "") {
-	console.log(searchTerm);
 	const bookContainer = document.querySelector(".book-card-container");
 	bookContainer.innerHTML = "";
 
