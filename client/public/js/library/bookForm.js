@@ -34,17 +34,15 @@ const bookReadStatusInput = document.querySelector("#b-read_status");
 
 async function addBookToLibrary() {
 	const newBook = new Book({
-		title: bookTitleInput.value,
-		author: bookAuthorInput.value,
-		isbn: bookISBNInput.value,
-		pages: bookPagesInput.value,
-		edition: bookEditionInput.value,
-		publish_date: bookDateInput.value,
-		is_read: bookReadStatusInput.value,
+		title: bookTitleInput.value.trim(),
+		author: bookAuthorInput.value.trim(),
+		isbn: bookISBNInput.value.trim(),
+		pages: bookPagesInput.value.trim(),
+		edition: bookEditionInput.value.trim(),
+		publish_date: bookDateInput.value.trim(),
+		is_read: bookReadStatusInput.value.trim(),
 	});
-	// if ((bookReadStatusInput.value === true))
-	// const response = postData("/api/books");
-	// console.log(response);
+
 	const response = await fetch("/api/books", {
 		method: "POST",
 		body: JSON.stringify(newBook),
@@ -53,19 +51,9 @@ async function addBookToLibrary() {
 	if (response.ok) {
 		addBookSection.setAttribute("style", "display: none;");
 		renderBooks();
-		// document.location.reload();
 	} else {
 		alert("Failed to create new book.");
 	}
-
-	// currentBooks.push(newBook);
-	// setCurrentBooks(currentBooks);
-	// console.log(currentBooks);
-	// localStorage.setItem("books", JSON.stringify(currentBooks));
-	// setBookReadTotals();
-
-	const currentBooksData = await fetch("/api/books");
-	let currentBooks = await currentBooksData.json();
 }
 
 // // NEW BOOK FORM
