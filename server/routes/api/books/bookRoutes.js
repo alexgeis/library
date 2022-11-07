@@ -98,7 +98,7 @@ router.get("/:isbn", async (req, res) => {
 });
 
 // CREATE a book
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
 	try {
 		const newBook = await Book.create({
 			title: req.body.title,
@@ -106,8 +106,9 @@ router.post("/", async (req, res) => {
 			isbn: req.body.isbn,
 			pages: req.body.pages,
 			edition: req.body.edition,
+			publish_date: req.body.publish_date,
 			is_read: req.body.is_read,
-			// user_id: req.body.user_id,
+			user_id: req.session.user_id, // add user ID from session
 		});
 		res.status(200).json(newBook);
 	} catch (err) {
@@ -116,7 +117,7 @@ router.post("/", async (req, res) => {
 });
 
 // PUT update a book
-router.put("/:id", async (req, res) => {
+router.put("/:id", withAuth, async (req, res) => {
 	try {
 		const bookData = await Book.update(req.body, {
 			where: {

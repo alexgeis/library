@@ -4,17 +4,17 @@ const renderBooks = async function (searchTerm = "") {
 	bookContainer.innerHTML = "";
 
 	const currentBooksData = await fetch("/api/books");
-	// console.log({ currentBooksData });
 	let currentBooks = await currentBooksData.json();
 
 	const lowerSearchTerm = searchTerm.toLowerCase();
 	if (lowerSearchTerm !== "" && typeof lowerSearchTerm === "string") {
-		currentBooks = currentBooks.filter((book) => {
+		const filteredCurrentBooks = currentBooks.filter((book) => {
 			return (
 				book.title.toLowerCase().includes(lowerSearchTerm) ||
 				book.author.toLowerCase().includes(lowerSearchTerm)
 			);
 		});
+		currentBooks = filteredCurrentBooks;
 	}
 
 	for (let i = 0; i < currentBooks.length; i++) {

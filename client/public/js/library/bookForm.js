@@ -33,15 +33,15 @@ const bookDateInput = document.querySelector("#b-publishing_date");
 const bookReadStatusInput = document.querySelector("#b-read_status");
 
 async function addBookToLibrary() {
-	const newBook = new Book(
-		bookTitleInput.value,
-		bookAuthorInput.value,
-		bookISBNInput.value,
-		bookPagesInput.value,
-		bookEditionInput.value,
-		bookDateInput.value,
-		bookReadStatusInput.value
-	);
+	const newBook = new Book({
+		title: bookTitleInput.value,
+		author: bookAuthorInput.value,
+		isbn: bookISBNInput.value,
+		pages: bookPagesInput.value,
+		edition: bookEditionInput.value,
+		publish_date: bookDateInput.value,
+		is_read: bookReadStatusInput.value,
+	});
 	// if ((bookReadStatusInput.value === true))
 	// const response = postData("/api/books");
 	// console.log(response);
@@ -62,7 +62,10 @@ async function addBookToLibrary() {
 	// setCurrentBooks(currentBooks);
 	// console.log(currentBooks);
 	// localStorage.setItem("books", JSON.stringify(currentBooks));
-	setBookReadTotals();
+	// setBookReadTotals();
+
+	const currentBooksData = await fetch("/api/books");
+	let currentBooks = await currentBooksData.json();
 }
 
 // // NEW BOOK FORM

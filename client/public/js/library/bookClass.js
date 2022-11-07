@@ -1,20 +1,20 @@
 //BOOK CONSTRUCTOR
-const Book = function (
+const Book = function ({
 	title,
 	author,
 	isbn,
 	pages,
 	edition,
-	publishDate,
-	is_read
-) {
+	publish_date,
+	is_read,
+}) {
 	return {
 		title,
 		author,
 		isbn,
 		pages,
 		edition,
-		publishDate,
+		publish_date,
 		is_read,
 		// insertion_date: new Date().toLocaleString(),
 	};
