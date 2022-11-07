@@ -1,21 +1,21 @@
 const renderBooks = async function (searchTerm = "") {
-	console.log({ searchTerm });
+	console.log(searchTerm);
 	const bookContainer = document.querySelector(".book-card-container");
 	bookContainer.innerHTML = "";
 
 	const currentBooksData = await fetch("/api/books");
-	console.log({ currentBooksData });
+	// console.log({ currentBooksData });
 	let currentBooks = await currentBooksData.json();
-	console.log({ currentBooks });
 
-	searchTerm = searchTerm.toLowerCase();
-	if (searchTerm !== "" && typeof searchTerm === "string") {
+	const lowerSearchTerm = searchTerm.toLowerCase();
+	if (lowerSearchTerm !== "" && typeof lowerSearchTerm === "string") {
 		currentBooks = currentBooks.filter((book) => {
-			book.title.toLowerCase().includes(searchTerm) ||
-				book.author.toLowerCase().includes(searchTerm);
+			return (
+				book.title.toLowerCase().includes(lowerSearchTerm) ||
+				book.author.toLowerCase().includes(lowerSearchTerm)
+			);
 		});
 	}
-	console.log({ currentBooks });
 
 	for (let i = 0; i < currentBooks.length; i++) {
 		const book = currentBooks[i];
