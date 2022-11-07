@@ -5,8 +5,6 @@ const withAuth = require("../../../utils/auth");
 // GET all books by current logged in user /api/books/
 router.get("/", withAuth, async (req, res) => {
 	try {
-		console.log("/api/books/ GET request", req.session.user_id);
-
 		const bookData = await Book.findAll({
 			include: [{ model: User }],
 			where: {
@@ -24,9 +22,10 @@ router.get("/", withAuth, async (req, res) => {
 router.get("/getall", async (req, res) => {
 	// Get all books from the book table
 	try {
-		const bookData = await Book.findAll({
-			include: [{ model: User }],
-		});
+		const bookData = await Book.findAll();
+		// 	{
+		// 	include: [{ model: User }],
+		// }
 		res.status(200).json(bookData);
 	} catch (err) {
 		res.status(500).json(err);
