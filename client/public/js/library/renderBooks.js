@@ -131,6 +131,7 @@ const renderBooks = async function (searchTerm = "") {
 				headers: { "Content-Type": "application/json" },
 			});
 			if (response.ok) {
+				renderProgressBar();
 				renderBooks();
 				// // direct logged-in user to home page
 				// document.location.replace("/");
