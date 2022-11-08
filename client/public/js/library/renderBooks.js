@@ -33,14 +33,17 @@ const renderBooks = async function (searchTerm = "") {
 		const closeBtn = document.createElement("span");
 		closeBtn.classList.add("material-icons", "remove-book");
 		closeBtn.textContent = " close ";
-		closeBtn.addEventListener("click", function (event) {
-			let element = event.target;
-			let index = element.parentElement.getAttribute("data-index");
-			currentBooks.splice(index, 1);
-			setCurrentBooks(currentBooks);
-			localStorage.setItem("books", JSON.stringify(currentBooks));
-			console.log(currentBooks);
-			renderBooks();
+		closeBtn.addEventListener("click", async function (event) {
+			const fetchURL = `/api/books/${book.id}`;
+			const response = await fetch(fetchURL, {
+				method: "DELETE",
+			});
+			if (response.ok) {
+				renderProgressBar();
+				renderBooks();
+			} else {
+				alert("Failed to delete book.");
+			}
 		});
 		//
 		const bookTitle = document.createElement("h3");
