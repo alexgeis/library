@@ -46,6 +46,11 @@ const renderBooks = async function (searchTerm = "") {
 			}
 		});
 		//
+		// EDIT BUTTON
+		const editBtn = document.createElement("span");
+		editBtn.classList.add("material-icons", "edit-book");
+		editBtn.textContent = " edit ";
+		//
 		const bookTitle = document.createElement("h3");
 		bookTitle.classList.add("book-title");
 		bookTitle.textContent = book.title;
@@ -59,6 +64,16 @@ const renderBooks = async function (searchTerm = "") {
 		authorDisplay.classList.add("author");
 		authorDisplay.textContent = book.author;
 		bookAuthor.append(labelAuthor, authorDisplay);
+		//
+		const bookIsbn = document.createElement("span");
+		bookIsbn.classList.add("book-isbn");
+		const labelIsbn = document.createElement("span");
+		labelIsbn.classList.add("b-label");
+		labelIsbn.textContent = "By: ";
+		const isbnDisplay = document.createElement("span");
+		isbnDisplay.classList.add("isbn");
+		isbnDisplay.textContent = book.isbn;
+		bookIsbn.append(labelIsbn, isbnDisplay);
 		//
 		const pagesCount = document.createElement("span");
 		pagesCount.classList.add("pages-count");
@@ -147,6 +162,7 @@ const renderBooks = async function (searchTerm = "") {
 
 		bookCard.append(
 			closeBtn,
+			editBtn,
 			bookTitle,
 			bookAuthor,
 			pagesCount,

@@ -6,7 +6,7 @@ const addBookBtn = document.querySelector(".add-book-form-open");
 addBookBtn.addEventListener("click", renderAddBookForm);
 
 // CLEAR BOOK FORM
-function clearBookForm() {
+function clearNewBookForm() {
 	const bookInputs = document.querySelectorAll(".book-form-control");
 	for (const input of bookInputs) {
 		if (input.tagName.toLowerCase() === "select")
@@ -14,14 +14,14 @@ function clearBookForm() {
 		else input.value = "";
 	}
 }
-const clearBookFormBtn = document.querySelector("#clear-new-book-form");
-clearBookFormBtn.addEventListener("click", clearBookForm);
+const clearNewBookFormBtn = document.querySelector("#clear-new-book-form");
+clearNewBookFormBtn.addEventListener("click", clearNewBookForm);
 // CLOSE BOOK FORM
-function closeBookForm() {
+function closeNewBookForm() {
 	addBookSection.setAttribute("style", "display: none;");
 }
-const closeBookFormBtn = document.querySelector("#close-new-book-form");
-closeBookFormBtn.addEventListener("click", closeBookForm);
+const closeNewBookFormBtn = document.querySelector("#close-new-book-form");
+closeNewBookFormBtn.addEventListener("click", closeNewBookForm);
 
 //ADD BOOK FUNCTION
 const bookTitleInput = document.querySelector("#b-title-new");

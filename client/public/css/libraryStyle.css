@@ -382,6 +382,15 @@ nav {
     right: 10px;
     cursor: pointer;
 }
+.book-card-container .edit-book {
+    position: absolute;
+    top: 5px;
+    right: 35px;
+    /* width: 10px; */
+    height: 20;
+    cursor: pointer;
+    overflow: clip;
+}
 .book-card-container .read_toggle_label {
     font-size: 12px;
     position: absolute;
