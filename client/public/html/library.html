@@ -236,58 +236,58 @@
 			<div class="edit-book-form">
 				<h2 class="form_title">Edit book</h2>
 				<h4>* = required</h4>
-				<span class="material-icons close-form" id="close-book-form">
+				<span class="material-icons close-form" id="close-edit-book-form">
 					close
 				</span>
-				<label for="b-title"
+				<label for="b-title-edit"
 					>Title*
 					<input
 						class="form-control book-form-control"
 						type="text"
-						name="book-title"
-						id="b-title"
+						name="book-title-edit"
+						id="b-title-edit"
 						placeholder="Title"
 					/><small class="err-msg"> * Book title is required</small></label
 				>
-				<label for="b-author"
+				<label for="b-author-edit"
 					>Author*
 					<input
 						class="form-control book-form-control"
 						type="text"
-						name="book-author"
-						id="b-author"
+						name="book-author-edit"
+						id="b-author-edit"
 						placeholder="Author"
 					/><small class="err-msg"> * Book author is required</small></label
 				>
-				<label for="b-isbn"
+				<label for="b-isbn-edit"
 					>ISBN
 					<input
 						class="form-control book-form-control"
 						type="number"
-						name="book-isbn"
-						id="b-isbn"
+						name="book-isbn-edit"
+						id="b-isbn-edit"
 						placeholder="3836562219"
 				/></label>
-				<label for="b-pages"
+				<label for="b-pages-edit"
 					>Number of pages
 					<input
 						class="form-control book-form-control"
 						type="number"
-						name="pages-count"
-						id="b-pages"
+						name="pages-count-edit"
+						id="b-pages-edit"
 						placeholder="100"
 						min="1"
 				/></label>
-				<label for="b-edition"
+				<label for="b-edition-edit"
 					>Edition
 					<input
 						class="form-control book-form-control"
 						type="text"
-						name="book-edition"
-						id="b-edition"
+						name="book-edition-edit"
+						id="b-edition-edit"
 						placeholder="1"
 				/></label>
-				<label for="b-publishing_date"
+				<label for="b-publishing_date-edit"
 					>Year Published
 					<input
 						type="number"
@@ -295,16 +295,16 @@
 						max="2023"
 						step="1"
 						value="1917"
-						name="book-publishing-date"
+						name="book-publishing-date-edit"
 						class="form-control book-form-control"
-						id="b-publishing_date"
+						id="b-publishing_date-edit"
 				/></label>
-				<label for="b-read_status"
+				<label for="b-read_status-edit"
 					>Have you read this book?*
 					<select
 						class="form-control book-form-control"
-						name="book-status"
-						id="b-read_status"
+						name="book-status-edit"
+						id="b-read_status-edit"
 					>
 						<!-- <option value="null" disabled="" selected="">
 							did you read this book?
@@ -316,8 +316,10 @@
 				</label>
 
 				<div class="new-book-buttons">
-					<button class="btn add-book">add</button>
-					<button class="btn clear" id="clear-book-form">Clear fields</button>
+					<button class="btn edit-book">add</button>
+					<button class="btn clear" id="clear-edit-book-form">
+						Clear fields
+					</button>
 				</div>
 			</div>
 		</section>
