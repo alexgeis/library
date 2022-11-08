@@ -51,8 +51,8 @@ router.get("/:id", async (req, res) => {
 	}
 });
 
-// GET all paperback books
-router.get("/paperbacks", async (req, res) => {
+// GET all books thats are read
+router.get("/is_read", async (req, res) => {
 	try {
 		const bookData = await Book.findAll({
 			// Order by title in ascending order
@@ -60,11 +60,11 @@ router.get("/paperbacks", async (req, res) => {
 			include: [{ model: User }],
 			where: {
 				// Only get books that have this boolean set to TRUE
-				is_paperback: true,
+				is_read: true,
 			},
 			attributes: {
 				// Don't include these fields in the returned data
-				exclude: ["is_paperback", "edition"],
+				exclude: ["edition"],
 			},
 		});
 
