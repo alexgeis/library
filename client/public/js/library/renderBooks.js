@@ -57,30 +57,30 @@ const renderBooks = async function (searchTerm = "") {
 			let bookCardChildren = Array.from(event.target.parentElement.childNodes);
 
 			let existingBookInfo = {
-				title: bookCardChildren[2].value,
-				author: bookCardChildren[3].value,
-				isbn: bookCardChildren[4].value,
-				pages: bookCardChildren[5].value,
-				edition: bookCardChildren[6].value,
-				publish_date: bookCardChildren[7].value,
+				title: bookCardChildren[2].textContent,
+				author: bookCardChildren[3].textContent.split(" ")[1],
+				isbn: bookCardChildren[4].textContent.split(" ")[1],
+				pages: bookCardChildren[5].textContent.split(" ")[3],
+				edition: bookCardChildren[6].textContent.split(" ")[1],
+				publish_date: bookCardChildren[7].textContent.split(" ")[1],
 				is_read: bookCardChildren[9].firstChild.checked,
+				book_id: book.id,
 			};
 
 			// POPULATE INPUTS WITH DEFAULT CONTENT
-			document.querySelector("#b-title-edit").textContent =
-				existingBookInfo.title;
-			document.querySelector("#b-author-edit").textContent =
-				existingBookInfo.author;
-			document.querySelector("#b-isbn-edit").textContent =
-				existingBookInfo.isbn;
-			document.querySelector("#b-pages-edit").textContent =
-				existingBookInfo.pages;
-			document.querySelector("#b-edition-edit").textContent =
+			document.querySelector("#b-title-edit").value = existingBookInfo.title;
+			document.querySelector("#b-author-edit").value = existingBookInfo.author;
+			document.querySelector("#b-isbn-edit").value = existingBookInfo.isbn;
+			document.querySelector("#b-pages-edit").value = existingBookInfo.pages;
+			document.querySelector("#b-edition-edit").value =
 				existingBookInfo.edition;
-			document.querySelector("#b-publishing_date-edit").textContent =
+			document.querySelector("#b-publishing_date-edit").value =
 				existingBookInfo.publish_date;
-			document.querySelector("#b-read_status-edit").textContent =
+			document.querySelector("#b-read_status-edit").value =
 				existingBookInfo.is_read;
+
+			document.querySelector("#edit-book-id").dataset.bookId =
+				existingBookInfo.book_id;
 		});
 		//
 		const bookTitle = document.createElement("h3");
@@ -101,7 +101,7 @@ const renderBooks = async function (searchTerm = "") {
 		bookIsbn.classList.add("book-isbn");
 		const labelIsbn = document.createElement("span");
 		labelIsbn.classList.add("b-label");
-		labelIsbn.textContent = "By: ";
+		labelIsbn.textContent = "ISBN: ";
 		const isbnDisplay = document.createElement("span");
 		isbnDisplay.classList.add("isbn");
 		isbnDisplay.textContent = book.isbn;
@@ -197,6 +197,7 @@ const renderBooks = async function (searchTerm = "") {
 			editBtn,
 			bookTitle,
 			bookAuthor,
+			bookIsbn,
 			pagesCount,
 			bookEdition,
 			publishDate,

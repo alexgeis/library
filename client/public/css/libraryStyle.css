@@ -492,6 +492,10 @@ nav {
     opacity: 0;
 }
 
+#edit-book-id {
+    visibility: hidden;
+}
+
 .new-book-buttons,
 .login-buttons,
 .signup-buttons,

@@ -43,8 +43,11 @@ function clearEditBookForm() {
 const clearEditBookFormBtn = document.querySelector("#clear-edit-book-form");
 clearEditBookFormBtn.addEventListener("click", clearEditBookForm);
 // CLOSE EDIT BOOK FORM
+
 function closeEditBookForm() {
-	editBookSection.setAttribute("style", "display: none;");
+	document
+		.querySelector(".edit_book_section")
+		.setAttribute("style", "display: none;");
 }
 const closeEditBookFormBtn = document.querySelector("#close-edit-book-form");
 closeEditBookFormBtn.addEventListener("click", closeEditBookForm);
@@ -69,13 +72,17 @@ async function editBookLibrary() {
 		is_read: bookReadStatusEditInput.value,
 	});
 
-	const response = await fetch("/api/books", {
+	const bookID = document.querySelector("#edit-book-id").dataset.bookId;
+	const fetchURLEdit = `/api/books/${bookID}`;
+	const response = await fetch(fetchURLEdit, {
 		method: "PUT",
 		body: JSON.stringify(newBookUpdate),
 		headers: { "Content-Type": "application/json" },
 	});
 	if (response.ok) {
-		editBookSection.setAttribute("style", "display: none;");
+		document
+			.querySelector(".edit_book_section")
+			.setAttribute("style", "display: none;");
 		renderBooks();
 	} else {
 		alert("Failed to create new book.");
