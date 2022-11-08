@@ -44,11 +44,44 @@ const renderBooks = async function (searchTerm = "") {
 				alert("Failed to delete book.");
 			}
 		});
-		//
 		// EDIT BUTTON
 		const editBtn = document.createElement("span");
 		editBtn.classList.add("material-icons", "edit-book-form-open");
 		editBtn.textContent = " edit ";
+		editBtn.addEventListener("click", async function (event) {
+			// SHOW EDIT FORM
+			document
+				.querySelector(".edit_book_section")
+				.setAttribute("style", "display: block;");
+
+			let bookCardChildren = Array.from(event.target.parentElement.childNodes);
+
+			let existingBookInfo = {
+				title: bookCardChildren[2].value,
+				author: bookCardChildren[3].value,
+				isbn: bookCardChildren[4].value,
+				pages: bookCardChildren[5].value,
+				edition: bookCardChildren[6].value,
+				publish_date: bookCardChildren[7].value,
+				is_read: bookCardChildren[9].firstChild.checked,
+			};
+
+			// POPULATE INPUTS WITH DEFAULT CONTENT
+			document.querySelector("#b-title-edit").textContent =
+				existingBookInfo.title;
+			document.querySelector("#b-author-edit").textContent =
+				existingBookInfo.author;
+			document.querySelector("#b-isbn-edit").textContent =
+				existingBookInfo.isbn;
+			document.querySelector("#b-pages-edit").textContent =
+				existingBookInfo.pages;
+			document.querySelector("#b-edition-edit").textContent =
+				existingBookInfo.edition;
+			document.querySelector("#b-publishing_date-edit").textContent =
+				existingBookInfo.publish_date;
+			document.querySelector("#b-read_status-edit").textContent =
+				existingBookInfo.is_read;
+		});
 		//
 		const bookTitle = document.createElement("h3");
 		bookTitle.classList.add("book-title");
