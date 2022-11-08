@@ -56,7 +56,12 @@
 								<a href="#" class="nav-link" id="signup">Signup</a>
 							</li> -->
 							<li class="nav-item">
-								<a href="#" class="nav-link" id="logout">Logout</a>
+								<a href="javascript:;" class="nav-link" id="logout">Logout</a>
+							</li>
+							<li class="nav-item">
+								<a href="javascript:;" class="nav-link" id="settings"
+									>Settings</a
+								>
 							</li>
 						</ul>
 					</nav>
@@ -325,6 +330,49 @@
 				</div>
 			</div>
 		</section>
+		<!-- EDIT USER FORM -->
+		<section class="edit_user_section">
+			<div class="edit-user-form">
+				<h2 class="form_title">Update user</h2>
+				<h4>* = required</h4>
+				<span class="material-icons close-form" id="close-edit-user-form">
+					close
+				</span>
+				<label for="username-edit"
+					>Username*
+					<input
+						class="form-control user-form-control"
+						type="text"
+						name="username-edit"
+						id="username-edit"
+					/><small class="err-msg"> * Username is required</small></label
+				>
+				<label for="email-edit"
+					>Email
+					<input
+						class="form-control user-form-control"
+						type="email"
+						name="email-edit"
+						id="email-edit"
+				/></label>
+				<label for="password-edit"
+					>Password*
+					<input
+						class="form-control user-form-control"
+						type="password"
+						name="password-edit"
+						id="password-edit"
+					/><small class="err-msg"> * Password is required</small></label
+				>
+
+				<div class="edit-user-buttons">
+					<button class="btn edit-user">update</button>
+					<button class="btn clear" id="clear-edit-user-form">
+						Clear fields
+					</button>
+				</div>
+			</div>
+		</section>
 
 		<!-- JAVASCRIPT -->
 		<script src="../js/library/logout.js"></script>
@@ -339,6 +387,7 @@
 		<script src="../js/library/addBookForm.js"></script>
 		<script src="../js/library/renderBooks.js"></script>
 		<script src="../js/library/editBookForm.js"></script>
+		<script src="../js/library/editUserForm.js"></script>
 		<script src="../js/library/search.js"></script>
 		<script src="../js/library/index.js"></script>
 	</body>

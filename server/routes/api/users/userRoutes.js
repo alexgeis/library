@@ -4,6 +4,7 @@ const path = require("path");
 const { User, Book } = require("../../../models");
 const bcrypt = require("bcrypt");
 const { Op } = require("sequelize");
+const withAuth = require("../../../utils/auth");
 
 // GET all users
 router.get("/", async (req, res) => {
@@ -105,6 +106,18 @@ router.get("/:id", async (req, res) => {
 	}
 });
 
+router.get("/user/ID", withAuth, async (req, res) => {
+	try {
+		const userData = await User.findOne({
+			where: {
+				id: req.session.user_id,
+			},
+		});
+		res.status(200).json(userData);
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
 // PUT update a user
 router.put("/:id", async (req, res) => {
 	try {

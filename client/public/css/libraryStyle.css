@@ -403,7 +403,8 @@ nav {
 .add_book_section,
 .login_section,
 .signup_section,
-.edit_book_section {
+.edit_book_section,
+.edit_user_section {
     display: none;
     /* hide for now */
     width: 100vw;
@@ -420,7 +421,8 @@ nav {
 .new-book-form,
 .login-form,
 .signup-form,
-.edit-book-form {
+.edit-book-form,
+.edit-user-form {
     width: max-content;
     max-width: 100vw;
     max-height: 100vh;
@@ -460,7 +462,8 @@ nav {
 .new-book-form h4,
 .login-form h4, 
 .signup-form h4,
-.edit-book-form h4 {
+.edit-book-form h4,
+.edit-user-form h4 {
     font-size: .7rem;
     text-align: center;
     margin-top: -.8rem;
@@ -469,7 +472,8 @@ nav {
 .new-book-form input,
 .login-form input,
 .signup-form input,
-.edit-book-form input {
+.edit-book-form input,
+.edit-user-form input {
     margin-left: .7rem;
 }
 
@@ -499,7 +503,8 @@ nav {
 .new-book-buttons,
 .login-buttons,
 .signup-buttons,
-.edit-book-buttons {
+.edit-book-buttons,
+.edit-user-buttons {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
@@ -509,7 +514,8 @@ nav {
 .new-book-buttons button,
 .login-buttons button,
 .signup-buttons button,
-.edit-book-buttons button {
+.edit-book-buttons button,
+.edit-user-buttons button {
     box-sizing: border-box;
     appearance: none;
     background-color: transparent;
@@ -535,7 +541,9 @@ nav {
 .signup-buttons button:hover,
 .signup-buttons button:focus,
 .edit-book-buttons button:hover,
-.edit-book-buttons button:focus {
+.edit-book-buttons button:focus,
+.edit-user-buttons button:hover,
+.edit-user-buttons button:focus {
     color: #fff;
     outline: 0;
     box-shadow: 0 0 40px 40px rgba(2, 132, 199, 0.8) inset;
