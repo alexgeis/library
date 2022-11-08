@@ -20,7 +20,6 @@ const renderBooks = async function (searchTerm = "") {
 		const book = currentBooks[i];
 		const bookCard = document.createElement("div");
 
-		// if (book.is_read === true || book.is_read === "true")
 		if (book.is_read === true || book.is_read === "true") {
 			bookCard.classList.add("read");
 		} else if (book.is_read === false) bookCard.classList.add("not-read");
@@ -33,7 +32,7 @@ const renderBooks = async function (searchTerm = "") {
 		const closeBtn = document.createElement("span");
 		closeBtn.classList.add("material-icons", "remove-book");
 		closeBtn.textContent = " close ";
-		closeBtn.addEventListener("click", async function (event) {
+		closeBtn.addEventListener("click", async function () {
 			const fetchURL = `/api/books/${book.id}`;
 			const response = await fetch(fetchURL, {
 				method: "DELETE",
@@ -48,7 +47,7 @@ const renderBooks = async function (searchTerm = "") {
 		//
 		// EDIT BUTTON
 		const editBtn = document.createElement("span");
-		editBtn.classList.add("material-icons", "edit-book");
+		editBtn.classList.add("material-icons", "edit-book-form-open");
 		editBtn.textContent = " edit ";
 		//
 		const bookTitle = document.createElement("h3");

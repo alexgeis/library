@@ -1,4 +1,4 @@
-const renderEditFormBtn = document.querySelector(".edit-book");
+const renderEditFormBtn = document.querySelector(".edit-book-form-open");
 renderEditFormBtn.addEventListener("click", async function (event) {
 	// SHOW EDIT FORM
 	document
