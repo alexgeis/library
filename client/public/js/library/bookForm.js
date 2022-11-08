@@ -14,23 +14,23 @@ function clearBookForm() {
 		else input.value = "";
 	}
 }
-const clearBookFormBtn = document.querySelector("#clear-book-form");
+const clearBookFormBtn = document.querySelector("#clear-new-book-form");
 clearBookFormBtn.addEventListener("click", clearBookForm);
 // CLOSE BOOK FORM
 function closeBookForm() {
 	addBookSection.setAttribute("style", "display: none;");
 }
-const closeBookFormBtn = document.querySelector("#close-book-form");
+const closeBookFormBtn = document.querySelector("#close-new-book-form");
 closeBookFormBtn.addEventListener("click", closeBookForm);
 
 //ADD BOOK FUNCTION
-const bookTitleInput = document.querySelector("#b-title");
-const bookAuthorInput = document.querySelector("#b-author");
-const bookISBNInput = document.querySelector("#b-isbn");
-const bookPagesInput = document.querySelector("#b-pages");
-const bookEditionInput = document.querySelector("#b-edition");
-const bookDateInput = document.querySelector("#b-publishing_date");
-const bookReadStatusInput = document.querySelector("#b-read_status");
+const bookTitleInput = document.querySelector("#b-title-new");
+const bookAuthorInput = document.querySelector("#b-author-new");
+const bookISBNInput = document.querySelector("#b-isbn-new");
+const bookPagesInput = document.querySelector("#b-pages-new");
+const bookEditionInput = document.querySelector("#b-edition-new");
+const bookDateInput = document.querySelector("#b-publishing_date-new");
+const bookReadStatusInput = document.querySelector("#b-read_status-new");
 
 async function addBookToLibrary() {
 	const newBook = new Book({

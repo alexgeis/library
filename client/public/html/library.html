@@ -144,6 +144,98 @@
 			<div class="new-book-form">
 				<h2 class="form_title">Add new book</h2>
 				<h4>* = required</h4>
+				<span class="material-icons close-form" id="close-new-book-form">
+					close
+				</span>
+				<label for="b-title-new"
+					>Title*
+					<input
+						class="form-control book-form-control"
+						type="text"
+						name="book-title-new"
+						id="b-title-new"
+						placeholder="Title"
+					/><small class="err-msg"> * Book title is required</small></label
+				>
+				<label for="b-author-new"
+					>Author*
+					<input
+						class="form-control book-form-control"
+						type="text"
+						name="book-author-new"
+						id="b-author-new"
+						placeholder="Author"
+					/><small class="err-msg"> * Book author is required</small></label
+				>
+				<label for="b-isbn-new"
+					>ISBN
+					<input
+						class="form-control book-form-control"
+						type="number"
+						name="book-isbn-new"
+						id="b-isbn-new"
+						placeholder="3836562219"
+				/></label>
+				<label for="b-pages-new"
+					>Number of pages
+					<input
+						class="form-control book-form-control"
+						type="number"
+						name="pages-count-new"
+						id="b-pages-new"
+						placeholder="100"
+						min="1"
+				/></label>
+				<label for="b-edition-new"
+					>Edition
+					<input
+						class="form-control book-form-control"
+						type="text"
+						name="book-edition-new"
+						id="b-edition-new"
+						placeholder="1"
+				/></label>
+				<label for="b-publishing_date-new"
+					>Year Published
+					<input
+						type="number"
+						min="0"
+						max="2023"
+						step="1"
+						value="1917"
+						name="book-publishing-date-new"
+						class="form-control book-form-control"
+						id="b-publishing_date-new"
+				/></label>
+				<label for="b-read_status-new"
+					>Have you read this book?*
+					<select
+						class="form-control book-form-control"
+						name="book-status-new"
+						id="b-read_status-new"
+					>
+						<!-- <option value="null" disabled="" selected="">
+							did you read this book?
+						</option> -->
+						<option value="false">NO</option>
+						<option value="true">YES</option>
+					</select>
+					<small class="err-msg"> * Book reading status is required</small>
+				</label>
+
+				<div class="new-book-buttons">
+					<button class="btn add-book">add</button>
+					<button class="btn clear" id="clear-new-book-form">
+						Clear fields
+					</button>
+				</div>
+			</div>
+		</section>
+		<!-- EDIT BOOK FORM -->
+		<section class="edit_book_section">
+			<div class="edit-book-form">
+				<h2 class="form_title">Edit book</h2>
+				<h4>* = required</h4>
 				<span class="material-icons close-form" id="close-book-form">
 					close
 				</span>
