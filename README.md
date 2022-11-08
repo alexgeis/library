@@ -145,11 +145,12 @@ Use the add book button to start adding your books to the library. After books a
 
 ### MVP
 
-- [ ] persistent read status for books (store in local storage)
+- [x] login/signup functionality - store in DB
+- [x] persistent read status for books (store in local storage)
+- [x] progress bar - javascript and styling
+- [x] functional search bar
 - [ ] update read color styling to match [sky blue theme](https://tailwindcss.com/docs/customizing-colors)
 - [ ] style add new book form
-- [ ] functional search bar
-- [ ] progress bar - javascript and styling
 - [ ] edit book info
 
 ### Future
@@ -157,7 +158,6 @@ Use the add book button to start adding your books to the library. After books a
 - [ ] genre-tags for books (fantasy,sci-fi, etc.)
 - [ ] rating system for books (5 stars, thumbs up, etc.)
 - [ ] social media sharing links
-- [ ] login/signup functionality - store in DB
 
 <!-- See the [open issues](https://github.com/alexgeis/library/issues) for a full list of proposed features (and known issues). -->
 
