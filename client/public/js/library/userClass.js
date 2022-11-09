@@ -1,5 +1,5 @@
 //USER CONSTRUCTOR
-const User = function (username, email, password) {
+const User = function ({ username, email, password }) {
 	return {
 		username,
 		email,

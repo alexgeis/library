@@ -121,6 +121,7 @@ router.get("/user/ID", withAuth, async (req, res) => {
 
 router.post("/existing", withAuth, async (req, res) => {
 	try {
+		console.log(req.body);
 		const userEmailData = await User.findOne({
 			where: {
 				email: req.body.email,
@@ -149,6 +150,7 @@ router.post("/existing", withAuth, async (req, res) => {
 			return;
 		}
 	} catch (err) {
+		console.log(err);
 		res.status(500).json(err);
 	}
 });

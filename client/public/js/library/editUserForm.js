@@ -46,6 +46,8 @@ async function editUser() {
 		email: emailInput.value.trim(),
 		password: passwordInput.value,
 	});
+	console.log({ newUserUpdate });
+	console.log(newUserUpdate.email);
 
 	const existingUserData = await fetch("/api/users/existing", {
 		method: "POST",
