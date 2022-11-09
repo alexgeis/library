@@ -52,12 +52,14 @@ async function editUser() {
 		email: emailInput.value.trim(),
 		password: passwordInput.value,
 	});
+	console.log(newUserUpdate.password.trim());
 
-	if (existingUserDataGlobal.email === newUserUpdate.email)
-		delete newUserUpdate.email;
-	if (existingUserDataGlobal.username === newUserUpdate.username)
-		delete newUserUpdate.username;
-	if (newUserUpdate.password.length < 8) {
+	// if (existingUserDataGlobal.email === newUserUpdate.email)
+	// 	delete newUserUpdate.email;
+	// if (existingUserDataGlobal.username === newUserUpdate.username)
+	// 	delete newUserUpdate.username;
+	if (newUserUpdate.password.trim() === "") delete newUserUpdate.password;
+	else if (newUserUpdate.password.length < 8) {
 		existingErrMsg.style.visibility = "visible";
 		existingErrMsg.textContent = "New password must be at least 8 characters";
 		return;
