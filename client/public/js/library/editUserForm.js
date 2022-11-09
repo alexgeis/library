@@ -3,6 +3,7 @@ const emailInput = document.querySelector("#email-edit");
 const passwordInput = document.querySelector("#password-edit");
 
 const editUserSection = document.querySelector(".edit_user_section");
+let existingUserDataGlobal;
 async function renderEditUserForm() {
 	const responseUserData = await fetch("/api/users/user/ID");
 	const responseUser = await responseUserData.json();
@@ -14,6 +15,8 @@ async function renderEditUserForm() {
 
 	usernameInput.value = existingUserData.username;
 	emailInput.value = existingUserData.email;
+
+	existingUserDataGlobal = existingUserData;
 
 	editUserSection.setAttribute("style", "display: block;");
 }
@@ -41,13 +44,24 @@ closeEditUserFormBtn.addEventListener("click", closeEditUserForm);
 
 // EDIT USER FUNCTION
 async function editUser() {
+	const existingErrMsg = document.querySelector(".existing-err-msg");
+	existingErrMsg.style.visibility = "hidden";
+
 	const newUserUpdate = new User({
 		username: usernameInput.value.trim(),
 		email: emailInput.value.trim(),
 		password: passwordInput.value,
 	});
-	console.log({ newUserUpdate });
-	console.log(newUserUpdate.email);
+
+	if (existingUserDataGlobal.email === newUserUpdate.email)
+		delete newUserUpdate.email;
+	if (existingUserDataGlobal.username === newUserUpdate.username)
+		delete newUserUpdate.username;
+	if (newUserUpdate.password.length < 8) {
+		existingErrMsg.style.visibility = "visible";
+		existingErrMsg.textContent = "New password must be at least 8 characters";
+		return;
+	}
 
 	const existingUserData = await fetch("/api/users/existing", {
 		method: "POST",
@@ -56,7 +70,6 @@ async function editUser() {
 	});
 	const existingUserResponse = await existingUserData.json();
 
-	const existingErrMsg = document.querySelector(".existing-err-msg");
 	if (
 		existingUserResponse.existingEmail &&
 		existingUserResponse.existingUsername
