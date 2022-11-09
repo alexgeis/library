@@ -41,18 +41,46 @@ closeEditUserFormBtn.addEventListener("click", closeEditUserForm);
 
 // EDIT USER FUNCTION
 async function editUser() {
+	const newUserUpdate = new User({
+		username: usernameInput.value.trim(),
+		email: emailInput.value.trim(),
+		password: passwordInput.value,
+	});
+
+	const existingUserData = await fetch("/api/users/existing", {
+		method: "POST",
+		body: JSON.stringify(newUserUpdate),
+		headers: { "Content-Type": "application/json" },
+	});
+	const existingUserResponse = await existingUserData.json();
+
+	const existingErrMsg = document.querySelector(".existing-err-msg");
+	if (
+		existingUserResponse.existingEmail &&
+		existingUserResponse.existingUsername
+	) {
+		existingErrMsg.style.visibility = "visible";
+		existingErrMsg.textContent = "Username and email are both already taken";
+	} else if (
+		existingUserResponse.existingEmail &&
+		!existingUserResponse.existingUsername
+	) {
+		existingErrMsg.style.visibility = "visible";
+		existingErrMsg.textContent = "Email is already taken";
+	} else if (
+		!existingUserResponse.existingEmail &&
+		existingUserResponse.existingUsername
+	) {
+		existingErrMsg.style.visibility = "visible";
+		existingErrMsg.textContent = "Username is already taken";
+	}
+
 	const responseUserData = await fetch("/api/users/user/ID");
 	const responseUser = await responseUserData.json();
 
 	let userId = {
 		id: responseUser.id,
 	};
-
-	const newUserUpdate = new User({
-		username: usernameInput.value.trim(),
-		email: emailInput.value.trim(),
-		password: passwordInput.value,
-	});
 
 	const fetchURLEdit = `/api/users/${userId.id}`;
 	const response = await fetch(fetchURLEdit, {

@@ -118,8 +118,43 @@ router.get("/user/ID", withAuth, async (req, res) => {
 		res.status(500).json(err);
 	}
 });
+
+router.post("/existing", withAuth, async (req, res) => {
+	try {
+		const userEmailData = await User.findOne({
+			where: {
+				email: req.body.email,
+			},
+		});
+		const userUsernameData = await User.findOne({
+			where: {
+				username: req.body.username,
+			},
+		});
+
+		if (!userEmailData && !userUsernameData) {
+			// res.status(404).json({ message: "No user with this id!" });
+			res.status(200).json({ existingEmail: false, existingUsername: false });
+			return;
+		}
+
+		if (userEmailData && !userUsernameData) {
+			res.status(200).json({ existingEmail: true, existingUsername: false });
+			return;
+		} else if (userUsernameData && !userEmailData) {
+			res.status(200).json({ existingEmail: false, existingUsername: true });
+			return;
+		} else {
+			res.status(200).json({ existingEmail: true, existingUsername: true });
+			return;
+		}
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
 // PUT update a user
-router.put("/:id", async (req, res) => {
+router.put("/:id", withAuth, async (req, res) => {
 	try {
 		const userData = await User.update(req.body, {
 			where: {
@@ -139,7 +174,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // DELETE a user based on ID
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => {
 	try {
 		const userData = await User.destroy({
 			where: {

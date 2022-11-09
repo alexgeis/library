@@ -469,6 +469,11 @@ nav {
     margin-top: -.8rem;
 }
 
+.edit-user-form .existing-err-msg {
+    color: red;
+    visibility: hidden;
+}
+
 .new-book-form input,
 .login-form input,
 .signup-form input,

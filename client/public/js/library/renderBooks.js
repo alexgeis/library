@@ -58,7 +58,7 @@ const renderBooks = async function (searchTerm = "") {
 
 			let existingBookInfo = {
 				title: bookCardChildren[2].textContent,
-				author: bookCardChildren[3].textContent.split(" ")[1],
+				author: bookCardChildren[3].textContent.split(" ").slice(1),
 				isbn: bookCardChildren[4].textContent.split(" ")[1],
 				pages: bookCardChildren[5].textContent.split(" ")[3],
 				edition: bookCardChildren[6].textContent.split(" ")[1],
