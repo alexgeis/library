@@ -150,7 +150,7 @@ Use the add book button to start adding your books to the library. After books a
 - [x] progress bar - javascript and styling
 - [x] functional search bar
 - [x] edit book info
-- [ ] user update - validate inputs against current users, all users
+- [ ] user update - validate inputs against current user, all users
 - [ ] STYLE UPDATE
   - [ ] update read color styling to match [sky blue theme](https://tailwindcss.com/docs/customizing-colors)
   - [ ] style add new book form

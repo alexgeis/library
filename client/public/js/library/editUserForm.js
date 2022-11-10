@@ -52,7 +52,6 @@ async function editUser() {
 		email: emailInput.value.trim(),
 		password: passwordInput.value,
 	});
-	console.log(newUserUpdate.password.trim());
 
 	// if (existingUserDataGlobal.email === newUserUpdate.email)
 	// 	delete newUserUpdate.email;
