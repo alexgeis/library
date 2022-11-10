@@ -149,15 +149,21 @@ Use the add book button to start adding your books to the library. After books a
 - [x] persistent read status for books (store in local storage)
 - [x] progress bar - javascript and styling
 - [x] functional search bar
-- [ ] update read color styling to match [sky blue theme](https://tailwindcss.com/docs/customizing-colors)
-- [ ] style add new book form
-- [ ] edit book info
+- [x] edit book info
+- [ ] user update - validate inputs against current users, all users
+- [ ] STYLE UPDATE
+  - [ ] update read color styling to match [sky blue theme](https://tailwindcss.com/docs/customizing-colors)
+  - [ ] style add new book form
 
 ### Future
 
 - [ ] genre-tags for books (fantasy,sci-fi, etc.)
 - [ ] rating system for books (5 stars, thumbs up, etc.)
 - [ ] social media sharing links
+- [ ] forget password reset feature
+- [ ] modularize JavaScript
+- [ ] clean up CSS (organize around classes, sections, etc.)
+- [ ] cache for books
 
 <!-- See the [open issues](https://github.com/alexgeis/library/issues) for a full list of proposed features (and known issues). -->
 
