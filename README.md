@@ -153,7 +153,7 @@ Use the add book button to start adding your books to the library. After books a
 - [ ] user update - validate inputs against current user, all users
 - [ ] STYLE UPDATE
   - [ ] update read color styling to match [sky blue theme](https://tailwindcss.com/docs/customizing-colors)
-  - [ ] style add new book form
+  - [ ] style forms, buttons, and hero area
 
 ### Future
 
