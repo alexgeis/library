@@ -18,12 +18,30 @@
       "is_read": "false"
     },
     {
-      "title": "October",
-      "author": "China Miéville",
-      "isbn": "9781543625516",
-      "pages": "462",
-      "edition": "3",
-      "publish_date": "2017",
+      "title": "Naked Lunch",
+      "author": "William S. Burroughs",
+      "isbn": "9781543629865",
+      "pages": "340",
+      "edition": "2",
+      "publish_date": "1978",
+      "is_read": "false"
+    },
+    {
+      "title": "Dianetics",
+      "author": "L. Ron Hubbard",
+      "isbn": "9781716425516",
+      "pages": "390",
+      "edition": "1",
+      "publish_date": "1976",
+      "is_read": "false"
+    },
+    {
+      "title": "The Storyteller",
+      "author": "Dave Grohl",
+      "isbn": "9781512387616",
+      "pages": "294",
+      "edition": "1",
+      "publish_date": "2019",
       "is_read": "true"
     }
   ]

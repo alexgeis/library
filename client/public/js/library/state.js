@@ -1,3 +1,5 @@
+/* IF USING LOCAL STORAGE AS DB */
+
 //DEFAULTS
 const savedBooks = JSON.parse(localStorage.getItem("books")) || [];
 const currentlyRead = savedBooks.filter((book) => book.readStatus === true);
