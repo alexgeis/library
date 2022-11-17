@@ -32,37 +32,37 @@ body {
     background-color: azure;
 }
 
-/* DARK MODE TOGGLE */
-header#header-container.dark {
-    background: linear-gradient(135deg, rgba(12, 74, 110, 0.8) 0%, rgba(2, 132, 199, 0.8) 100%);   
-    color: white;
+/* DARK MODE */
+#header-container.dark {
+    background: linear-gradient(83deg, var(--primary-dark-blue) 80%, var(--secondary-mid-blue)); 
+    color: var(--white);
     transition: 0.7s ease;
 }
 div#hero-container.dark {
-    background: rgb(101, 101, 101);
-    color: white;
+    background: var(--secondary-dark-gray);
+    color: var(--white);
     transition: 0.7s ease; 
 }
 div#book-container.dark {
-    background: black;
-    color: white;
+    background: var(--primary-dark);
+    color: var(--white);
     transition: 0.7s ease;
 }
 #order_by,
 #order,
 header.dark > .header > .hamburger > .bar  {
-    background-color: white;
+    background-color: var(--white);
     transition: 0.7s ease;
 }
 
 .dark * .nav-link {
-    color: white;
+    color: var(--white);
     transition: 0.7s ease;
 }
 
 .dark * .add-book-form-open {
-    background-color: #fff;
-    color: #000;
+    background-color: var(--primary-light);
+    color: var(--black);
     transition: 0.7s ease;
 }
 /* ----CONTAINER */
@@ -85,11 +85,9 @@ header.dark > .header > .hamburger > .bar  {
 }
 /* ----HEADER */
 #header-container {
-    /* background: linear-gradient(135deg, rgba(14, 165, 233, 0.8) 0%, rgba(186, 230, 253, 0.8) 100%);  */
-    background: linear-gradient(135deg, var(--primary-dark-blue), var(--primary-light-blue) 100%); 
-    /* ORIGINAL */
-    /* background: linear-gradient(135deg, rgba(24, 77, 104, 0.8) 0%, rgba(87, 202, 133, 0.8) 100%); */
-    /* background-color: aqua; */
+    background: linear-gradient(83deg, var(--primary-light) 80%, var(--primary-light-blue)); 
+    transition: 0.7s ease;
+    color: var(--black)
     /*
     display: grid;
     grid-template-columns: repeat(4,min-content) minmax(75px,1fr);
@@ -102,6 +100,7 @@ header.dark > .header > .hamburger > .bar  {
 .header  {
     display: grid;
     grid-template-columns: repeat(4,min-content) minmax(75px,1fr);
+    /* EXAMPLE repeat(auto-fit, minmax(240px, 1fr)) */
     /* grid-template-columns: repeat(2,75px) minmax(75px,1fr); */
     grid-auto-flow: column;
     gap: 1.2rem;
