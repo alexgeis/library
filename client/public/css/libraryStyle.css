@@ -52,7 +52,7 @@ header.dark > .header > .hamburger > .bar  {
     color: #000;
     transition: 0.7s ease;
 }
-                                                /* ----CONTAINER */
+/* ----CONTAINER */
 .container {
     /* padding: 1rem 0; */
     display:grid;
