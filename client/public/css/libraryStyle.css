@@ -66,8 +66,9 @@ header.dark > .header > .hamburger > .bar  {
     transition: 0.7s ease;
 }
 .dark * #add-book-plus {
-    width: 10px;
-    height: 10px;
+    width: 28px;
+    height: 28px;
+    content: url("../assets/icons/plus-black.png");
 }
 /* ----CONTAINER */
 .container {
@@ -93,7 +94,7 @@ header.dark > .header > .hamburger > .bar  {
 }
 /* ----HEADER */
 #header-container {
-    background: linear-gradient(83deg, var(--primary-light) 80%, var(--primary-light-blue)); 
+    background: linear-gradient(135deg, var(--primary-light) 80%, var(--primary-light-blue)); 
     transition: 0.7s ease;
     color: var(--black);
     box-shadow: 0px 12px 10px -15px var(--primary-dark);
@@ -119,10 +120,10 @@ header.dark > .header > .hamburger > .bar  {
 
 .header .add-book,
 .add-book-form-open {
-    padding: .5rem .7rem;
+    padding: .3rem;
     width: max-content;
     /* max-width: 75px; */
-    border-radius: 15px;
+    border-radius: 1rem;
 }
 .add-book-form-open {
     background-color: var(--primary-light-blue);
@@ -137,89 +138,84 @@ header.dark > .header > .hamburger > .bar  {
 }
 
 .add-book-form-open:focus {
-    outline: 1px solid #fff;
+    outline: 1px solid var(--white);
     outline-offset: -4px;
 }
-
 .add-book-form-open:active {
     transform: scale(0.99);
 }
+
 #add-book-plus {
     width: 28px;
     height: 28px;
-    /* background-image: url("../assets/icons/plus-white.png"); */
-    padding: 0;
-    margin: 0;
 }
 /* TOGGLE BUTTON */
 .switch {
-position: relative;
-display: inline-block;
-width: 50px;
-height: 34px;
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 34px;
 }
 
 /* Hide default HTML checkbox */
 .switch input {
-opacity: 0;
-width: 0;
-height: 0;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
-        /* The slider */
+/* The slider */
 .slider,
 .read-toggle-slider {
-position: absolute;
-cursor: pointer;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background-color: #ccc;
-/* transition to blue color once checked */
--webkit-transition: .4s;
-transition: .4s;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--secondary-dark-gray);
+    /* transition to color once checked */
+    -webkit-transition: .4s;
+    transition: .4s;
 }
 
 .slider:before,
 .read-toggle-slider:before {
-position: absolute;
-content: "";
-height: 26px;
-width: 26px;
-left: 4px;
-bottom: 4px;
-background-color: white;
--webkit-transition: .4s;
-transition: .4s;
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--white);
+    -webkit-transition: .4s;
+    transition: .4s;
 }
 /* transition of switch background color */
 input:checked + .slider {
-/* background-color: #2196F3; */
-background-color: #2e2e2e;
+    background-color: var(--primary-dark);
 }
 
 input:focus + .slider {
-/* box-shadow: 0 0 1px #2196F3; */
-box-shadow: 0 0 1px #2e2e2e;
+    box-shadow: 0 0 1px var(--primary-dark);
 }
 /* transition of .slider:before - the toggle switch circle */
 input:checked + .slider:before,
 input:checked + .read-toggle-slider:before {
--webkit-transform: translateX(17px);
--ms-transform: translateX(17px);
-transform: translateX(17px);
+    -webkit-transform: translateX(17px);
+    -ms-transform: translateX(17px);
+    transform: translateX(17px);
 }
 
 /* Rounded sliders */
 .slider.round,
 .read-toggle-slider.round {
-border-radius: 34px;
+    border-radius: 34px;
 }
 
 .slider.round:before,
 .read-toggle-slider.round:before {
-border-radius: 50%;
+    border-radius: 50%;
 }
 
 .toggle-text {
@@ -228,20 +224,19 @@ border-radius: 50%;
 /* READ TOGGLE */
 .single-book .switch {
     position: absolute;
-cursor: pointer;
-right: 7px;
-bottom: 4px;
+    cursor: pointer;
+    right: 7px;
+    bottom: 4px;
 }
 
 input:checked + .read-toggle-slider {
-background-color: #2196F3;
-/* background-color: #2e2e2e; */
+    background-color: var(--primary-light-blue);
 }
 
 input:focus + .read-toggle-slider {
-box-shadow: 0 0 1px #2196F3;
-/* box-shadow: 0 0 1px #2e2e2e; */
+    box-shadow: 0 0 1px var(--primary-light-blue); 
 }
+
 /* NAVIGATION */
 nav {
     display: flex;
@@ -249,18 +244,20 @@ nav {
 .header ul {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 10px;
 }
 .header ul a {
     text-decoration: none;
 }
 .nav-link {
-    color: black;
+    color: var(--black);
     transition: 0.7s ease;
     text-decoration: none;
 }
 .nav-link:hover {
     text-decoration: underline;
+    color: var(--primary-dark-blue);
+    transition: .4s;
 }
 .hamburger {
     display: none;
@@ -280,7 +277,7 @@ nav {
 ~~  HERO SECTION ~~
 */
 #hero-container {
-    background-color: rgb(225, 255, 0);
+    background-color: var(--primary-dark-blue);
     display:none;
 }
 
@@ -313,6 +310,7 @@ nav {
 .book-totals,
 .book-totals-hero {
     border: #2196F3 1px solid;
+    background-color: var(--primary-light);
     min-height: 50px;
     width: max-content;
     padding: 1rem 2rem;
@@ -328,7 +326,7 @@ nav {
 .progress-bar-hero {
     /* width: 10%; */
     height: 30px;
-    background-color: #04AA6D;
+    background-color: var(--highlight-pink);
     text-align: center;
     line-height: 30px;
     color: white;
@@ -372,14 +370,14 @@ nav {
     margin-right: 1rem;
 }
 .status .read_color {
-    background: linear-gradient(135deg, rgba(24, 77, 104, 0.8) 0%, rgba(87, 202, 133, 0.8) 100%);
+    background: linear-gradient(135deg, var(--highlight-pink) 0%, var(--primary-light) 100%);
     height: 30px;
     width: 50px;
     border-radius: 3px;
     margin: 0.2rem;
 }
 .status .unread_color {
-    background: linear-gradient(135deg, #e3e3e3 0%, #5d6874 100%);
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary-dark-gray) 100%);
     margin-left: 1.5rem;
     height: 30px;
     width: 50px;
@@ -420,7 +418,7 @@ nav {
     color: white;
 }
 .book-card-container .not-read {
-    background: linear-gradient(135deg, #e3e3e3 0%, #5d6874 100%);
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary-dark-gray) 100%);
     color: black;
 }
 .book-card-container .remove-book {
@@ -708,6 +706,7 @@ nav {
     }
     #search-section-hero {
         display: flex;
+        gap: 10px;
     }
 
     #book-container {
