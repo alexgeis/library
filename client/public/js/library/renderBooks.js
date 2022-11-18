@@ -119,7 +119,7 @@ const renderBooks = async function (searchTerm = "") {
 		pagesCount.classList.add("pages-count");
 		const labelPages = document.createElement("span");
 		labelPages.classList.add("b-label");
-		labelPages.textContent = "Number of pages: ";
+		labelPages.textContent = "Pages: ";
 		const bookPages = document.createElement("span");
 		bookPages.classList.add("pages");
 		bookPages.textContent = book.pages;
