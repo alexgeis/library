@@ -82,6 +82,14 @@ const renderBooks = async function (searchTerm = "") {
 			document.querySelector("#edit-book-id").dataset.bookId =
 				existingBookInfo.book_id;
 		});
+		// BOOK COVER IMG
+		const bookCoverImg = document.createElement("img");
+		bookCoverImg.classList.add("book-cover-img");
+		bookCoverImg.setAttribute(
+			"src",
+			"../assets/img/book-cover-placeholder.jpeg"
+		);
+		bookCoverImg.setAttribute("alt", "book cover image");
 		//
 		const bookTitle = document.createElement("h3");
 		bookTitle.classList.add("book-title");
@@ -195,6 +203,7 @@ const renderBooks = async function (searchTerm = "") {
 		bookCard.append(
 			closeBtn,
 			editBtn,
+			bookCoverImg,
 			bookTitle,
 			bookAuthor,
 			bookIsbn,
