@@ -19,7 +19,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/alexgeis/library">
+  <a href="alexgeis.github.io/library/">
     <img src="./client/public/assets/icons/book-white.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -43,12 +43,12 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <!-- <li>
+    <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
       </ul>
-    </li> -->
-        <li><a href="#built-with">Built With</a></li>
+    </li>
+    <li><a href="#built-with">Built With</a></li>
     <!-- <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
@@ -67,18 +67,11 @@
 
 <!-- ABOUT THE PROJECT -->
 
-<!-- ## About The Project
+## About The Project
 
-<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
-<!-- <a href="https://example.com">
-<p align="center">
-<img id="product-screenshot" src="images/screenshot.png" alt="Product Name Screen Shot"
-style="display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;"/></p></a> -->
+[![Product Name Screen Shot][product-screenshot]](alexgeis.github.io/library/)
 
-<!-- <p align="right">(<a href="#top">back to top</a>)</p> -->
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built With
 
@@ -239,4 +232,4 @@ Helpful resources and kudos.
 [license-url]: https://github.com/alexgeis/library/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/alexngeis
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: ./client/public/assets/img/library-login-screenshot.png
