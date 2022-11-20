@@ -427,7 +427,8 @@ nav {
 .book-card-container .single-book > * {
     padding-top: 3px;
 }
-.book-card-container .single-book .book-title {
+.book-card-container .single-book .book-title,
+.book-card-container .single-book .book-author {
     word-wrap: break-word; 
     max-width: 20ch;
 }
@@ -454,11 +455,21 @@ nav {
     cursor: pointer;
     overflow: clip;
 }
+.book-card-container .fetch-book-data-button {
+    position: absolute;
+    top: 5px;
+    right: 65px;
+    /* width: 10px; */
+    height: 20;
+    cursor: pointer;
+    overflow: clip;
+}
 .book-card-container .book-cover-img {
     position: absolute;
     top: 40px;
     right: 70px;
     width: 100px;
+    height: 150px;
 }
 
 .book-card-container .read_toggle_label {
@@ -750,7 +761,8 @@ nav {
         width: 90px;
     }
 
-    .book-card-container .single-book .book-title {
+    .book-card-container .single-book .book-title,
+    .book-card-container .single-book .book-author {
         max-width: 10ch;
     }
 }

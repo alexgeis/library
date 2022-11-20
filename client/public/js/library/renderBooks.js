@@ -144,7 +144,42 @@ const renderBooks = async function (searchTerm = "") {
 		dateDisplay.classList.add("publish-date");
 		dateDisplay.textContent = book.publish_date;
 		publishDate.append(labelDate, dateDisplay);
-		//
+		// FETCH BUTTON
+
+		const fetchBtn = document.createElement("span");
+		fetchBtn.classList.add("material-icons", "fetch-book-data-button");
+		fetchBtn.textContent = " fetch info ";
+		fetchBtn.addEventListener("click", async function (event) {
+			const bookDataResponse = await fetchBookInfo(
+				book.title.toLowerCase().trim()
+			);
+			const bookData = bookDataResponse.docs[0];
+
+			const fetchedBookData = {
+				title: bookData.title,
+				author: bookData.author_name[0],
+				isbn: bookData.isbn[0],
+				publish_date: bookData.first_publish_year,
+				cover_img_src: `https://covers.openlibrary.org/b/isbn/${bookData.isbn[0]}-M.jpg`,
+			};
+
+			const replaceBookData = ({
+				title,
+				author,
+				isbn,
+				publish_date,
+				cover_img_src,
+			}) => {
+				bookTitle.textContent = title;
+				bookAuthor.textContent = author;
+				bookIsbn.textContent = isbn;
+				publishDate.textContent = publish_date;
+				bookCoverImg.setAttribute("src", cover_img_src);
+			};
+
+			replaceBookData(fetchedBookData);
+		});
+		// READ TOGGLE
 		const readToggleLabel = document.createElement("span");
 		readToggleLabel.classList.add("read_toggle_label");
 		readToggleLabel.textContent = "Mark as read: ";
@@ -210,6 +245,7 @@ const renderBooks = async function (searchTerm = "") {
 			pagesCount,
 			bookEdition,
 			publishDate,
+			fetchBtn,
 			readToggleLabel,
 			toggleControlLabel
 		);
