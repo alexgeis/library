@@ -14,7 +14,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // TODO: Configure the favicon first. This avoids other middleware from processing the request if we know the request is for the favicon.
-// app.use(favicon(__dirname + '/public/images/favicon.ico'));
+// app.use(favicon(path.join(__dirname, "..", "client", "src","assets","favicon.ico")));
 
 // Sets up session and connect to our Sequelize db
 const sess = {
@@ -50,7 +50,7 @@ app.use(express.urlencoded({ extended: true }));
 // turn on routes
 app.use(routes);
 
-app.use(express.static(path.join(__dirname, "..", "client", "public")));
+app.use(express.static(path.join(__dirname, "..", "client", "src")));
 
 // GET Route for homepage
 // app.get("/", (req, res) =>

@@ -6,15 +6,7 @@ const withAuth = require("../utils/auth");
 router.get("/", withAuth, async (req, res) => {
 	try {
 		res.sendFile(
-			path.join(
-				__dirname,
-				"..",
-				"..",
-				"client",
-				"public",
-				"html",
-				"library.html"
-			)
+			path.join(__dirname, "..", "..", "client", "src", "html", "library.html")
 		);
 
 		// const userData = await User.findAll({
@@ -40,9 +32,7 @@ router.get("/login", (req, res) => {
 		return;
 	}
 
-	res.sendFile(
-		path.join(__dirname, "..", "..", "client", "public", "index.html")
-	);
+	res.sendFile(path.join(__dirname, "..", "..", "client", "src", "index.html"));
 	// res.render("login");
 });
 
