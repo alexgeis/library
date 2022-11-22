@@ -5,8 +5,14 @@ const withAuth = require("../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
 	try {
+		// // BEFORE WEBPACK
+		// res.sendFile(
+		// 	path.join(__dirname, "..", "..", "client", "src", "html", "library.html")
+		// );
+
+		// WITH WEBPACK
 		res.sendFile(
-			path.join(__dirname, "..", "..", "client", "src", "html", "library.html")
+			path.join(__dirname, "..", "..", "client", "dist", "library.html")
 		);
 
 		// const userData = await User.findAll({

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cd server && nodemon server.js",
-    "seed":"cd server && node seeds/seed.js"
+    "seed": "cd server && node seeds/seed.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/alexgeis/library/issues"
   },
-  "homepage": "https://github.com/alexgeis/library#readme"
+  "homepage": "https://github.com/alexgeis/library#readme",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
 }
