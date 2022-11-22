@@ -7,6 +7,7 @@ module.exports = {
 	mode: "development",
 	entry: {
 		index: "./src/index.js",
+		libraryIndex: "./src/js/library/index.js",
 		requestMethods: "./src/js/requestMethods.js",
 		login: "./src/js/login/login.js",
 		logout: "./src/js/library/logout.js",
