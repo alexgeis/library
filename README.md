@@ -75,7 +75,6 @@
 
 ### Built With
 
-<!-- - [Webpack](https://webpack.js.org/) -->
 <!-- - [React.js](https://reactjs.org/) -->
 <!-- - [Bootstrap](https://getbootstrap.com) -->
 <!-- - [MongoDB](https://www.mongodb.com/) -->
@@ -84,6 +83,7 @@
 - [Express](https://expressjs.com/)
 - [MySQL](https://www.mysql.com/)
 - [Sequelize](https://sequelize.org/)
+- [Webpack](https://webpack.js.org/)
 <!-- - [JQuery](https://jquery.com) -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
