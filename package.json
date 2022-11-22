@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "cd server && node seeds/seed.js",
     "start": "cd server && nodemon server.js",
-    "seed": "cd server && node seeds/seed.js"
+    "client": "cd client && npm run start",
+    "server": "cd server && nodemon server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\" "
   },
   "repository": {
     "type": "git",
