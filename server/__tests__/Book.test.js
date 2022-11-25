@@ -1,20 +1,24 @@
 const sequelize = require("../config/connection");
-const User = require("../models/User.js");
+const Book = require("../models/Book");
 
 test("Checks for null values", async () => {
-	const user1 = {};
+	const book1 = {};
 
-	const user2 = {
-		username: "test",
-		email: "test@test.com",
-		password: "1111111111111",
+	const book2 = {
+		title: "Gravity's Rainbow",
+		author: "Thomas Pynchon",
+		isbn: "9780099533214",
+		pages: "760",
+		edition: "1",
+		publish_date: "1973",
+		is_read: "true",
 	};
 
-	const newUser1 = User.build(user1);
-	const newUser2 = User.build(user2);
+	const newBook1 = Book.build(book1);
+	const newBook2 = Book.build(book2);
 
-	await expect(newUser1.validate()).rejects.toThrow("notNull");
-	await expect(newUser2.validate()).resolves.not.toThrow();
+	await expect(newBook1.validate()).rejects.toThrow("notNull");
+	await expect(newBook2.validate()).resolves.not.toThrow();
 });
 
 test("Checks for short passwords", async () => {
