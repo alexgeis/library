@@ -48,25 +48,3 @@ test("Checks for book title and book author (required fields)", async () => {
 	);
 	await expect(newBook2.validate()).resolves.not.toThrow();
 });
-
-test("Checks for alphanumeric username", async () => {
-	const user1 = {
-		username: "test_123",
-		email: "test@test.com",
-		password: "123",
-	};
-
-	const user2 = {
-		username: "test",
-		email: "test@test.com",
-		password: "password123",
-	};
-
-	const newUser1 = User.build(user1);
-	const newUser2 = User.build(user2);
-
-	await expect(newUser1.validate()).rejects.toThrow(
-		"Validation isAlphanumeric on username failed"
-	);
-	await expect(newUser2.validate()).resolves.not.toThrow();
-});
