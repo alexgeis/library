@@ -43,6 +43,78 @@
       "edition": "1",
       "publish_date": "2019",
       "is_read": "true"
+    },
+    {
+      "title": "Even Cowgirls Get The Blues",
+      "author": "Tom Robbins",
+      "isbn": "9781531387616",
+      "pages": "421",
+      "edition": "1",
+      "publish_date": "1986",
+      "is_read": "false"
+    },
+    {
+      "title": "Welcome to the Monkey House",
+      "author": "Kurt Vonnegut",
+      "isbn": "9781213587616",
+      "pages": "423",
+      "edition": "1",
+      "publish_date": "1985",
+      "is_read": "true"
+    },
+    {
+      "title": "Capital: Vol. 1",
+      "author": "Karl Marx",
+      "isbn": "9781512384246",
+      "pages": "423",
+      "edition": "1",
+      "publish_date": "1884",
+      "is_read": "true"
+    },
+    {
+      "title": "Power Vs. Force",
+      "author": "David R. Hawkins",
+      "isbn": "9781542387616",
+      "pages": "342",
+      "edition": "1",
+      "publish_date": "247",
+      "is_read": "false"
+    },
+    {
+      "title": "John Green",
+      "author": "The Anthropocene Revisited",
+      "isbn": "9781512328756",
+      "pages": "342",
+      "edition": "1",
+      "publish_date": "2022",
+      "is_read": "false"
+    },
+    {
+      "title": "To Kill A MockingBird",
+      "author": "Harper Lee",
+      "isbn": "9781518387616",
+      "pages": "264",
+      "edition": "1",
+      "publish_date": "1976",
+      "is_read": "true"
+    },
+    {
+      "title": "Thick",
+      "author": "Tressie McMillan Cottom",
+      "isbn": "9784212387616",
+      "pages": "275",
+      "edition": "1",
+      "publish_date": "2019",
+      "is_read": "true"
+    },
+    {
+      "title": "The Stand",
+      "author": "Stephen King",
+      "isbn": "9781512416616",
+      "pages": "482",
+      "edition": "1",
+      "publish_date": "1996",
+      "is_read": "false"
     }
   ]
   
