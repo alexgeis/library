@@ -11,6 +11,7 @@ module.exports = {
 		requestMethods: "./src/js/requestMethods.js",
 		login: "./src/js/login/login.js",
 		logout: "./src/js/library/logout.js",
+		signup: "./src/js/login/signup.js",
 		heroDisplay: "./src/js/library/heroDisplay.js",
 		hamburgerMenu: "./src/js/library/hamburgerMenu.js",
 		themeToggle: "./src/js/themeToggle.js",
@@ -51,6 +52,14 @@ module.exports = {
 			inject: true,
 			chunks: ["index", "requestMethods", "login"],
 			filename: "index.html",
+		}),
+		new HtmlWebpackPlugin({
+			title: "Signup",
+			// template: path.resolve(__dirname, "src", "library.html"),
+			template: "./src/html/signup.html",
+			inject: true,
+			chunks: ["signup"],
+			filename: "signup.html",
 		}),
 		new HtmlWebpackPlugin({
 			title: "Library",
