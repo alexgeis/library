@@ -51,7 +51,7 @@ module.exports = {
 		}),
 		new MiniCssExtractPlugin(),
 		// access to environment variables
-		new Dotenv({ systemvars: true }),
+		new Dotenv({ systemvars: true, path: "../server/.env" }),
 	],
 	module: {
 		rules: [
