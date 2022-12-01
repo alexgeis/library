@@ -8,8 +8,9 @@
     "seed": "cd server && node seeds/seed.js",
     "start": "cd server && nodemon server.js",
     "client": "cd client && npm run start",
+    "webpack": "cd client && npm run build && npm run start",
     "server": "cd server && nodemon server.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\" "
+    "dev": "concurrently \"npm run server\" \"npm run webpack\" "
   },
   "repository": {
     "type": "git",

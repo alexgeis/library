@@ -25,7 +25,18 @@ module.exports = {
 	},
 	devtool: "inline-source-map",
 	devServer: {
-		static: "./dist",
+		static: {
+			directory: path.join(__dirname, "dist"),
+		},
+		compress: true,
+		port: 8008,
+		proxy: {
+			"/api": {
+				target: "http://localhost:8008",
+				router: () => "http://localhost:3001",
+				logLevel: "debug" /*optional*/,
+			},
+		},
 	},
 	output: {
 		filename: "[name].js",
