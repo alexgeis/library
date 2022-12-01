@@ -43,7 +43,7 @@ module.exports = {
 		}),
 		new HtmlWebpackPlugin({
 			title: "Library",
-			// template: path.resolve(__dirname, "src", "index.html"),
+			// template: path.resolve(__dirname, "src", "library.html"),
 			template: "./src/html/library.html",
 			inject: true,
 			excludeChunks: ["index", "requestMethods", "login"],
