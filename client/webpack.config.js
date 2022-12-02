@@ -32,9 +32,28 @@ module.exports = {
 		compress: true,
 		port: 8008,
 		proxy: {
+			// "/": {
+			// 	target: "http://localhost:8008",
+			// 	router: () => "http://localhost:3001",
+			// 	logLevel: "debug" /*optional*/,
+			// },
+			// "/api": {
+			// 	target: "http://localhost:8008/api",
+			// 	router: () => "http://localhost:3001/api",
+			// 	logLevel: "debug" /*optional*/,
+			// },
+			"/": {
+				target: "http://localhost:3001",
+				pathRewrite: { "^/": "" },
+				secure: false,
+				changeOrigin: true,
+				logLevel: "debug" /*optional*/,
+			},
 			"/api": {
-				target: "http://localhost:8008",
-				router: () => "http://localhost:3001",
+				target: "http://localhost:3001",
+				pathRewrite: { "^/api": "" },
+				secure: false,
+				changeOrigin: true,
 				logLevel: "debug" /*optional*/,
 			},
 		},
@@ -81,12 +100,20 @@ module.exports = {
 			},
 			{
 				test: /\.css$/i,
-				use: ["style-loader", "css-loader"],
+				use: [MiniCssExtractPlugin.loader, "css-loader"],
 			},
-			{
-				test: /\.(s(a|c)ss)$/,
-				use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
-			},
+			// {
+			// 	test: /\.css$/i,
+			// 	use: ["style-loader", "css-loader"],
+			// },
+			// {
+			// 	test: /\.(s(a|c)ss)$/i,
+			// 	use: [
+			// 		MiniCssExtractPlugin.loader,
+			// 		"css-loader",
+			// 		"sass-loader",
+			// 	],
+			// },
 			{
 				test: /\.(png|svg|jpg|jpeg|gif)$/i,
 				type: "asset/resource",
