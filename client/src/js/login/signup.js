@@ -1,3 +1,5 @@
+import "../../css/homepageStyle.css";
+
 const email = document.querySelector("#email");
 const username = document.querySelector("#username");
 const password = document.querySelector("#password");
