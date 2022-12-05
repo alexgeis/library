@@ -9,7 +9,7 @@ const faviconEl = document.querySelector("#favicon");
 const siteLogoEl = document.querySelector("#site-logo");
 const themeToggle = document.querySelector("#theme-toggle");
 
-function setCurrentTheme(newTheme) {
+export function setCurrentTheme(newTheme) {
 	currentTheme = newTheme;
 	if (currentTheme === "dark") {
 		headerEl.classList.add("dark");
