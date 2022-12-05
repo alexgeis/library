@@ -1,18 +1,18 @@
-const username = document.querySelector("#username");
-const password = document.querySelector("#password");
-const loginSubmitBtn = document.querySelector(".login-submit-btn");
+const usernameEl = document.querySelector("#username");
+const passwordEl = document.querySelector("#password");
 
-const loginUserHandler = async function (e) {
+export const loginUserHandler = async function (e) {
 	e.preventDefault();
-	const usernameInput = username.value.trim();
-	const passwordInput = password.value.trim();
+
+	const username = usernameEl.value.trim();
+	const password = passwordEl.value.trim();
 
 	// CODE TO VALIDATE EMPTY INPUTS
 
-	if (usernameInput && passwordInput) {
+	if (username && password) {
 		const loginUserData = {
-			usernameInput,
-			passwordInput,
+			username,
+			password,
 		};
 
 		const response = await fetch("/api/users/login", {
@@ -31,4 +31,3 @@ const loginUserHandler = async function (e) {
 		}
 	}
 };
-loginSubmitBtn.addEventListener("submit", loginUserHandler);

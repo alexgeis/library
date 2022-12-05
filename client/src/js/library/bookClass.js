@@ -1,5 +1,5 @@
 //BOOK CONSTRUCTOR
-const Book = function ({
+export const Book = function ({
 	title,
 	author,
 	isbn,

@@ -50,7 +50,8 @@ app.use(express.urlencoded({ extended: true }));
 // turn on routes
 app.use(routes);
 
-app.use(express.static(path.join(__dirname, "..", "client", "src")));
+app.use(express.static(path.join(__dirname, "..", "client", "src", "assets")));
+app.use(express.static(path.join(__dirname, "..", "client", "src", "css")));
 
 // GET Route for homepage
 // app.get("/", (req, res) =>

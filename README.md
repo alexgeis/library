@@ -75,7 +75,6 @@
 
 ### Built With
 
-<!-- - [Webpack](https://webpack.js.org/) -->
 <!-- - [React.js](https://reactjs.org/) -->
 <!-- - [Bootstrap](https://getbootstrap.com) -->
 <!-- - [MongoDB](https://www.mongodb.com/) -->
@@ -84,6 +83,7 @@
 - [Express](https://expressjs.com/)
 - [MySQL](https://www.mysql.com/)
 - [Sequelize](https://sequelize.org/)
+- [Webpack](https://webpack.js.org/)
 <!-- - [JQuery](https://jquery.com) -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -146,7 +146,7 @@ Use the add book button to start adding your books to the library. After books a
 - [ ] user update - validate inputs against current user, all users
 - [ ] STYLE UPDATE
   - [ ] update read color styling to match [sky blue theme](https://tailwindcss.com/docs/customizing-colors)
-  - [ ] style forms, buttons, and hero area
+  - [x] style forms, buttons, and hero area
 
 ### Future
 

@@ -14,7 +14,7 @@
 			href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap"
 			rel="stylesheet"
 		/>
-		<link rel="stylesheet" type="text/css" href="./css/homepageStyle.css" />
+		<!-- <link rel="stylesheet" type="text/css" href="./css/homepageStyle.css" /> -->
 		<link
 			id="favicon"
 			rel="icon"
@@ -29,7 +29,7 @@
 				<div id="column-left">
 					<div class="inner">
 						<img
-							src="./assets/icons/book-open-page-variant-outline.svg"
+							id="lib-icon-home-page"
 							alt="Library Bookshelf Icon"
 						/>
 
@@ -37,7 +37,7 @@
 
 						<p class="create">
 							Don't have an account?
-							<a href="./html/signup.html">Signup</a>
+							<a href="/signup">Signup</a>
 						</p>
 
 						<form action="/api/users/login" method="post" id="login-form">
@@ -99,9 +99,10 @@
 
 		<!-- JAVASCRIPT -->
 		<!-- <script src="./js/themeToggle.js"></script> -->
-		<script src="./js/requestMethods.js"></script>
+		<!-- <script src="./js/requestMethods.js"></script> -->
 		<!-- <script src="./js/login/loginSignupForm.js"></script> -->
-		<script src="./js/login/login.js"></script>
-		<script src="./index.js"></script>
+		<!-- <script src="./js/login/login.js"></script> -->
+		<!-- <script type="module" src="./index.js"></script> -->
+		<script src="./login.bundle.js"></script>
 	</body>
 </html>

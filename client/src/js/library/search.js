@@ -1,3 +1,5 @@
+import { renderBooks } from "./renderBooks.js"
+
 // SEARCH BAR
 // async function renderSearch(search) {
 // 	if (search === "") renderBooks();

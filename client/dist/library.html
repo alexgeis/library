@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="../css/libraryStyle.css" />
+		<link
+			id="favicon"
+			rel="icon"
+			type="image/x-icon"
+			href="../assets/icons/favicon.ico"
+		/>
+		<title>Library</title>
+	<script defer src="runtime.bundle.js"></script><script defer src="libraryIndex.bundle.js"></script></head>
+	<body>
+		<div class="container">
+			<header id="header-container">
+				<div class="content-container header">
+					<img
+						id="site-logo"
+						src="../assets/icons/book-open-page-variant-outline.svg"
+						alt="icon of book opening"
+					/>
+					<div class="site-title">Library</div>
+					<button class="add-book-form-open">
+						<img
+							src="../assets/icons/plus-white.png"
+							alt="plus icon"
+							id="add-book-plus"
+						/>
+					</button>
+					<!-- TOGGLE -->
+					<div class="theme">
+						<div class="toggle-text" id="light-toggle-text">Light</div>
+
+						<label class="switch">
+							<input type="checkbox" id="theme-toggle" />
+
+							<span class="slider round"></span>
+						</label>
+
+						<div class="toggle-text" id="dark-toggle-text">Dark</div>
+					</div>
+					<!-- TOGGLE END -->
+					<nav>
+						<ul class="nav-menu">
+							<!-- <li class="nav-item">
+								<a href="#" class="nav-link" id="login">Login</a>
+							</li> -->
+							<!-- <li class="nav-item">
+								<a href="#" class="nav-link" id="signup">Signup</a>
+							</li> -->
+							<li class="nav-item">
+								<a href="javascript:;" class="nav-link" id="logout">Logout</a>
+							</li>
+							<li class="nav-item">
+								<a href="javascript:;" class="nav-link" id="settings"
+									>Settings</a
+								>
+							</li>
+						</ul>
+					</nav>
+					<div id="search-section">
+						<img
+							id="search-icon"
+							alt="magnifying glass search icon"
+							/>
+							<!-- src="../assets/icons/magnify.svg" -->
+						<input type="search" id="book-search" name="book-search" />
+					</div>
+					<div class="book-totals">
+						<div class="books-read-display"></div>
+						<div class="book-progress-bar">
+							<div class="progress-bar"></div>
+						</div>
+						<div class="books-total-display"></div>
+					</div>
+					<div class="hamburger">
+						<span class="bar"></span><span class="bar"></span
+						><span class="bar"></span>
+					</div>
+				</div>
+			</header>
+
+			<div id="hero-container">
+				<div class="content-container hero">
+					<div id="search-section-hero">
+						<img
+							id="search-icon-hero"
+							src="../assets/icons/magnify-white.png"
+							alt="magnifying glass search icon"
+						/>
+						<input
+							type="search"
+							id="book-search-hero"
+							name="book-search-hero"
+						/>
+					</div>
+					<div class="book-totals-hero">
+						<div class="books-read-display-hero"></div>
+						<div class="book-progress-bar-hero">
+							<div class="progress-bar-hero"></div>
+						</div>
+						<div class="books-total-display-hero"></div>
+					</div>
+				</div>
+			</div>
+
+			<main id="book-container">
+				<div class="content-container book-section">
+					<div class="book-sort-status-section">
+						<div class="sort">
+							<label for="order_by"
+								>Order By:
+								<select name="order_by" id="order_by">
+									<option value="insertion_date" selected="">
+										Insertion date
+									</option>
+									<option value="publishing_date">Publishing date</option>
+								</select>
+								<select name="order_direction" id="order_direction">
+									<option value="ascending">Asc</option>
+									<option value="descending" selected="">Desc</option>
+								</select>
+							</label>
+						</div>
+						<div class="status">
+							<div class="read_color"></div>
+							<h4>Read</h4>
+							<div class="unread_color"></div>
+							<h4>Not read</h4>
+						</div>
+					</div>
+
+					<div class="book-card-container">
+						<!-- <div class="book-list"></div>
+				<div class="book-grid"></div> -->
+					</div>
+				</div>
+			</main>
+		</div>
+		<!-- ADD BOOK FORM -->
+		<section class="add_book_section">
+			<div class="new-book-form">
+				<h2 class="form_title">Add new book</h2>
+				<h4>* = required</h4>
+				<span class="material-icons close-form" id="close-new-book-form">
+					close
+				</span>
+				<label for="b-title-new"
+					>Title*
+					<input
+						class="form-control book-form-control"
+						type="text"
+						name="book-title-new"
+						id="b-title-new"
+						placeholder="Title"
+					/><small class="err-msg"> * Book title is required</small></label
+				>
+				<label for="b-author-new"
+					>Author*
+					<input
+						class="form-control book-form-control"
+						type="text"
+						name="book-author-new"
+						id="b-author-new"
+						placeholder="Author"
+					/><small class="err-msg"> * Book author is required</small></label
+				>
+				<label for="b-isbn-new"
+					>ISBN
+					<input
+						class="form-control book-form-control"
+						type="number"
+						name="book-isbn-new"
+						id="b-isbn-new"
+						placeholder="3836562219"
+				/></label>
+				<label for="b-pages-new"
+					>Pages
+					<input
+						class="form-control book-form-control"
+						type="number"
+						name="pages-count-new"
+						id="b-pages-new"
+						placeholder="100"
+						min="1"
+				/></label>
+				<label for="b-edition-new"
+					>Edition
+					<input
+						class="form-control book-form-control"
+						type="text"
+						name="book-edition-new"
+						id="b-edition-new"
+						placeholder="1"
+				/></label>
+				<label for="b-publishing_date-new"
+					>Year Published
+					<input
+						type="number"
+						min="0"
+						max="2023"
+						step="1"
+						value="1917"
+						name="book-publishing-date-new"
+						class="form-control book-form-control"
+						id="b-publishing_date-new"
+				/></label>
+				<label for="b-read_status-new"
+					>Have you read this book?*
+					<select
+						class="form-control book-form-control"
+						name="book-status-new"
+						id="b-read_status-new"
+					>
+						<!-- <option value="null" disabled="" selected="">
+							did you read this book?
+						</option> -->
+						<option value="false">NO</option>
+						<option value="true">YES</option>
+					</select>
+					<small class="err-msg"> * Book reading status is required</small>
+				</label>
+
+				<div class="new-book-buttons">
+					<button class="btn add-book">add</button>
+					<button class="btn clear" id="clear-new-book-form">
+						Clear fields
+					</button>
+				</div>
+			</div>
+		</section>
+		<!-- EDIT BOOK FORM -->
+		<section class="edit_book_section">
+			<div class="edit-book-form">
+				<h2 class="form_title">Edit book</h2>
+				<h4>* = required</h4>
+				<span class="material-icons close-form" id="close-edit-book-form">
+					close
+				</span>
+				<label for="b-title-edit"
+					>Title*
+					<input
+						class="form-control book-form-control"
+						type="text"
+						name="book-title-edit"
+						id="b-title-edit"
+						placeholder="Title"
+					/><small class="err-msg"> * Book title is required</small></label
+				>
+				<label for="b-author-edit"
+					>Author*
+					<input
+						class="form-control book-form-control"
+						type="text"
+						name="book-author-edit"
+						id="b-author-edit"
+						placeholder="Author"
+					/><small class="err-msg"> * Book author is required</small></label
+				>
+				<label for="b-isbn-edit"
+					>ISBN
+					<input
+						class="form-control book-form-control"
+						type="number"
+						name="book-isbn-edit"
+						id="b-isbn-edit"
+						placeholder="3836562219"
+				/></label>
+				<label for="b-pages-edit"
+					>Pages
+					<input
+						class="form-control book-form-control"
+						type="number"
+						name="pages-count-edit"
+						id="b-pages-edit"
+						placeholder="100"
+						min="1"
+				/></label>
+				<label for="b-edition-edit"
+					>Edition
+					<input
+						class="form-control book-form-control"
+						type="text"
+						name="book-edition-edit"
+						id="b-edition-edit"
+						placeholder="1"
+				/></label>
+				<label for="b-publishing_date-edit"
+					>Year Published
+					<input
+						type="number"
+						min="0"
+						max="2023"
+						step="1"
+						value="1917"
+						name="book-publishing-date-edit"
+						class="form-control book-form-control"
+						id="b-publishing_date-edit"
+				/></label>
+				<label for="b-read_status-edit"
+					>Have you read this book?*
+					<select
+						class="form-control book-form-control"
+						name="book-status-edit"
+						id="b-read_status-edit"
+					>
+						<!-- <option value="null" disabled="" selected="">
+							did you read this book?
+						</option> -->
+						<option value="false">NO</option>
+						<option value="true">YES</option>
+					</select>
+					<small class="err-msg"> * Book reading status is required</small>
+				</label>
+
+				<div id="edit-book-id"></div>
+
+				<div class="edit-book-buttons">
+					<button class="btn edit-book">edit</button>
+					<button class="btn clear" id="clear-edit-book-form">
+						Clear fields
+					</button>
+				</div>
+			</div>
+		</section>
+		<!-- EDIT USER FORM -->
+		<section class="edit_user_section">
+			<div class="edit-user-form">
+				<h2 class="form_title">Update user</h2>
+				<h4>* = required</h4>
+				<h5 class="existing-err-msg"></h5>
+				<span class="material-icons close-form" id="close-edit-user-form">
+					close
+				</span>
+				<label for="username-edit"
+					>Username*
+					<input
+						class="form-control user-form-control"
+						type="text"
+						name="username-edit"
+						id="username-edit"
+					/><small class="err-msg"> * Username is required</small></label
+				>
+				<label for="email-edit"
+					>Email
+					<input
+						class="form-control user-form-control"
+						type="email"
+						name="email-edit"
+						id="email-edit"
+				/></label>
+				<label for="password-edit"
+					>Password*
+					<input
+						class="form-control user-form-control"
+						type="password"
+						name="password-edit"
+						id="password-edit"
+					/><small class="err-msg"> * Password is required</small></label
+				>
+
+				<div class="edit-user-buttons">
+					<button class="btn edit-user">update</button>
+					<button class="btn clear" id="clear-edit-user-form">
+						Clear fields
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- JAVASCRIPT -->
+		<!-- <script src="../js/library/logout.js"></script> -->
+		
+		<!-- <script src="../js/library/state.js"></script> -->
+
+		<!-- <script src="../js/library/heroDisplay.js"></script>
+		<script src="../js/library/hamburgerMenu.js"></script>
+		<script src="../js/themeToggle.js"></script>
+		<script src="../js/library/userClass.js"></script>
+		<script src="../js/library/bookClass.js"></script>
+		<script src="../js/requestMethods.js"></script> -->
+		
+		<!-- <script src="../js/login/loginSignupForm.js"></script> -->
+		
+		<!-- <script src="../js/library/addBookForm.js"></script>
+		<script src="../js/library/renderBooks.js"></script>
+		<script src="../js/library/editBookForm.js"></script>
+		<script src="../js/library/editUserForm.js"></script>
+		<script src="../js/library/fetchBookInfo.js"></script>
+		<script src="../js/library/search.js"></script>
+		<script src="../js/library/index.js"></script> -->
+
+		<script src="./libraryIndex.bundle.js"></script>
+	</body>
+</html>

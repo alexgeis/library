@@ -1,3 +1,5 @@
+import {User} from "./userClass"
+
 const usernameInput = document.querySelector("#username-edit");
 const emailInput = document.querySelector("#email-edit");
 const passwordInput = document.querySelector("#password-edit");

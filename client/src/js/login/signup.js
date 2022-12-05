@@ -1,3 +1,8 @@
+import "../../css/homepageStyle.css";
+import bookshelfIcon from "../../assets/icons/book-open-page-variant-outline.svg"
+
+document.querySelector("#lib-icon-signup-page").src = bookshelfIcon;
+
 const email = document.querySelector("#email");
 const username = document.querySelector("#username");
 const password = document.querySelector("#password");

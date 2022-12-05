@@ -1,8 +1,21 @@
 :root {
-    --primary-dark: black;
-    --secondary-dark: black;
-    --primary-light: white;
-    --secondary-light: white;
+    /* main theme */
+    --white: white;
+    --primary-light: #f8f9fa;
+    --secondary-light: #e9ecef;
+
+    --primary-dark-blue: #3a0ca3;
+    --primary-light-blue: #4cc9f0;
+    --primary-dark-purple: #7209b7;
+    --secondary-mid-blue: #4361ee;
+
+    --highlight-pink: #f72585;
+
+    --black: #000;
+    --primary-dark: #212529;
+    --secondary-dark-gray: #979dac;
+    /* DARK MODE BELOW */
+    /* OTHER THEME BELOW */
 }
 * {
     box-sizing: border-box;

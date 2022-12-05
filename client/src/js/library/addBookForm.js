@@ -1,3 +1,5 @@
+import { Book } from "./bookClass.js"
+
 const addBookSection = document.querySelector(".add_book_section");
 function renderAddBookForm() {
 	addBookSection.setAttribute("style", "display: block;");

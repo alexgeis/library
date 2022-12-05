@@ -1,5 +1,5 @@
 // PROGRESS BAR
-const renderProgressBar = async () => {
+export const renderProgressBar = async () => {
 	const currentBooksData = await fetch("/api/books");
 	let currentBooks = await currentBooksData.json();
 
