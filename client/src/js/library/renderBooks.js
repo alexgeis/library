@@ -1,4 +1,5 @@
-import { fetchBookInfo } from "./fetchBookInfo.js"
+import { fetchBookInfo } from "./fetchBookInfo.js";
+import bookCoverPlaceholderImg from "../../assets/img/book-cover-placeholder.jpeg";
 
 export const renderBooks = async function (searchTerm = "") {
 	const bookContainer = document.querySelector(".book-card-container");
@@ -89,7 +90,7 @@ export const renderBooks = async function (searchTerm = "") {
 		bookCoverImg.classList.add("book-cover-img");
 		bookCoverImg.setAttribute(
 			"src",
-			"../assets/img/book-cover-placeholder.jpeg"
+			bookCoverPlaceholderImg
 		);
 		bookCoverImg.setAttribute("alt", "book cover image");
 		//
