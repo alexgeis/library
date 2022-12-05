@@ -30,9 +30,9 @@
     <br />
     <h4>TEST ACCOUNT</h4>
     <br />
-    <h5>username: Sal</h5>
+    <p>username: Sal</p>
     <br />
-    <h5>password: password1234</h5>
+    <p>password: password1234</p>
     <br />
     <a href="https://github.com/alexgeis/library"><strong>Explore the docs »</strong></a>
     <br />
