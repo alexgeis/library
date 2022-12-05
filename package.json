@@ -25,5 +25,6 @@
   "homepage": "https://github.com/alexgeis/library#readme",
   "devDependencies": {
     "concurrently": "^7.6.0"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }

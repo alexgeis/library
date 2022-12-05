@@ -4,6 +4,7 @@ const password = document.querySelector("#password");
 
 export const loginUserHandler = async function (e) {
 	e.preventDefault();
+
 	const usernameInput = username.value.trim();
 	const passwordInput = password.value.trim();
 

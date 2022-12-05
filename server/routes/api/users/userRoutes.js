@@ -199,12 +199,13 @@ router.post("/login", async (req, res) => {
 		const userData = await User.findOne({
 			where: {
 				[Op.or]: [
-					{ email: req.body.username },
+					// { email: req.body.username },
 					{ username: req.body.username },
 				],
 			},
 		});
 
+		console.log(userData)
 		// userData = await User.findOne({ where: { email: req.body.email } });
 
 		// If an account with that email address or username doesn't exist, the user will recieve an error message

@@ -37,7 +37,14 @@ module.exports = {
 		},
 		compress: true,
 		port: 8008,
+		devMiddleware: {
+			index: false, // specify to enable root proxying
+		  },
 		proxy: {
+			context: () => true,
+			target: "http://localhost:3001",
+			secure: false,
+			changeOrigin: true
 			// "/": {
 			// 	target: "http://localhost:8008",
 			// 	router: () => "http://localhost:3001",
@@ -62,7 +69,17 @@ module.exports = {
 			// 	changeOrigin: true,
 			// 	logLevel: "debug" /*optional*/,
 			// },
-			"**": "http://localhost:3001",
+			// "/**": {
+			// 	target: "http://localhost:3001/",
+			// 	secure: false,
+			// 	changeOrigin: true
+			// },
+			// "/api": {
+			// 	target: "http://localhost:3001/",
+			// 	secure: false,
+			// 	changeOrigin: true
+			// },
+			// "/api": "http://localhost:3001/",
 		},
 	},
 	output: {

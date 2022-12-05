@@ -2,7 +2,8 @@ import styles from "./css/homepageStyle.css";
 
 import { loginUserHandler } from "./js/login/login.js"
 const loginSubmitBtn = document.querySelector(".login-submit-btn");
-loginSubmitBtn.addEventListener("submit", loginUserHandler);
+
+loginSubmitBtn.addEventListener("click", loginUserHandler);
 
 import bookshelfIcon from "./assets/icons/book-open-page-variant-outline.svg"
 
