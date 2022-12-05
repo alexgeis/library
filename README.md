@@ -20,7 +20,7 @@
 <br />
 <div align="center">
   <a href="alexgeis.github.io/library/">
-    <img src="./client/public/assets/icons/book-white.png" alt="Logo" width="80" height="80">
+    <img src="./client/src/assets/icons/book-white.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Library Bookshelf Application</h3>
@@ -232,4 +232,4 @@ Helpful resources and kudos.
 [license-url]: https://github.com/alexgeis/library/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/alexngeis
-[product-screenshot]: ./client/public/assets/img/library-login-screenshot.png
+[product-screenshot]: ./client/src/assets/img/library-login-screenshot.png
