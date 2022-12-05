@@ -1,6 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Dotenv = require("dotenv-webpack");
 const devMode = process.env.NODE_ENV !== "production";
 
@@ -26,7 +26,7 @@ module.exports = {
 	// 	search: "./src/js/library/search.js",
 	// },
 	entry: {
-		index: "./src/index.js",
+		login: "./src/index.js",
 		libraryIndex: "./src/js/library/index.js",
 		signup: "./src/js/login/signup.js",
 	},
@@ -66,7 +66,7 @@ module.exports = {
 		},
 	},
 	output: {
-		filename: "[name].js",
+		filename: "[name].bundle.js",
 		path: path.resolve(__dirname, "dist"),
 		clean: true,
 	},
@@ -76,7 +76,7 @@ module.exports = {
 			// template: path.resolve(__dirname, "src", "index.html"),
 			template: "./src/index.html",
 			inject: true,
-			chunks: ["index", "requestMethods", "login"],
+			chunks: ["login"],
 			filename: "index.html",
 		}),
 		new HtmlWebpackPlugin({
@@ -95,22 +95,22 @@ module.exports = {
 			chunks: ["libraryIndex"],
 			filename: "library.html",
 		}),
-		new MiniCssExtractPlugin(),
+		// new MiniCssExtractPlugin(),
 		// access to environment variables
 		new Dotenv({ systemvars: true, path: "../server/.env" }),
 	],
 	module: {
 		rules: [
-			{
-				test: /\.html$/i,
-				loader: "html-loader",
-			},
+			// {
+			// 	test: /\.html$/i,
+			// 	loader: "html-loader",
+			// },
 			{
 				test: /\.css$/i,
 				use: [
-					devMode ? "style-loader" : MiniCssExtractPlugin.loader,
-					"css-loader",
-					"sass-loader",
+					// devMode ? "style-loader" : MiniCssExtractPlugin.loader,
+					"style-loader",
+					"css-loader"
 				],
 			},
 			// {
