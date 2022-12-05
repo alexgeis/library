@@ -1,6 +1,6 @@
 import styles from "./css/homepageStyle.css";
 
-import { loginUserHandler } from "./js/login/login.js"
+import { loginUserHandler } from "./js/login/login"
 const loginSubmitBtn = document.querySelector(".login-submit-btn");
 
 loginSubmitBtn.addEventListener("click", loginUserHandler);

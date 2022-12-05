@@ -1,7 +1,3 @@
-import "./hamburgerMenu";
-import "./logout";
-import "../themeToggle";
-
 // PROGRESS BAR
 export const renderProgressBar = async () => {
 	const currentBooksData = await fetch("/api/books");

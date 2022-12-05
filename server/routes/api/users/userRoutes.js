@@ -47,7 +47,7 @@ router.post("/", async (req, res) => {
 		// if password hashing
 		const newUser = req.body;
 
-		console.log(req.body);
+		// console.log(req.body);
 		//TODO: currently this hashing is redundant with the model hooks hashing
 		// hashed password                                  // salt
 		// newUser.password = await bcrypt.hash(req.body.password, 10);
@@ -205,7 +205,6 @@ router.post("/login", async (req, res) => {
 			},
 		});
 
-		console.log(userData)
 		// userData = await User.findOne({ where: { email: req.body.email } });
 
 		// If an account with that email address or username doesn't exist, the user will recieve an error message

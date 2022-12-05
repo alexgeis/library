@@ -42,7 +42,7 @@ module.exports = {
 		  },
 		proxy: {
 			context: () => true,
-			target: "http://localhost:3001",
+			target: "http://localhost:3001/",
 			secure: false,
 			changeOrigin: true
 		},
