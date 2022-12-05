@@ -1,4 +1,6 @@
-const renderBooks = async function (searchTerm = "") {
+import { fetchBookInfo } from "./fetchBookInfo.js"
+
+export const renderBooks = async function (searchTerm = "") {
 	const bookContainer = document.querySelector(".book-card-container");
 	bookContainer.innerHTML = "";
 
