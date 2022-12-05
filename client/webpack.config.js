@@ -45,41 +45,6 @@ module.exports = {
 			target: "http://localhost:3001",
 			secure: false,
 			changeOrigin: true
-			// "/": {
-			// 	target: "http://localhost:8008",
-			// 	router: () => "http://localhost:3001",
-			// 	logLevel: "debug" /*optional*/,
-			// },
-			// "/api": {
-			// 	target: "http://localhost:8008/api",
-			// 	router: () => "http://localhost:3001/api",
-			// 	logLevel: "debug" /*optional*/,
-			// },
-			// "/": {
-			// 	target: "http://localhost:3001",
-			// 	pathRewrite: { "^/": "" },
-			// 	secure: false,
-			// 	changeOrigin: true,
-			// 	logLevel: "debug" /*optional*/,
-			// },
-			// "/api": {
-			// 	target: "http://localhost:3001",
-			// 	pathRewrite: { "^/api": "" },
-			// 	secure: false,
-			// 	changeOrigin: true,
-			// 	logLevel: "debug" /*optional*/,
-			// },
-			// "/**": {
-			// 	target: "http://localhost:3001/",
-			// 	secure: false,
-			// 	changeOrigin: true
-			// },
-			// "/api": {
-			// 	target: "http://localhost:3001/",
-			// 	secure: false,
-			// 	changeOrigin: true
-			// },
-			// "/api": "http://localhost:3001/",
 		},
 	},
 	output: {
