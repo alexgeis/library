@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- <link rel="stylesheet" type="text/css" href="./css/homepageStyle.css" /> -->
+		<link
+			id="favicon"
+			rel="icon"
+			type="image/x-icon"
+			href="./assets/icons/favicon.ico"
+		/>
+		<title>Home - Login</title>
+	<script defer src="runtime.bundle.js"></script><script defer src="login.bundle.js"></script></head>
+	<body>
+		<div id="container">
+			<div id="column-wrap">
+				<div id="column-left">
+					<div class="inner">
+						<img
+							id="lib-icon-home-page"
+							alt="Library Bookshelf Icon"
+						/>
+
+						<h1>Log In</h1>
+
+						<p class="create">
+							Don't have an account?
+							<a href="/signup">Signup</a>
+						</p>
+
+						<form action="/api/users/login" method="post" id="login-form">
+							<div class="input-wrap">
+								<label for="username">Email Address / Username</label>
+								<input type="text" id="username" name="username" required="" />
+							</div>
+
+							<div class="input-wrap">
+								<label for="password">Password</label>
+								<input
+									type="password"
+									id="password"
+									name="password"
+									required=""
+								/>
+							</div>
+
+							<!-- <div class="input-wrap">
+								<label for="remember" class="regular">
+									<input type="checkbox" id="remember" name="rememberme" />
+									Stay signed in for 2 weeks
+								</label>
+							</div> -->
+
+							<button class="login-submit-btn">Log In</button>
+						</form>
+
+						<p class="forgot">
+							<a href="#">Forgot your password?</a>
+						</p>
+
+						<p class="footer">© 2022 made by Alex Geis</p>
+					</div>
+				</div>
+				<div id="column-right">
+					<div class="inner">
+						<div class="landing_page_message">
+							<h2 class="msg_title">Library Bookshelf Online</h2>
+							<div class="msg_content">
+								Manage your book collection and track your reading progress.
+							</div>
+
+							<div class="msg_button">
+								<a
+									href="https://www.gutenberg.org/"
+									target="_blank"
+									rel="noopener"
+									data-vars-ga-category="Login Page Messages"
+									data-vars-ga-action="click"
+									>placeholder link (PROJECT GUTENBURG)</a
+								>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- JAVASCRIPT -->
+		<!-- <script src="./js/themeToggle.js"></script> -->
+		<!-- <script src="./js/requestMethods.js"></script> -->
+		<!-- <script src="./js/login/loginSignupForm.js"></script> -->
+		<!-- <script src="./js/login/login.js"></script> -->
+		<!-- <script type="module" src="./index.js"></script> -->
+		<script src="./login.bundle.js"></script>
+	</body>
+</html>
