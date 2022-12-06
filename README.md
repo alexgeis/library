@@ -29,9 +29,7 @@
     This application allows the user to add, store, and remove books to their own personal online library.
     <br />
     <h4>TEST ACCOUNT</h4>
-    <br />
     <p>username: Sal</p>
-    <br />
     <p>password: password1234</p>
     <br />
     <a href="https://github.com/alexgeis/library"><strong>Explore the docs »</strong></a>

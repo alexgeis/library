@@ -3,28 +3,11 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 // const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Dotenv = require("dotenv-webpack");
 const devMode = process.env.NODE_ENV !== "production";
+const test = path.resolve(__dirname, "src", "library.html");
+console.log(test)
 
 module.exports = {
 	mode: "development",
-	// entry: {
-	// 	index: "./src/index.js",
-	// 	libraryIndex: "./src/js/library/index.js",
-	// 	requestMethods: "./src/js/requestMethods.js",
-	// 	login: "./src/js/login/login.js",
-	// 	logout: "./src/js/library/logout.js",
-	// 	signup: "./src/js/login/signup.js",
-	// 	heroDisplay: "./src/js/library/heroDisplay.js",
-	// 	hamburgerMenu: "./src/js/library/hamburgerMenu.js",
-	// 	themeToggle: "./src/js/themeToggle.js",
-	// 	userClass: "./src/js/library/userClass.js",
-	// 	bookClass: "./src/js/library/bookClass.js",
-	// 	addBookForm: "./src/js/library/addBookForm.js",
-	// 	renderBooks: "./src/js/library/renderBooks.js",
-	// 	editBookForm: "./src/js/library/editBookForm.js",
-	// 	editUserForm: "./src/js/library/editUserForm.js",
-	// 	fetchBookInfo: "./src/js/library/fetchBookInfo.js",
-	// 	search: "./src/js/library/search.js",
-	// },
 	entry: {
 		login: "./src/index.js",
 		libraryIndex: "./src/js/library/index.js",
@@ -43,7 +26,7 @@ module.exports = {
 		proxy: {
 			context: () => true,
 			target: "http://localhost:3001/",
-			secure: false,
+			secure: false, // to accept backend server running on HTTPS w/ invalid cert
 			changeOrigin: true
 		},
 	},
@@ -55,24 +38,21 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			title: "Login Page",
-			// template: path.resolve(__dirname, "src", "index.html"),
-			template: "./src/index.html",
+			template: path.resolve(__dirname, "src", "index.html"),
 			inject: true,
 			chunks: ["login"],
 			filename: "index.html",
 		}),
 		new HtmlWebpackPlugin({
 			title: "Signup",
-			// template: path.resolve(__dirname, "src", "library.html"),
-			template: "./src/html/signup.html",
+			template: path.resolve(__dirname, "src", "html", "signup.html"),
 			inject: true,
 			chunks: ["signup"],
 			filename: "signup.html",
 		}),
 		new HtmlWebpackPlugin({
 			title: "Library",
-			// template: path.resolve(__dirname, "src", "library.html"),
-			template: "./src/html/library.html",
+			template: path.resolve(__dirname, "src", "html", "library.html"),
 			inject: true,
 			chunks: ["libraryIndex"],
 			filename: "library.html",
@@ -108,7 +88,7 @@ module.exports = {
 			// 	],
 			// },
 			{
-				test: /\.(png|svg|jpg|jpeg|gif)$/i,
+				test: /\.(png|svg|jpg|jpeg|ico|gif)$/i,
 				type: "asset/resource",
 			},
 			{

@@ -1,3 +1,8 @@
+import openBookLightIcon from "../assets/icons/book-open-page-variant-outline_light.svg"
+import openBookDarkIcon from "../assets/icons/book-open-page-variant-outline.svg"
+import faviconLightIcon from "../assets/icons/favicon_light.ico"
+import faviconDarkIcon from "../assets/icons/favicon.ico"
+
 const DEFAULT_THEME = localStorage.getItem("theme") || "light";
 let currentTheme = DEFAULT_THEME;
 
@@ -16,10 +21,10 @@ export function setCurrentTheme(newTheme) {
 		heroEl.classList.add("dark");
 		bookSectionEl.classList.add("dark");
 		addBookFormEl.classList.add("dark");
-		faviconEl.setAttribute("href", "../assets/icons/favicon_light.ico");
+		faviconEl.setAttribute("href", faviconLightIcon);
 		siteLogoEl.setAttribute(
 			"src",
-			"../assets/icons/book-open-page-variant-outline_light.svg"
+			openBookLightIcon
 		);
 		themeToggle.checked = true;
 	}
@@ -32,10 +37,10 @@ themeToggle.addEventListener("click", function (event) {
 		heroEl.classList.toggle("dark");
 		bookSectionEl.classList.toggle("dark");
 		addBookFormEl.classList.toggle("dark");
-		faviconEl.setAttribute("href", "../assets/icons/favicon_light.ico");
+		faviconEl.setAttribute("href", faviconLightIcon);
 		siteLogoEl.setAttribute(
 			"src",
-			"./assets/icons/book-open-page-variant-outline_light.svg"
+			openBookLightIcon
 		);
 		setCurrentTheme("dark");
 		localStorage.setItem("theme", "dark");
@@ -44,10 +49,10 @@ themeToggle.addEventListener("click", function (event) {
 		heroEl.classList.toggle("dark");
 		bookSectionEl.classList.toggle("dark");
 		addBookFormEl.classList.toggle("dark");
-		faviconEl.setAttribute("href", "../assets/icons/favicon.ico");
+		faviconEl.setAttribute("href", faviconDarkIcon);
 		siteLogoEl.setAttribute(
 			"src",
-			"../assets/icons/book-open-page-variant-outline.svg"
+			openBookDarkIcon
 		);
 		setCurrentTheme("light");
 		localStorage.setItem("theme", "light");
