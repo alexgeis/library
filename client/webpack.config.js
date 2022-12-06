@@ -3,8 +3,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 // const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Dotenv = require("dotenv-webpack");
 const devMode = process.env.NODE_ENV !== "production";
-const test = path.resolve(__dirname, "src", "library.html");
-console.log(test)
 
 module.exports = {
 	mode: "development",
@@ -58,8 +56,7 @@ module.exports = {
 			filename: "library.html",
 		}),
 		// new MiniCssExtractPlugin(),
-		// access to environment variables
-		new Dotenv({ systemvars: true, path: "../server/.env" }),
+		new Dotenv({ systemvars: true, path: "../server/.env" }), // access to environment variables
 	],
 	module: {
 		rules: [
@@ -75,18 +72,6 @@ module.exports = {
 					"css-loader"
 				],
 			},
-			// {
-			// 	test: /\.css$/i,
-			// 	use: ["style-loader", "css-loader"],
-			// },
-			// {
-			// 	test: /\.(s(a|c)ss)$/i,
-			// 	use: [
-			// 		MiniCssExtractPlugin.loader,
-			// 		"css-loader",
-			// 		"sass-loader",
-			// 	],
-			// },
 			{
 				test: /\.(png|svg|jpg|jpeg|ico|gif)$/i,
 				type: "asset/resource",
