@@ -58,15 +58,15 @@ export const renderBooks = async function (searchTerm = "") {
 				.setAttribute("style", "display: block;");
 
 			let bookCardChildren = Array.from(event.target.parentElement.childNodes);
-
+			console.log(bookCardChildren)
 			let existingBookInfo = {
-				title: bookCardChildren[2].textContent,
-				author: bookCardChildren[3].textContent.split(" ").slice(1).join(" "),
-				isbn: bookCardChildren[4].textContent.split(" ")[1],
-				pages: bookCardChildren[5].textContent.split(" ")[3],
-				edition: bookCardChildren[6].textContent.split(" ")[1],
-				publish_date: bookCardChildren[7].textContent.split(" ")[1],
-				is_read: bookCardChildren[9].firstChild.checked,
+				title: bookCardChildren[3].textContent,
+				author: bookCardChildren[4].textContent.split(" ").slice(1).join(" "),
+				isbn: bookCardChildren[5].textContent.split(" ")[1],
+				pages: bookCardChildren[6].textContent.split(" ")[1],
+				edition: bookCardChildren[7].textContent.split(" ")[1],
+				publish_date: bookCardChildren[8].textContent.split(" ")[1],
+				is_read: bookCardChildren[11].firstChild.checked,
 				book_id: book.id,
 			};
 
