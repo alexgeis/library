@@ -147,6 +147,7 @@ Use the add book button to start adding your books to the library. After books a
 - [x] progress bar - javascript and styling
 - [x] functional search bar
 - [x] edit book info
+- [x] modularize JavaScript
 - [ ] user update - validate inputs against current user, all users
 - [ ] STYLE UPDATE
   - [ ] update read color styling to match [sky blue theme](https://tailwindcss.com/docs/customizing-colors)
@@ -158,7 +159,6 @@ Use the add book button to start adding your books to the library. After books a
 - [ ] rating system for books (5 stars, thumbs up, etc.)
 - [ ] social media sharing links
 - [ ] forget password reset feature
-- [ ] modularize JavaScript
 - [ ] clean up CSS (organize around classes, sections, etc.)
 - [ ] cache for books
 
