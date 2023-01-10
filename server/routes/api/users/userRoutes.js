@@ -2,7 +2,7 @@ const express = require("express");
 const router = require("express").Router();
 const path = require("path");
 const { User, Book } = require("../../../models");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const { Op } = require("sequelize");
 const withAuth = require("../../../utils/auth");
 
