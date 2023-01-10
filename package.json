@@ -11,7 +11,8 @@
     "build": "cd client && npm run build",
     "webpack": "cd client && npm run build && npm run start",
     "server": "cd server && nodemon server.js",
-    "dev": "concurrently \"npm run server\" \"npm run webpack\" "
+    "dev": "concurrently \"npm run server\" \"npm run webpack\" ",
+    "postinstall": "(cd client && npm install); (cd server && npm install);"
   },
   "repository": {
     "type": "git",
