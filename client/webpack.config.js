@@ -20,12 +20,12 @@ module.exports = {
 		port: 8008,
 		devMiddleware: {
 			index: false, // specify to enable root proxying
-		  },
+		},
 		proxy: {
 			context: () => true,
 			target: "http://localhost:3001/",
 			secure: false, // to accept backend server running on HTTPS w/ invalid cert
-			changeOrigin: true
+			changeOrigin: true,
 		},
 	},
 	output: {
@@ -36,6 +36,7 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			title: "Login Page",
+			favicon: path.join(__dirname, "src", "assets", "icons", "favicon.ico"),
 			template: path.resolve(__dirname, "src", "index.html"),
 			inject: true,
 			chunks: ["login"],
@@ -69,7 +70,7 @@ module.exports = {
 				use: [
 					// devMode ? "style-loader" : MiniCssExtractPlugin.loader,
 					"style-loader",
-					"css-loader"
+					"css-loader",
 				],
 			},
 			{
